@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case File 01 | A Request, Not a Project | Interactive 088 Military Programs PM in USACE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--panel:#F3EFE4;--panel-2:#F8F6F2;--ink:#111111;--ink-2:#2A2A2A;
+  --gold:#5A4010;--gold-soft:#7A5A10;--gold-light:#3A2A08;
+  --border:rgba(90,64,16,.45);--border-strong:rgba(90,64,16,.75);
+  --accent:#1A4A10;--accent-bg:#E8F0E8;--warn-bg:#FFF8E8;--scenario-bg:#FFFFF8;
+  --danger:#7A1A1A;--danger-bg:#F8E4E4;--on-gold:#FFFFFF;--glow:none;
+}
+body.dark-mode{
+  --bg:#1A1F14;--panel:#252D1C;--panel-2:#202718;--ink:#F5F2EB;--ink-2:#C8C4B8;
+  --gold:#C8A84B;--gold-soft:#8B7235;--gold-light:#E2C97E;
+  --border:rgba(200,168,75,.3);--border-strong:rgba(200,168,75,.6);
+  --accent:#7BA05B;--accent-bg:rgba(123,160,91,.12);--warn-bg:rgba(200,168,75,.08);--scenario-bg:rgba(26,31,20,.6);
+  --danger:#E07C73;--danger-bg:rgba(192,57,43,.12);--on-gold:#1A1F14;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+html.font-l{font-size:18px;}
+html.font-s{font-size:14px;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:400;min-height:100vh;}
+
+header{border-bottom:2px solid var(--gold);padding:14px 0;position:sticky;top:0;background:var(--bg);z-index:200;}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:12px;}
+.logo-seal{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.6875rem;color:var(--gold);flex-shrink:0;}
+.logo-primary{font-family:'DM Serif Display',serif;font-size:.875rem;color:var(--ink);}
+.logo-sub{font-size:.5625rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+.case-badge{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);border:1px solid var(--border-strong);padding:3px 8px;letter-spacing:.1em;background:var(--panel);font-weight:700;}
+.hdr-btn{background:var(--panel);border:1px solid var(--border-strong);color:var(--ink);font-family:'DM Mono',monospace;font-size:.5625rem;padding:6px 11px;cursor:pointer;font-weight:700;}
+
+.case-quicknav{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:190;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.cqn-inner{display:flex;align-items:center;gap:4px;padding:7px 24px;max-width:1100px;margin:0 auto;}
+.cqn-link{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.05em;color:var(--gold);border:1px solid var(--border-strong);padding:5px 9px;text-decoration:none;flex-shrink:0;}
+.cqn-link:hover{background:var(--panel);}
+.cqn-link.current{background:var(--gold);color:var(--on-gold);border-color:var(--gold);font-weight:700;}
+.cqn-link.planned{opacity:.4;cursor:default;pointer-events:none;}
+.cqn-sep{color:var(--border-strong);flex-shrink:0;margin:0 2px;}
+
+.progress-bar-wrap{background:var(--panel);border-bottom:1px solid var(--border);padding:8px 0;}
+.progress-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+.progress-track{height:4px;background:rgba(120,120,120,.25);border-radius:2px;margin-bottom:6px;}
+.progress-fill{height:4px;background:var(--gold);border-radius:2px;transition:width .4s ease;}
+.progress-labels{display:flex;justify-content:space-between;}
+.progress-text{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);letter-spacing:.08em;}
+.progress-pct{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);font-weight:700;}
+
+.main{max-width:860px;margin:0 auto;padding:36px 24px 80px;}
+.screen{animation:fadeUp .3s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.section-nav{display:flex;gap:4px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-btn{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;background:var(--panel);border:2px solid var(--gold);color:var(--ink);cursor:pointer;font-weight:600;}
+.sec-btn.active{background:var(--gold);color:var(--on-gold);font-weight:700;}
+.sec-btn.complete{border-color:var(--accent);color:var(--accent);}
+.sec-btn.locked{opacity:.4;cursor:not-allowed;}
+
+.eyebrow{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.title-main{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4vw,2.375rem);line-height:1.18;color:var(--ink);margin-bottom:14px;}
+.title-main em{color:var(--gold);font-style:italic;}
+.title-sub{font-size:1.625rem;}
+.lede{font-size:.875rem;line-height:1.8;color:var(--ink);max-width:640px;margin-bottom:22px;}
+.lede strong{font-weight:700;}
+
+.card{border:2px solid var(--border-strong);background:var(--panel);padding:16px 18px;margin-bottom:14px;}
+.card-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.card p{font-size:.8125rem;line-height:1.7;color:var(--ink);margin-bottom:8px;}
+.card p:last-child{margin-bottom:0;}
+.card ul{margin:6px 0 8px 18px;font-size:.8125rem;line-height:1.7;color:var(--ink);}
+.card strong{font-weight:700;}
+.people-card{border-left:6px solid var(--accent);background:var(--accent-bg);}
+.people-card .card-label{color:var(--accent);}
+.proc-tag{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--ink);border:2px solid var(--gold);padding:3px 8px;display:inline-block;margin:6px 4px 0 0;letter-spacing:.07em;background:var(--bg);font-weight:700;}
+
+table.ref{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:.75rem;}
+table.ref th{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:7px 9px;background:var(--gold);color:var(--on-gold);}
+table.ref td{padding:8px 9px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;color:var(--ink);}
+table.ref td:first-child{font-weight:700;}
+.table-wrap{overflow-x:auto;}
+
+.reflect-block{margin-bottom:18px;}
+.reflect-q{font-size:.8125rem;color:var(--ink);font-weight:600;margin-bottom:8px;line-height:1.6;}
+.reflect-input{width:100%;background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:11px 13px;outline:none;min-height:80px;resize:vertical;}
+.name-input{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;padding:12px 15px;outline:none;width:100%;max-width:420px;}
+.theme-select-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px;}
+.theme-select-item label,.field-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;display:block;font-weight:700;}
+.theme-select{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:10px 12px;outline:none;width:100%;}
+.na-row{display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--ink);cursor:pointer;margin-bottom:14px;user-select:none;}
+.profile-display{margin-bottom:18px;border:2px solid var(--gold);padding:14px 16px;}
+.profile-value{font-size:.9375rem;color:var(--ink);}
+.link-btn{background:none;border:none;color:var(--gold);text-decoration:underline;cursor:pointer;font-size:.6875rem;margin-top:8px;font-family:'Inter',sans-serif;font-weight:600;}
+.form-msg{display:none;margin:10px 0;padding:10px 14px;border:2px solid var(--danger);background:var(--danger-bg);color:var(--ink);font-size:.8125rem;font-weight:600;}
+.form-msg.show{display:block;}
+
+.scenario-box{background:var(--scenario-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:18px 20px;margin-bottom:18px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.scenario-text{font-size:.875rem;line-height:1.8;color:var(--ink);}
+.scenario-text p{margin-bottom:10px;}
+.scenario-text p:last-child{margin-bottom:0;}
+.scenario-text strong{color:var(--gold);}
+.quote{border-left:3px solid var(--gold);padding:2px 0 2px 12px;margin:10px 0;font-style:italic;}
+.decision-prompt{font-family:'DM Serif Display',serif;font-size:1.125rem;color:var(--ink);margin:18px 0 14px;}
+.choice-option{display:block;width:100%;text-align:left;background:var(--bg);border:2px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;line-height:1.6;padding:13px 16px;margin-bottom:8px;cursor:pointer;}
+.choice-option:hover{border-color:var(--gold);background:var(--panel);}
+.choice-option.chosen{border-color:var(--gold);border-width:3px;opacity:1 !important;}
+.choice-letter{font-family:'DM Mono',monospace;font-weight:700;color:var(--gold);margin-right:8px;}
+
+.consequence-box{background:var(--accent-bg);border:2px solid var(--accent);border-left:6px solid var(--accent);padding:16px 18px;margin:16px 0;}
+.consequence-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.consequence-text{font-size:.8125rem;line-height:1.75;color:var(--ink);}
+.consequence-text p{margin-bottom:8px;}
+.insight-box{background:var(--warn-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:14px 16px;margin-top:12px;}
+.insight-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+.insight-text{font-size:.75rem;line-height:1.7;color:var(--ink);}
+
+.question-block{background:var(--panel-2);border:2px solid var(--border);padding:18px;margin-bottom:12px;}
+.question-num{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--gold);letter-spacing:.1em;margin-bottom:8px;font-weight:700;}
+.question-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;padding:2px 7px;border:2px solid var(--gold);color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;margin-left:8px;}
+.question-text{font-size:.875rem;color:var(--ink);line-height:1.55;margin-bottom:14px;font-weight:600;}
+.answer-option{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:2px solid var(--border);margin-bottom:6px;cursor:pointer;font-size:.8125rem;color:var(--ink);line-height:1.5;background:var(--bg);}
+.answer-option:hover{border-color:var(--gold);background:var(--panel);}
+.answer-option.selected{border:3px solid var(--gold);background:var(--panel);}
+.answer-option.correct{background:var(--accent);border-color:var(--accent);color:#FFFFFF;font-weight:700;}
+.answer-option.incorrect{background:var(--danger);border-color:var(--danger);color:#FFFFFF;font-weight:700;}
+body.dark-mode .answer-option.correct{background:#2F5A1F;color:#F5F2EB;}
+body.dark-mode .answer-option.incorrect{background:#7A2A22;color:#F5F2EB;}
+.answer-radio{width:14px;height:14px;border:2px solid var(--gold);border-radius:50%;flex-shrink:0;margin-top:2px;}
+.answer-option.selected .answer-radio{background:var(--gold);}
+.answer-option.correct .answer-radio,.answer-option.incorrect .answer-radio{background:#FFFFFF;border-color:#FFFFFF;}
+.kc-explain{font-size:.75rem;line-height:1.65;color:var(--ink);margin-top:10px;padding-top:10px;border-top:2px solid var(--border);display:none;}
+.kc-explain.show{display:block;}
+.kc-feedback{padding:14px 16px;margin-top:14px;font-size:.875rem;display:none;border:2px solid;color:var(--ink);}
+.kc-feedback.show{display:block;}
+.kc-feedback.pass{background:var(--accent-bg);border-color:var(--accent);}
+.kc-feedback.fail{background:var(--danger-bg);border-color:var(--danger);}
+.kc-score{font-family:'DM Mono',monospace;font-size:1.375rem;font-weight:700;margin-bottom:4px;}
+
+.path-list{list-style:none;margin:8px 0 0 0;padding:0;}
+.path-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.8125rem;line-height:1.6;color:var(--ink);}
+.path-list li:last-child{border-bottom:none;}
+.path-list .pl-k{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;font-weight:700;display:block;}
+
+.complete-wrap{background:var(--panel-2);border:3px solid var(--gold);padding:32px;text-align:center;margin-top:20px;}
+.complete-seal{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin:0 auto 14px;}
+.complete-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:8px;}
+.complete-sub{font-size:.8125rem;color:var(--ink);margin-bottom:20px;}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--on-gold);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;}
+.btn-primary:hover{filter:brightness(1.15);}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:2px solid var(--gold);cursor:pointer;}
+.btn-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.nav-row{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:18px;border-top:2px solid var(--gold);}
+
+footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
+.footer-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-attr{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);letter-spacing:.09em;font-weight:700;}
+.footer-doc{font-size:.5625rem;color:var(--ink-2);}
+.fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
+@media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-seal">088</div>
+      <div>
+        <div class="logo-primary">Interactive 088: Military Programs PM in USACE</div>
+        <div class="logo-sub">Case File 01 &middot; Mission and Intake</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span class="case-badge">CHAPTER 1 &middot; MISSION &amp; RESPONSIBILITY</span>
+      <button class="hdr-btn" id="font-toggle" onclick="toggleFontSize()">Text: M</button>
+      <button class="hdr-btn" id="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </div>
+  </div>
+</header>
+
+<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link current" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+
+<div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
+  <div class="progress-inner">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
+  </div>
+</div>
+
+<div class="main" id="main-content"></div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-attr">Interactive 088 &middot; PPM Community of Practice</span>
+    <span class="footer-doc">PROSPECT 088 Chapter 1 &middot; Case File 01 v0.1 preview &middot; Fictional scenario for instruction only</span>
+  </div>
+</footer>
+
+<script>
+/*META{"phase":"Mission and Intake","badge":"CHAPTER 1 &middot; MISSION &amp; RESPONSIBILITY","chapter":"Chapter 1"}META*/
+var CASE={
+n:'01',title:'A Request, Not a Project',
+titleHtml:`A Request,<br><em>Not a Project.</em>`,
+lede:`The customer has described a need and wants a date. Nobody has accepted the work, and you have not been assigned to it. <strong>What does a Military Programs PM do in the days before the first requirements discussion?</strong>`,
+doctrine:`Mission need, the sponsor, the installation manager and the end user, the evidence trail from requirement to authorized delivery, and the hand-off to work acceptance (Chapter 1, with a preview of Chapters 2 and 3).`,
+skill:`Separating a need from a preference, and saying "not yet" to a commitment request while staying useful to the customer.`,
+minutes:'25',
+cast:[`<strong>Nora Delgado</strong>, project manager, District Military Programs Branch (you)`,`<strong>Dana Whitfield</strong>, Program Manager (PgM)`,`<strong>Calvin Osei</strong>, Deputy for Programs and Project Management (DPM)`,`<strong>Ingrid Larsen</strong>, Engineering; <strong>Rafael Soto</strong>, Construction Branch`,`<strong>Gerald Voss</strong>, sponsor representative; <strong>Lorraine Beck</strong>, installation Directorate of Public Works; <strong>Maj. Teresa Hollis</strong>, end user`],
+trainingTitle:`Mission, Customers and the Evidence Trail`,
+training:`<div class="card"><div class="card-label">Chapter 1 &middot; Mission and Responsibility</div>
+<p>Military projects begin with a <strong>mission need</strong>. Before committing to a solution, the PM should be able to say whose mission is being supported, which organization owns the requirement, and what USACE has actually been assigned to deliver. A good mission statement names the supported organization, the capability gap, the intended result and the operational timing driver, and it says what is still assumed.</p>
+<p><strong>"The customer" is shorthand for several roles.</strong> They may sit in different organizations or overlap in one. A representative who attends a meeting does not, by attending, gain authority to change approved scope or provide funds.</p>
+<div class="table-wrap"><table class="ref"><thead><tr><th>Function</th><th>Evidence to seek</th><th>PM use</th></tr></thead><tbody>
+<tr><td>Sponsor or program owner</td><td>Program direction and designated representative</td><td>Trace priorities and requirement decisions</td></tr>
+<tr><td>Installation manager</td><td>Installation responsibility and coordination contacts</td><td>Resolve site and operating dependencies</td></tr>
+<tr><td>End user</td><td>Approved functional requirements and user representative</td><td>Define mission capability and interfaces</td></tr>
+<tr><td>Funding representative</td><td>Funding documents and financial points of contact</td><td>Coordinate with RM and program officials</td></tr>
+<tr><td>Acceptance or property recipient</td><td>Turnover and accountability responsibilities</td><td>Plan usable delivery and records early</td></tr>
+</tbody></table></div></div>
+<div class="card"><div class="card-label">Evidence Answers One Question at a Time</div>
+<p>A project can be mature in one respect and unresolved in another. Build an evidence trail rather than assuming these conditions advance together.</p>
+<div class="table-wrap"><table class="ref"><thead><tr><th>Evidence</th><th>The question it answers</th></tr></thead><tbody>
+<tr><td>Mission requirement</td><td>What capability and operational need are being addressed?</td></tr>
+<tr><td>Programming record (such as DD Form 1391)</td><td>What project was proposed and justified?</td></tr>
+<tr><td>Project authority</td><td>What undertaking is legally authorized?</td></tr>
+<tr><td>Funds and financial records</td><td>What resources support the proposed action?</td></tr>
+<tr><td>Work assignment and acceptance</td><td>Which USACE organization may undertake the work?</td></tr>
+<tr><td>Delegation and action approval</td><td>Who can authorize this specific action?</td></tr>
+</tbody></table></div>
+<p>Useful working question: <strong>"What evidence supports the next proposed action, and who confirms it is sufficient?"</strong></p>
+<p>Under this course's role distinction, the <strong>PgM leads acceptance analysis and coordination</strong>, the <strong>DPM or designated Work Acceptance Official makes the acceptance decision</strong>, and the <strong>PM is assigned after acceptance</strong> (Chapters 2 and 3).</p>
+<span class="proc-tag">CHAPTER 1</span><span class="proc-tag">PROC1000 INTERFACE</span><span class="proc-tag">EVIDENCE TRAIL</span><span class="proc-tag">DECISION RECORD</span></div>
+<div class="card people-card"><div class="card-label">People Skill &middot; Saying "Not Yet" and Staying Useful</div>
+<p>A request for a commitment is a trust moment. A flat "yes" borrows against the future, and a flat "no" ends the conversation. The useful middle is a coordinated path: what can proceed now, who decides what, and what evidence is needed next.</p>
+<p><strong>Ask for the consequence, not the justification.</strong> "What happens on your end if that feature is not there?" invites an operational answer. "Why do you need that?" invites a defense.</p>
+<p><strong>Watch who is not speaking.</strong> In a room with a sponsor, a user and an installation representative, the quiet person often holds the facts that matter. A gentle, specific question gives them a way in.</p></div>`,
+domain:'Relationship Building',
+hook:`In this case, ask yourself which signals you act on: an urgent end user, a sponsor who must report upward, an installation representative who says little.`,
+reflections:[
+`Think of a request you received where the customer described a solution rather than the problem. How did you find the need underneath it?`,
+`When a customer asks you for a date in writing, what pressures push you toward yes? What would let you say "not yet" and still be useful?`,
+`On your projects, who is usually missing from the first meeting? What would have been different if they had been there?`],
+scenario:{label:'The Request',text:`<p>You are <strong>Nora Delgado</strong>, a project manager in your district's Military Programs Branch. <strong>Dana Whitfield</strong>, the Program Manager (PgM), has asked you to help with intake on a new request called <strong>Project Ridgeway</strong>: an Army maintenance facility.</p>
+<p>The customer has described a need to support maintenance operations and wants USACE to help develop a delivery path. Nobody has accepted the work, and you have <strong>not</strong> been assigned as its PM. The designated accepting official is the Deputy for Programs and Project Management (DPM), <strong>Calvin Osei</strong>.</p>
+<p>The request came to the district through the sponsor's command staff. The people you will meet are <strong>Gerald Voss</strong> (sponsor representative), <strong>Lorraine Beck</strong> (installation Directorate of Public Works), and <strong>Maj. Teresa Hollis</strong> (maintenance operations, the end user). On your side are <strong>Ingrid Larsen</strong> (Engineering) and <strong>Rafael Soto</strong> (Construction Branch).</p>
+<p>A first coordinated requirements discussion is scheduled in <strong>two days</strong>. The customer has said it wants a locally modified layout and an early completion commitment.</p>`},
+decisions:[
+{context:`<p>It is the morning, two days before the meeting. You have the customer's request and a standard attendee list. That is about all you have. Dana is at her desk down the hall.</p>`,
+prompt:`What is your first move?`,
+options:[
+{id:'a',text:`Ask Dana what is known and what is not: the program owner, the assignment evidence, the intake route and who the accepting official is. Confirm that your role is to support intake.`},
+{id:'b',text:`Build a draft schedule that works backward from the customer's desired completion date, so you have something concrete to put on the table.`},
+{id:'c',text:`Call Ms. Beck at the installation, offer a site walk this week, and start collecting site information.`},
+{id:'d',text:`Tell Mr. Voss you will be the PM on Ridgeway, so the command has one point of contact.`}],
+cons:{
+a:{s:`Went to the PgM first and left with a known / proposed / missing list.`,t:`<p>Dana sits you down. The request arrived through the sponsor's command staff. The program owner is still being confirmed. The assignment check, including whether geography alone settles who executes, has not been done. Mr. Osei is the designated accepting official.</p><p>You leave with a one-page list in three columns: <strong>known, proposed, missing</strong>, each with an owner. Dana asks you to take the site and operating questions into the meeting and to leave acceptance questions to her.</p>`,i:`<strong>What this reveals:</strong> The first useful question is not "when?" but "what do we actually know, and who owns each gap?" The PgM leads acceptance analysis. Your job at this stage is to support intake and keep the line between a mission need and a preferred solution visible.`},
+b:{s:`Built a schedule around an unvalidated date; it began to look like a commitment.`,t:`<p>By mid-afternoon you have a tidy schedule that finishes on the customer's date. Mr. Voss asks for a copy "for the command," and it goes out. When you mention it to Dana, she asks whether the assignment check has been done. It has not.</p><p>The schedule now sits in the sponsor's hands as the only USACE document on Ridgeway.</p>`,i:`<strong>What this reveals:</strong> A requested date is a customer need until a delivery assessment supports it. A schedule built before acceptance and planning can become a commitment by exhibit. Schedule development has its own place later in the lifecycle (Chapter 6).`},
+c:{s:`Gained site information, but contacted the customer ahead of the intake route.`,t:`<p>Ms. Beck is glad to hear from you and sends a few site documents. She also asks, "So when do you start?" You explain you are only helping at this stage, but you can hear that she has taken your call as a sign the work is underway.</p><p>Dana learns of the call from Mr. Voss, not from you. She is not upset, but she asks that customer contact on Ridgeway go through the intake route she is coordinating.</p>`,i:`<strong>What this reveals:</strong> Site and operating facts matter, and Engineering and Construction should help identify them. The sequence matters too. Customer contact ahead of the PgM's intake route can imply an engagement that has not been decided, and it leaves your own team surprised.`},
+d:{s:`Announced yourself as PM before acceptance; the DPM heard it second-hand.`,t:`<p>Mr. Voss is relieved and tells his command that Nora Delgado is the PM on Ridgeway. Two days later Mr. Osei hears about it from a colleague at the installation. Work has not been accepted, and no PM has been assigned. Dana spends part of her morning walking the statement back.</p>`,i:`<strong>What this reveals:</strong> PM assignment follows acceptance. Offering yourself as the single point of contact feels helpful, but it states a decision that belongs to the accepting official. Someone has to correct it later, and it costs credibility with the customer and with your own leadership.`}}},
+{context:`<p>Dana has circulated the attendee list: Mr. Voss, Ms. Beck, Maj. Hollis, Ingrid Larsen from Engineering, and Dana's program staff. <strong>Rafael Soto from Construction is not on it.</strong> A colleague tells you, "Construction usually joins after award. There is nothing for them to do yet."</p>`,
+prompt:`Who should be in the room?`,
+options:[
+{id:'a',text:`Ask Dana to invite Rafael now. Explain that access, sequencing, constructability, operating constraints and turnover all bear on whether the layout and date are feasible, and agree a proportionate level of participation.`},
+{id:'b',text:`Leave the list as it is. Construction can join once there is a contract.`},
+{id:'c',text:`Invite Rafael yourself, and add three more specialists so nobody can say they were left out.`},
+{id:'d',text:`Skip the invitation. Brief Rafael informally after the meeting so he is in the loop.`}],
+cons:{
+a:{s:`Brought Construction in early with a proportionate ask.`,t:`<p>Dana agrees. Rafael joins and asks two plain questions: whether current maintenance operations must continue while any work is under way, and who will receive the completed facility. Neither is answered in the room, but both go onto the open list with owners.</p><p>You and Dana agree with Rafael's chief on a modest level of early participation rather than an open-ended commitment of his time.</p>`,i:`<strong>What this reveals:</strong> A meeting is useful when it resolves a requirement, names an owner, tests a dependency or produces evidence for the next action. Rafael's questions did that. Proportionate requests also respect that functional resources are shared across projects.`},
+b:{s:`Kept Construction out; practical questions went unanswered in the room.`,t:`<p>The meeting goes smoothly until Ms. Beck asks how work would be sequenced if maintenance operations have to continue. Nobody in the room can speak to it. You record it as an open question.</p><p>The answer, when it comes, may change assumptions the group has already started to treat as settled.</p>`,i:`<strong>What this reveals:</strong> Construction participates in the PDT from the outset of project delivery, not from award. Early input on access, sequencing, constructability, operating constraints, quality and turnover shapes what the team can honestly say about feasibility.`},
+c:{s:`Over-invited; the room lost focus.`,t:`<p>The room has eleven people. Several have no decision to make and no information to give, and the conversation drifts. Dana quietly reminds you that attendees should be those who can address the issues, not a standard distribution.</p>`,i:`<strong>What this reveals:</strong> Invite people who can address the issues. A longer list is not a more thorough one, and it can make it harder for the quiet voices that matter to be heard.`},
+d:{s:`Briefed Construction afterward; their input arrived after positions had hardened.`,t:`<p>Rafael hears the conclusions but not the reasoning. When he raises a concern about the proposed layout afterward, the sponsor has already told the command the layout is settled. His objection reads as obstruction rather than input.</p>`,i:`<strong>What this reveals:</strong> Being "in the loop" is not the same as participating. Input that arrives after a position has been communicated upward is far harder to use, and far harder to hear.`}}},
+{context:`<p>In the meeting, Maj. Hollis explains that her unit needs a locally modified layout and that the facility must be ready before a unit arrives. Mr. Voss nods. Ms. Beck, who has said nothing so far, is looking at her notes. Ingrid Larsen looks at you.</p>`,
+prompt:`How do you respond?`,
+options:[
+{id:'a',text:`Ask Maj. Hollis what happens operationally if the layout is not available and where the arrival date comes from and how firm it is. Ask Ms. Beck for the installation view. Record both items as proposed, with their sources. Ask Ingrid whether a standardization inquiry applies.`},
+{id:'b',text:`Record both the layout and the date as requirements. Maj. Hollis knows the mission, and you do not want to challenge the end user.`},
+{id:'c',text:`Tell the room that local layout changes are not permitted under Army standards.`},
+{id:'d',text:`Sketch a compromise layout on the whiteboard to keep the meeting moving.`}],
+cons:{
+a:{s:`Separated need from preference and surfaced a quiet voice.`,t:`<p>Maj. Hollis explains that the layout supports a maintenance workflow tied to her equipment. The arrival date, she says, comes from a unit planning timeline she believes is firm but has not seen in writing. Asked gently, Ms. Beck says the installation would need to gather its site and utility information before anyone could speak to it with confidence.</p><p>Ingrid agrees to take the standardization question through the PgM. You record the layout and the date as <strong>proposed</strong>, each with its source and the evidence still needed.</p>`,i:`<strong>What this reveals:</strong> Asking for the consequence and the source separated the operational need from the preferred solution, and an invitation to the quiet person surfaced a real dependency. Ask the program representative which decisions can be made in the room and which need further approval.`},
+b:{s:`Recorded a preference and an unverified date as requirements.`,t:`<p>The minutes list the layout and the date under "Requirements." Two weeks later Ingrid's standardization inquiry shows that the layout departs from a standard design feature. A different design basis would need a waiver route that nobody has started.</p><p>Maj. Hollis points to the minutes: "We agreed to this."</p>`,i:`<strong>What this reveals:</strong> Do not record unresolved preferences as approved requirements to complete the minutes. A customer's agreement in a meeting is not a substitute for a required waiver, and an informal request does not become authorized scope by repetition.`},
+c:{s:`Asserted a prohibition you could not cite; the room became defensive.`,t:`<p>The room goes quiet, then cool. Maj. Hollis stops contributing. Mr. Voss asks whether USACE is "the obstacle here." Afterward Ingrid tells you that what applies is a determination to be made, and that there are defined routes when a different design basis is wanted.</p>`,i:`<strong>What this reveals:</strong> You may be right that standards matter, but stating a rule as settled before Engineering and the Center of Standardization have confirmed what applies shuts the conversation down. Ask what applies and who decides, then bring the answer back.`},
+d:{s:`Proposed a solution before the requirement was defined.`,t:`<p>Your sketch takes over the discussion. Ingrid points out that it meets neither the user's stated need nor any standard design feature. By the end of the meeting the group is arguing about your drawing rather than about the mission need.</p>`,i:`<strong>What this reveals:</strong> A PM who designs in the room anchors the group on a solution before the requirement is understood. Detailed design management belongs to the design process (Chapter 9). Your job here is to establish agreed facts, open questions and owners.`}}},
+{context:`<p>The meeting is over. In the hallway, Mr. Voss says the command wants it in writing today: <em>USACE will deliver by the requested date.</em> He is not being unreasonable. He has to report upward, and he needs something to report.</p>`,
+prompt:`What do you do?`,
+options:[
+{id:'a',text:`Send a concise decision record: agreed facts, open questions, responsible officials, evidence needed and the next authorized action. State the date as a customer need pending a supported delivery assessment. Copy Dana.`},
+{id:'b',text:`Send a short email confirming that USACE will "do everything possible" to meet the date.`},
+{id:'c',text:`Tell Mr. Voss you cannot send anything until you are assigned as PM.`},
+{id:'d',text:`Ask Mr. Osei to approve the date now so you can give Mr. Voss a commitment.`}],
+cons:{
+a:{s:`Sent a decision record that gave the sponsor something real to report.`,t:`<p>Your note says, in plain terms: Ridgeway supports an Army maintenance capability requirement; USACE has identified the request and the customer's desired timing; the responsible program office is confirming the requirement, assignment and applicable direction; site and standardization questions remain open; and a delivery commitment will require the acceptance and planning decisions that follow. Each open item has an owner.</p><p>Mr. Voss is a little disappointed not to have a date. He forwards your note anyway, because it tells the command what happens next and who is doing it. Dana adds the acceptance timeline.</p>`,
+th:function(d){
+ if(d[3]==='a')return '<p>Because you kept the layout and date as <em>proposed</em>, with sources, the record holds together without any correction.</p>';
+ if(d[3]==='b')return '<p>Because the minutes already labeled the layout and date as <em>requirements</em>, your record has to reclassify them. That takes a phone call to Maj. Hollis, which is uncomfortable but far easier now than after the standardization inquiry lands.</p>';
+ return '';},
+i:`<strong>What this reveals:</strong> A decision record turns "not yet" into a path. It keeps assumptions and disagreements visible instead of recording unresolved preferences as approved requirements, and it is something the sponsor can actually use.`},
+b:{s:`Sent soft language that traveled as a promise.`,t:`<p>Mr. Voss forwards your email upward within the hour with a one-line summary: <em>USACE confirms delivery by the requested date.</em> "Everything possible" has become a commitment in the command's eyes, and Dana is now responding to an expectation she did not set.</p>`,
+th:function(d){return d[3]==='b'?'<p>Your email also refers to the layout "as agreed in the meeting," which repeats the unverified requirement from the minutes. Ingrid\'s inquiry will now be read as USACE reversing itself.</p>':'';},
+i:`<strong>What this reveals:</strong> Soft words travel as hard promises once they leave your outbox. A recommended initial statement can still be warm and responsive without promising delivery.`},
+c:{s:`Said "nothing until I am assigned" and left a vacuum.`,t:`<p>Mr. Voss hears a refusal. By the next day the command is telling people USACE is not responsive on Ridgeway, and other voices are filling the gap with dates of their own. Dana has to repair the relationship before she can start the acceptance analysis.</p>`,
+th:function(d){return d[3]==='a'?'<p>The irony is that you had the material for a good record from the meeting itself.</p>':'';},
+i:`<strong>What this reveals:</strong> Being correct that you cannot commit is not the same as being useful. "Not yet" works when it comes with a path, a list of what is known and a named owner for each gap.`},
+d:{s:`Asked the accepting official to approve a date ahead of the acceptance analysis.`,t:`<p>Mr. Osei listens and declines, politely. The acceptance decision is an informed management decision supported by the PgM's analysis, and that analysis has not been done. He asks why a request for a date reached him this way, and Dana, copied late, has to explain.</p>`,i:`<strong>What this reveals:</strong> Escalation is for decisions that exceed the team's authority, after you have established the facts, the options and the consequence of inaction. Asking a decision official to approve a date before the analysis exists puts the decision ahead of the evidence.`}}}
+],
+debrief:{
+title:`What Nora's Two Days Showed`,
+html:`<p>None of these decisions was purely process or purely people. Each one asked whether the next step was supported by evidence, and whether the person on the other side could keep working with you while you waited for it.</p>
+<p>The defensible position was available on every path: <strong>the request is identified, the customer's timing is recorded as a need, the responsible office is confirming requirement, assignment and direction, and a delivery commitment will follow acceptance and planning.</strong> The paths differ in how much repair work that position needs by the end of the week.</p>`,
+ledger:[[`Mission requirement`,`Described by the end user. Operational consequence and source of the timing driver still to be validated.`],[`Programming record`,`Not yet reviewed in this case.`],[`Project authority`,`Not established.`],[`Funds and financial records`,`Not established. No amounts are assumed.`],[`Work assignment and acceptance`,`Assignment check pending. Work not accepted. No PM assigned.`],[`Delegation and action approval`,`The DPM is the designated accepting official. No commitment approved.`]],
+handoffTitle:`Hand-off to Chapter 3 (Work Acceptance)`,
+handoff:`<p>A good intake hand-off carries forward: the request itself; known customer representatives and the role each plays; requirement and program sources; assignment evidence or gaps; relevant specialized center and standardization questions; and preliminary constraints. For every missing item it says <strong>who will obtain it</strong>.</p><p>The acceptance decision and the subsequent PM assignment belong to Chapter 3. Case File 02 looks at who owns which decisions on a team like this one.</p>`},
+kc:[
+{tag:'Doctrine',text:`A project has a sponsor representative, an installation manager and an end user. Which question is the installation manager best placed to answer?`,options:[`Whether the facility layout supports the unit's maintenance workflow`,`Utilities, access, property accountability and installation coordination`,`Which program priorities and resources apply to the project`,`Whether USACE has accepted the work`],correct:1,explain:`The installation manager speaks to master planning, utilities, access, property accountability, operations and maintenance, security and installation coordination. The end user describes how the facility supports the mission, and the sponsor speaks to program priorities and resources. These roles can overlap, so ask who speaks for which function and record the source of each designation.`},
+{tag:'Doctrine',text:`Which evidence category primarily answers the question, "Which USACE organization may undertake the work?"`,options:[`The programming record, such as a DD Form 1391`,`Funds and financial records`,`Work assignment and acceptance`,`The mission requirement`],correct:2,explain:`Work assignment and acceptance answers which USACE organization may undertake the work. The programming record describes what was proposed, funds records show what resources support an action, and the mission requirement explains why the capability is sought. Evidence of one does not establish the others.`},
+{tag:'Doctrine',text:`Under this course's role distinction, who makes the work acceptance decision, and when is the PM assigned?`,options:[`The PM decides, before the PgM completes the analysis`,`The PgM alone decides, and then assigns the PM`,`The DPM or designated Work Acceptance Official decides under the applicable delegation, and the PM is assigned after acceptance`,`The sponsor decides once the DD Form 1391 is signed`],correct:2,explain:`The PgM leads acceptance analysis and coordination. The DPM or designated Work Acceptance Official makes the acceptance decision under the applicable delegation, and the PM is assigned after acceptance. Chapter 3 develops the sequence in detail.`},
+{tag:'Judgment',text:`A sponsor representative asks you to confirm a customer-requested completion date in writing before any delivery assessment exists. What is the best response?`,options:[`Confirm the date with "best efforts" language to preserve the relationship`,`Send a note that records the date as a customer need pending a supported delivery assessment, and states what is known, what is open, who owns each item and the next step`,`Decline to communicate until you are assigned as PM`,`Ask the accepting official to approve the date immediately`],correct:1,explain:`A decision record keeps the relationship constructive without creating a commitment the evidence does not support. Soft wording still travels as a promise, silence leaves a vacuum, and asking a decision official to approve a date ahead of the analysis puts the decision ahead of the evidence.`},
+{tag:'Doctrine',text:`A boundary map shows the project site inside your district's geographic area. What does that settle about who is responsible for the work?`,options:[`Everything: the district executes all work inside its boundary`,`Nothing: boundaries are never relevant to assignments`,`It is useful orientation, but responsibility is determined from the signed assignment record and applicable work plan, because mission assignments may apply outside or in addition to geographic areas`,`Only that the MSC must approve the project`],correct:2,explain:`Under the assignment policy summarized in Chapter 1, geographic, functional and technical areas of responsibility are recognized, and HQUSACE may issue mission assignments outside or in addition to them. Test an apparent geographic answer against the program and assignment record, and do not substitute customer preference for the required assignment.`},
+{tag:'Judgment',text:`A colleague says, "Construction normally joins after award." Which response best fits the course?`,options:[`Agree, because Construction has nothing to contribute before there is a contract`,`Construction participates in the PDT from the outset, because early input on access, sequencing, constructability, operating constraints, quality and turnover shapes whether delivery assumptions are sound`,`Construction should join only at design completion`,`Construction should join only if the customer asks`],correct:1,explain:`The course direction is that Construction participates from the outset of project delivery. The participation should be proportionate, and its purpose is to improve the early questions asked of the customer and to test feasibility, not to claim a seat for its own sake.`}],
+commit:`What is one thing you will do differently the next time a customer asks for a commitment you cannot yet support?`
+};
+
+CASE.nextFile='CaseFile02_WhoseCallIsIt.html';CASE.nextN='02';
+var STORAGE_KEY='p088_cf'+CASE.n+'_v1';
+var CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};
+
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(CS));}catch(e){}}
+function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;var d=JSON.parse(raw);if(!d||!d.name)return false;CS=d;return true;}catch(e){return false;}}
+
+/* ===== THEME AND TEXT SIZE ===== */
+function applyTheme(t){
+  if(t==='dark'){document.body.classList.add('dark-mode');}else{document.body.classList.remove('dark-mode');}
+  var b=document.getElementById('theme-toggle');
+  if(b)b.textContent=(t==='dark')?'Light Mode':'Dark Mode';
+  try{localStorage.setItem('pm-course-theme',t);}catch(e){}
+}
+function toggleTheme(){applyTheme(document.body.classList.contains('dark-mode')?'light':'dark');}
+var FONT_SIZES=['font-s','','font-l'];
+var FONT_LABELS={'font-s':'Text: S','':'Text: M','font-l':'Text: L'};
+function applyFontSize(cls){
+  document.documentElement.classList.remove('font-s','font-l');
+  if(cls){document.documentElement.classList.add(cls);}
+  var b=document.getElementById('font-toggle');
+  if(b)b.textContent=FONT_LABELS[cls];
+  try{localStorage.setItem('pm-fontsize',cls);}catch(e){}
+}
+function toggleFontSize(){
+  var cur=document.documentElement.classList.contains('font-l')?'font-l':(document.documentElement.classList.contains('font-s')?'font-s':'');
+  applyFontSize(FONT_SIZES[(FONT_SIZES.indexOf(cur)+1)%FONT_SIZES.length]);
+}
+(function(){
+  var f='',t='light';
+  try{f=localStorage.getItem('pm-fontsize')||'';var s=localStorage.getItem('pm-course-theme')||'';if(s.indexOf('dark')===0)t='dark';}catch(e){}
+  applyFontSize(f);applyTheme(t);
+})();
+
+/* ===== SECTIONS ===== */
+var SECTIONS=['welcome','training','discussion','casestudy','kc','complete'];
+var SECTION_LABELS={welcome:'Welcome',training:'Training',discussion:'Discussion',casestudy:'Case Study',kc:'Knowledge Check',complete:'Complete'};
+function updateProgress(){
+  var idx=SECTIONS.indexOf(CS.section);
+  var pct=Math.round((idx/(SECTIONS.length-1))*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('progress-label').textContent=SECTION_LABELS[CS.section]||'';
+}
+function renderNav(){
+  var order=['training','discussion','casestudy','kc'];
+  var html='<div class="section-nav">';
+  order.forEach(function(s,idx){
+    var cls='sec-btn'+(CS.section===s?' active':'')+(CS.sectionsComplete[s]?' complete':'');
+    var locked=(idx>0 && !CS.sectionsComplete[order[idx-1]] && CS.section!==s);
+    if(locked)cls+=' locked';
+    html+='<button class="'+cls+'" '+(locked?'disabled':'onclick="goSection(\''+s+'\')"')+'>'+(CS.sectionsComplete[s]?'&#10003; ':'')+SECTION_LABELS[s]+'</button>';
+  });
+  return html+'</div>';
+}
+function goSection(s){CS.section=s;saveState();render();}
+function completeSection(cur,next){CS.sectionsComplete[cur]=true;CS.section=next;saveState();render();}
+function render(){
+  var m=document.getElementById('main-content');
+  document.getElementById('progress-bar-wrap').style.display=(CS.section==='welcome')?'none':'block';
+  if(CS.section==='welcome')m.innerHTML=renderWelcome();
+  else if(CS.section==='training')m.innerHTML=renderTraining();
+  else if(CS.section==='discussion')m.innerHTML=renderDiscussion();
+  else if(CS.section==='casestudy')m.innerHTML=renderCaseStudy();
+  else if(CS.section==='kc')m.innerHTML=renderKC();
+  else if(CS.section==='complete')m.innerHTML=renderComplete();
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showMsg(t){var el=document.getElementById('form-msg');if(el){el.textContent=t;el.className='form-msg show';}}
+
+/* ===== LEARNER PROFILE (shared across the course series) ===== */
+var THEME_DOMAIN={'Analytical':'Strategic Thinking','Context':'Strategic Thinking','Futuristic':'Strategic Thinking','Ideation':'Strategic Thinking','Input':'Strategic Thinking','Intellection':'Strategic Thinking','Learner':'Strategic Thinking','Strategic':'Strategic Thinking','Adaptability':'Relationship Building','Connectedness':'Relationship Building','Developer':'Relationship Building','Empathy':'Relationship Building','Harmony':'Relationship Building','Includer':'Relationship Building','Individualization':'Relationship Building','Positivity':'Relationship Building','Relator':'Relationship Building','Activator':'Influencing','Command':'Influencing','Communication':'Influencing','Competition':'Influencing','Maximizer':'Influencing','Self-Assurance':'Influencing','Significance':'Influencing','Woo':'Influencing','Achiever':'Executing','Arranger':'Executing','Belief':'Executing','Consistency':'Executing','Deliberative':'Executing','Discipline':'Executing','Focus':'Executing','Responsibility':'Executing','Restorative':'Executing'};
+var THEME_OPTIONS='<option value="">Select</option><optgroup label="Strategic Thinking"><option>Analytical</option><option>Context</option><option>Futuristic</option><option>Ideation</option><option>Input</option><option>Intellection</option><option>Learner</option><option>Strategic</option></optgroup><optgroup label="Relationship Building"><option>Adaptability</option><option>Connectedness</option><option>Developer</option><option>Empathy</option><option>Harmony</option><option>Includer</option><option>Individualization</option><option>Positivity</option><option>Relator</option></optgroup><optgroup label="Influencing"><option>Activator</option><option>Command</option><option>Communication</option><option>Competition</option><option>Maximizer</option><option>Self-Assurance</option><option>Significance</option><option>Woo</option></optgroup><optgroup label="Executing"><option>Achiever</option><option>Arranger</option><option>Belief</option><option>Consistency</option><option>Deliberative</option><option>Discipline</option><option>Focus</option><option>Responsibility</option><option>Restorative</option></optgroup>';
+function getProfile(){try{var r=localStorage.getItem('pm-learner-profile');return r?JSON.parse(r):null;}catch(e){return null;}}
+function saveProfile(name,themes){try{localStorage.setItem('pm-learner-profile',JSON.stringify({name:name,themes:themes,savedAt:new Date().toISOString()}));}catch(e){}}
+function clearProfileAndReload(){try{localStorage.removeItem('pm-learner-profile');}catch(e){}render();}
+function toggleNAThemes(){document.getElementById('theme-grid').style.display=document.getElementById('na-checkbox').checked?'none':'grid';}
+function renderProfileFields(){
+  var p=getProfile();
+  if(p&&p.name){
+    var th=(p.themes&&p.themes[0]!=='N/A')?p.themes.join(', '):'Not provided';
+    return '<div class="profile-display"><div class="field-label">Learner</div><div class="profile-value">'+p.name+'</div>'
+      +'<div class="field-label" style="margin-top:10px;">Top Five Strengths (optional)</div><div class="profile-value">'+th+'</div>'
+      +'<button class="link-btn" onclick="clearProfileAndReload()">Not you, or need to change this? Clear and re-enter</button></div>';
+  }
+  var sels='';
+  for(var i=1;i<=5;i++){sels+='<div class="theme-select-item"><label for="theme-select-'+i+'">Theme '+i+'</label><select class="theme-select" id="theme-select-'+i+'">'+THEME_OPTIONS+'</select></div>';}
+  return '<div style="margin-bottom:18px;"><label class="field-label" for="name-input">Your name</label>'
+    +'<input class="name-input" id="name-input" type="text" placeholder="First and last name"></div>'
+    +'<div class="field-label">Your top five CliftonStrengths themes (optional)</div>'
+    +'<label class="na-row"><input type="checkbox" id="na-checkbox" onchange="toggleNAThemes()"> I do not know my themes, or prefer to skip</label>'
+    +'<div class="theme-select-grid" id="theme-grid">'+sels+'</div>';
+}
+
+/* ===== SEEDED SHUFFLE (option order is fixed per case file, so saved answers stay valid) ===== */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var LETTERS=['A','B','C','D'];
+(function prepare(){
+  var seed=parseInt(CASE.n,10)*1000+7;
+  CASE.decisions.forEach(function(d,di){
+    var rnd=mulberry(seed+di*31);
+    var a=d.options.slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    a.forEach(function(o,k){o.letter=LETTERS[k];});
+    d.options=a;
+  });
+})();
+
+/* ===== WELCOME ===== */
+function renderWelcome(){
+  var saved=loadState();
+  var resume=(saved&&CS.name)?'<button class="btn-secondary" onclick="render()" style="margin-left:10px;">Resume as '+CS.name+' &rarr;</button>':'';
+  var cast='';
+  if(CASE.cast&&CASE.cast.length){cast='<div class="card"><div class="card-label">Who You Will Meet</div><ul>'+CASE.cast.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';}
+  return '<div class="screen">'
+  +'<p class="eyebrow">Interactive 088 &middot; Case File '+CASE.n+'</p>'
+  +'<h1 class="title-main">'+CASE.titleHtml+'</h1>'
+  +'<p class="lede">'+CASE.lede+'</p>'
+  +'<div class="card"><div class="card-label">What This Case File Covers</div>'
+  +'<p><strong>Military Programs Doctrine:</strong> '+CASE.doctrine+'</p>'
+  +'<p><strong>People Skill:</strong> '+CASE.skill+'</p></div>'
+  +cast
+  +'<div class="card"><div class="card-label">How This Works</div>'
+  +'<p>Training (5 min) &rarr; Reflection &rarr; Case Study ('+CASE.decisions.length+' branching decisions on Project Ridgeway) &rarr; Knowledge Check (6 questions, formative, 4 of 6 to move on). About '+CASE.minutes+' minutes in total. Your answers stay on this device.</p></div>'
+  +renderProfileFields()
+  +'<div class="form-msg" id="form-msg"></div>'
+  +'<div class="btn-row"><button class="btn-primary" onclick="startCase()">Begin Case File &rarr;</button>'+resume+'</div>'
+  +'<p class="fine">Project Ridgeway and every person in it are fictional. '+(CASE.figures||'The scenario adds no funding amounts, dates or approvals.')+' Governing regulations, delegations and authoritative records control actual projects.</p>'
+  +'</div>';
+}
+function startCase(){
+  var p=getProfile(),name,themes;
+  if(p&&p.name){name=p.name;themes=p.themes;}
+  else{
+    name=document.getElementById('name-input').value.replace(/^\s+|\s+$/g,'');
+    if(!name){showMsg('Please enter your name to continue.');return;}
+    if(document.getElementById('na-checkbox').checked){themes=['N/A'];}
+    else{
+      themes=[];
+      for(var i=1;i<=5;i++){
+        var v=document.getElementById('theme-select-'+i).value;
+        if(!v){showMsg('Please select all five themes, or check the box to skip this step.');return;}
+        themes.push(v);
+      }
+    }
+    saveProfile(name,themes);
+  }
+  CS.name=name;CS.themes=themes;CS.section='training';saveState();render();
+}
+
+/* ===== TRAINING ===== */
+function renderTraining(){
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Training &middot; 5 Minutes</p>'
+  +'<h2 class="title-main title-sub">'+CASE.trainingTitle+'</h2>'
+  +CASE.training
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'training\',\'discussion\')">Continue to Discussion &rarr;</button></div>'
+  +'</div>';
+}
+
+/* ===== DISCUSSION ===== */
+function strengthNote(){
+  var themes=(CS.themes||[]).filter(function(t){return t&&t!=='N/A';});
+  if(!themes.length)return 'Reflect on how your natural strengths shaped your approach to this scenario. Which choices came naturally, and which took deliberate effort?';
+  var t=themes[0],i;
+  for(i=0;i<themes.length;i++){if(THEME_DOMAIN[themes[i]]===CASE.domain){t=themes[i];break;}}
+  var d=THEME_DOMAIN[t];
+  var stem={
+   'Strategic Thinking':'Your <strong>'+t+'</strong> likely helps you see how the pieces connect. ',
+   'Relationship Building':'Your <strong>'+t+'</strong> likely helps you read the people involved. ',
+   'Influencing':'Your <strong>'+t+'</strong> likely helps you move others toward a decision. ',
+   'Executing':'Your <strong>'+t+'</strong> likely pushes you to get things done. '
+  }[d];
+  return stem+CASE.hook;
+}
+function renderDiscussion(){
+  var rq='';
+  CASE.reflections.forEach(function(q,i){rq+='<div class="reflect-block"><div class="reflect-q">'+(i+1)+'. '+q+'</div><textarea class="reflect-input" id="r'+(i+1)+'" placeholder="Type your thoughts..."></textarea></div>';});
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Discussion and Reflection</p>'
+  +'<h2 class="title-main title-sub">Before You See the Scenario</h2>'
+  +'<p class="lede">These reflections are not graded. Answer honestly. Your responses are saved only on this device.</p>'
+  +'<div class="card"><div class="card-label">Your Strengths Lens</div><p>'+strengthNote()+'</p></div>'
+  +rq
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="saveReflectionsAndContinue()">Continue to Case Study &rarr;</button></div>'
+  +'</div>';
+}
+function saveReflectionsAndContinue(){
+  var r={};
+  for(var i=1;i<=CASE.reflections.length;i++){var el=document.getElementById('r'+i);r['r'+i]=el?el.value:'';}
+  CS.reflections=r;
+  completeSection('discussion','casestudy');
+}
+
+/* ===== CASE STUDY ===== */
+var NDEC=CASE.decisions.length;
+function stepAt(i){
+  if(i===0)return {type:'scenario'};
+  if(i<=NDEC)return {type:'decision',d:CASE.decisions[i-1],label:'Decision '+i+' of '+NDEC};
+  return {type:'debrief'};
+}
+function bestCount(){var n=0;for(var i=1;i<=NDEC;i++){if(CS.decisions[i]==='a')n++;}return n;}
+function renderCaseStudy(){
+  var idx=CS.caseStep||0,step=stepAt(idx);
+  var html='<div class="screen">'+renderNav()+'<p class="eyebrow">Case Study &middot; Project Ridgeway</p>';
+  if(step.type==='scenario'){
+    html+='<h2 class="title-main title-sub">'+CASE.scenario.label+'</h2><div class="scenario-box"><div class="scenario-label">Scenario Setup</div><div class="scenario-text">'+CASE.scenario.text+'</div></div>'
+    +'<div class="nav-row"><span></span><button class="btn-primary" onclick="caseNext()">Begin Decision 1 &rarr;</button></div>';
+  }else if(step.type==='decision'){
+    var d=step.d;
+    html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
+    +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+  }else{
+    html+=renderDebrief();
+  }
+  return html+'</div>';
+}
+function caseNext(){
+  CS.caseStep=(CS.caseStep||0)+1;saveState();
+  document.getElementById('main-content').innerHTML=renderCaseStudy();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function chooseOption(id){
+  var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
+  if(document.getElementById('case-nav').style.display==='flex')return;
+  CS.decisions[idx]=id;saveState();
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  var c=d.cons[id];
+  var extra=c.th?c.th(CS.decisions):'';
+  document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
+    +'<div class="insight-box"><div class="insight-label">Insight</div><div class="insight-text">'+c.i+'</div></div></div>';
+  document.getElementById('case-nav').style.display='flex';
+  if(idx===NDEC)document.getElementById('case-next-btn').innerHTML='Continue to Debrief &rarr;';
+}
+function renderDebrief(){
+  var items='';
+  for(var i=1;i<=NDEC;i++){
+    var d=CASE.decisions[i-1],id=CS.decisions[i];
+    if(!id)continue;
+    var o=d.options.filter(function(x){return x.id===id;})[0];
+    items+='<li><span class="pl-k">Decision '+i+' &middot; you chose '+o.letter+'</span>'+d.cons[id].s+'</li>';
+  }
+  var n=bestCount();
+  var lead=(n===NDEC)?'You took the best-supported route on every decision. The harder skill is holding it when someone is standing in front of you asking for something else.':(n*2>=NDEC?'You took the best-supported route on '+n+' of '+NDEC+' decisions. Look at the others and ask what pressure pulled you off it.':'Several of your choices moved quickly toward what someone was asking for. That is a natural instinct. This case is about staying responsive without getting ahead of the evidence or the authority.');
+  var B=CASE.debrief;
+  var ledger='';
+  if(B.ledger){ledger='<div class="card"><div class="card-label">Ridgeway at the End of Case File '+CASE.n+'</div><div class="table-wrap"><table class="ref"><thead><tr><th>Item</th><th>Status in this case</th></tr></thead><tbody>'+B.ledger.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('')+'</tbody></table></div></div>';}
+  return '<h2 class="title-main title-sub">Case Debrief</h2>'
+  +'<div class="card people-card"><div class="card-label">Your Path Through Ridgeway</div><p>'+lead+'</p><ul class="path-list">'+items+'</ul></div>'
+  +'<div class="card"><div class="card-label">'+B.title+'</div>'+B.html+'</div>'
+  +ledger
+  +'<div class="card"><div class="card-label">'+B.handoffTitle+'</div>'+B.handoff+'</div>'
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'casestudy\',\'kc\')">Continue to Knowledge Check &rarr;</button></div>';
+}
+
+/* ===== KNOWLEDGE CHECK ===== */
+var KC_QUESTIONS=CASE.kc;
+var kcAnswers={},kcOrder={};
+function shuffleArray(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildKCOrder(){kcOrder={};KC_QUESTIONS.forEach(function(q,qi){var ix=[];for(var i=0;i<q.options.length;i++)ix.push(i);kcOrder[qi]=shuffleArray(ix);});}
+function renderKC(){
+  kcAnswers={};buildKCOrder();
+  var q='';
+  KC_QUESTIONS.forEach(function(Q,qi){
+    q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
+  });
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
+  +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
+  +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
+  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
+}
+function selectKCAnswer(qi,pos){
+  var n=KC_QUESTIONS[qi].options.length;
+  for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
+}
+function submitKC(){
+  var correct=0;
+  KC_QUESTIONS.forEach(function(q,qi){
+    var ord=kcOrder[qi],sel=kcAnswers[qi],ok=(ord[sel]===q.correct),cp=ord.indexOf(q.correct);
+    if(ok)correct++;
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.remove('selected');
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.add(ok?'correct':'incorrect');
+    if(!ok)document.getElementById('kc-opt-'+qi+'-'+cp).classList.add('correct');
+    document.getElementById('kc-explain-'+qi).classList.add('show');
+  });
+  CS.kcScore=correct;
+  var passed=(correct/KC_QUESTIONS.length)>=0.6;
+  var fb=document.getElementById('kc-feedback');
+  fb.className='kc-feedback show '+(passed?'pass':'fail');
+  fb.innerHTML='<div class="kc-score">'+correct+'/'+KC_QUESTIONS.length+'</div>'+(passed?'<strong>Well done.</strong> You have completed Case File '+CASE.n+'.':'<strong>Review the explanations above.</strong> This is a formative check, not a grade. The explanations are the learning.');
+  var row=document.getElementById('kc-btn-row');
+  if(passed){CS.sectionsComplete.kc=true;saveState();row.innerHTML='<button class="btn-primary" onclick="goSection(\'complete\')">Finish Case File &rarr;</button>';}
+  else{row.innerHTML='<button class="btn-primary" onclick="goSection(\'kc\')">Retake Knowledge Check</button>';}
+  fb.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ===== COMPLETE ===== */
+function renderComplete(){
+  CS.section='complete';saveState();
+  var next=CASE.nextFile?'<a href="'+CASE.nextFile+'" style="color:var(--gold);font-weight:700;">Continue to Case File '+CASE.nextN+' &rarr;</a> &middot; ':'This is the final case file. ';
+  return '<div class="screen"><div class="complete-wrap"><div class="complete-seal">&#10003;</div>'
+  +'<div class="complete-title">Case File '+CASE.n+' Complete</div>'
+  +'<div class="complete-sub">'+CS.name+' &middot; '+CASE.title+' &middot; Score: '+CS.kcScore+'/'+KC_QUESTIONS.length+'</div>'
+  +'<div style="text-align:left;max-width:480px;margin:0 auto 20px;"><label class="field-label" for="commitment">'+CASE.commit+'</label>'
+  +'<textarea class="reflect-input" id="commitment" placeholder="Type your commitment...">'+(CS.commitment||'')+'</textarea></div>'
+  +'<div class="form-msg" id="form-msg" style="text-align:left;"></div>'
+  +'<div class="btn-row" style="justify-content:center;"><button class="btn-primary" onclick="saveCommitment()">Save and Finish</button><button class="btn-secondary" onclick="askRestart()">Restart Case File</button></div>'
+  +'<div id="restart-confirm" style="display:none;margin-top:14px;" class="form-msg">This clears your progress for this case file. <button class="link-btn" onclick="restartCase()">Yes, restart</button> &middot; <button class="link-btn" onclick="cancelRestart()">Cancel</button></div>'
+  +'<p class="fine">'+next+'<a href="index.html" style="color:var(--gold);font-weight:700;">Course Home</a></p></div></div>';
+}
+function saveCommitment(){
+  CS.commitment=document.getElementById('commitment').value;saveState();
+  var el=document.getElementById('form-msg');el.style.borderColor='var(--accent)';el.style.background='var(--accent-bg)';el.textContent='Saved on this device. Thank you for completing Case File '+CASE.n+'.';el.className='form-msg show';
+}
+function askRestart(){var e=document.getElementById('restart-confirm');e.className='form-msg show';e.style.display='block';}
+function cancelRestart(){document.getElementById('restart-confirm').style.display='none';}
+function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
+
+(function init(){render();})();
+
+</script>
+</body>
+</html>

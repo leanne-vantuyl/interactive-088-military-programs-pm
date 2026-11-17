@@ -1,0 +1,99 @@
+/*META{"phase":"Integration, Communication and Ethics","badge":"CHAPTER 16 &middot; PUTTING IT TOGETHER","chapter":"Chapter 16"}META*/
+var CASE={
+n:'16',title:'Putting It Together',
+titleHtml:`Putting It<br><em>Together.</em>`,
+lede:`This is the last case file. There is no new doctrine, only the person at the center of everything you have seen: telling hard truths, holding the line on authority and ethics, and learning something that actually changes the next project. <strong>What kind of PM does Ridgeway need you to be?</strong>`,
+doctrine:`Communicating difficult information while options remain, discussing scope and funds without implying approval, ethical judgment and protecting the procurement and project record, and lessons that change future action (Chapter 16).`,
+skill:`Being honest, specific and kind in the same sentence, and asking for help when the question is not yours to answer.`,
+minutes:'35',
+figures:`This case file adds no funding amounts, dates or approvals. It uses the manuscript's language for communicating difficult information and for lessons learned.`,
+cast:[`<strong>Nora Delgado</strong>, project manager (you)`,`<strong>Maj. Teresa Hollis</strong>, end user; <strong>Gerald Voss</strong>, sponsor representative`,`<strong>Wen Zhao</strong>, Contracting Officer; <strong>Rafael Soto</strong>, Construction; <strong>Ingrid Larsen</strong>, Engineering`,`<strong>Dana Whitfield</strong>, Program Manager; <strong>Calvin Osei</strong>, DPM`,`<strong>Jordan Pike</strong>, a former colleague now at a design-build firm`],
+trainingTitle:`Judgment Made Visible`,
+training:`<div class="card"><div class="card-label">Chapter 16 &middot; Integrating Delivery and Professional Practice</div>
+<p>The PM <strong>integrates delivery</strong> by linking authorized requirements, current evidence, resources and decisions to the customer's usable outcome. Professional judgment shows up in the quality of the problem statement, the alternatives, the recommendation and the follow-through. The PM checks source records, explains uncertainty, brings disagreement to the right decision official and verifies implementation.</p></div>
+<div class="card"><div class="card-label">Communicating Difficult Information</div>
+<p>Begin with the <strong>current condition and the effect on the agreed outcome</strong>. Say what is confirmed, what is uncertain, what the PDT is doing and what decision someone must make. Match detail to the recipient while using the same facts as the project record. When a commitment has been missed, acknowledge it plainly, give the verified cause, avoid blame before facts are known, name corrective actions and owners, and say when the next supported update comes. If you failed to confirm a resource, say that the assumed resource was unconfirmed.</p>
+<p>Frame scope and funds so that <strong>evaluation is not approval</strong>. "We can evaluate the added capability and provide its delivery consequences. It is not authorized for performance through this discussion." Customer communication does not replace the contractual channel for contractor direction.</p></div>
+<div class="card"><div class="card-label">Ethics and the Record</div>
+<p>Do not suppress a known threat until it becomes a confirmed delay, and do not revise a baseline to conceal performance. Stewardship means asking whether an expenditure serves the authorized purpose and whether the balance is actually available. Questions about gifts, relationships, financial interests or prospective employment go promptly to the agency ethics official with the facts. <strong>Do not decide personally that good intentions eliminate a potential conflict.</strong> Do not share protected procurement information, and if a possible improper disclosure or unauthorized direction occurs, preserve the facts and involve Contracting and Counsel. Do not alter the record or assume a later approval will cure it.</p></div>
+<div class="card"><div class="card-label">Lessons That Change Something</div>
+<p>A lesson should change a future action. Record the condition, evidence, consequence, proposed improvement, owner and where the improvement will be used. "Coordinate utilities earlier" is too general. A useful lesson names which assumption escaped confirmation, which input was needed before relying on the schedule, and which planning product should expose it, and it distinguishes a <strong>missed control</strong> from an <strong>unavoidable unknown</strong>. Community advice supports judgment. It does not replace a delegated approval.</p>
+<span class="proc-tag">CHAPTER 16</span><span class="proc-tag">5 CFR 2635</span><span class="proc-tag">FAR 3.104</span><span class="proc-tag">PROC3020</span></div>
+<div class="card people-card"><div class="card-label">People Skill &middot; Honest, Specific, Kind</div>
+<p>Say the hard thing in the first sentence, say what you know and do not know in the second, and say what happens next in the third. Kindness is not softening the facts. It is making sure the person leaves knowing what to do.</p></div>`,
+domain:'Executing',
+hook:`As you work through this last case, notice which of your strengths you lean on under pressure and which you tend to leave unused.`,
+reflections:[
+`Of the fifteen case files, which decision would you most likely get wrong under real pressure? Why?`,
+`Recall a hard conversation you delivered well or badly. What would you say in the first sentence now?`,
+`Which lesson from your last project could be written so specifically that it would change what a future PM does?`],
+scenario:{label:'Ridgeway, Seen Whole',text:`<p>You have now followed <strong>Project Ridgeway</strong> from a request to turnover. The failed test was corrected only after a hard conversation with the end user, a scope request arrived while funds were tight, and a former colleague has just contacted you about a related procurement.</p>
+<p>These are four final moments. Each tests the same habit: bring evidence, respect authority, and stay honest.</p>`},
+decisions:[
+{context:`<p>A required system test has failed again. You do not yet have the correction and retest sequence confirmed. Maj. Hollis calls and asks, "Is my unit still moving in on the date we agreed?"</p>`,
+prompt:`What do you say?`,
+options:[
+{id:'a',text:`State the condition and its effect, what is confirmed and not, what the team is doing, and what you will provide next and when. For example: the required test failed, the correction and retest sequence is being confirmed, the current analysis threatens the delivery commitment, and you will provide an updated forecast and alternatives at the agreed checkpoint.`},
+{id:'b',text:`Say it is probably fine and you will let her know if it changes.`},
+{id:'c',text:`Give her a new date to reassure her.`},
+{id:'d',text:`Say it is out of your hands and she should talk to the contractor.`}],
+cons:{
+a:{s:`Told the truth plainly, without inventing a date or promising recovery.`,t:`<p>Maj. Hollis is disappointed and says so. She also says that she can plan around "I will confirm at the checkpoint" better than around a date that moves. She asks what she can do in the meantime, and you suggest she identify the minimum area her unit needs first.</p>`,i:`<strong>What this reveals:</strong> This language identifies the issue without inventing a new date or promising recovery. The customer should leave knowing what will happen next and when another supported update will be available.`},
+b:{s:`Reassured without evidence.`,t:`<p>She relies on you. When the date does not hold, she learns of it too late to adjust, and your credibility is the price.</p>`,i:`<strong>What this reveals:</strong> Do not suppress a known threat until it becomes a confirmed delay.`},
+c:{s:`Invented a date.`,t:`<p>The new date has no support from the retest sequence. It slips, and the second slip is worse than the first.</p>`,i:`<strong>What this reveals:</strong> A new date without prerequisites verified is a promise the evidence cannot keep.`},
+d:{s:`Deflected a question you were responsible for answering.`,t:`<p>She goes to the contractor, who does not have the Government's picture. You lose the chance to give her a consistent account.</p>`,i:`<strong>What this reveals:</strong> Match detail to the recipient, using the same facts as the project record. The PM owns the integrated message.`}}},
+{context:`<p>Mr. Voss, with money tight, suggests an added storage capability. "Can you tell Maj. Hollis we can do it? We'll find the funds." Maj. Hollis is listening.</p>`,
+prompt:`How do you frame it?`,
+options:[
+{id:'a',text:`Say you can evaluate the added capability and give its delivery consequences, but it is not authorized for performance through this discussion. Name that the responsible program, financial and contracting officials must determine the permissible path, and that continuing the current authorized scope remains an option. Document the request and the agreed analysis.`},
+{id:'b',text:`Tell Maj. Hollis it is as good as approved.`},
+{id:'c',text:`Tell Mr. Voss no, because there is no money.`},
+{id:'d',text:`Ask Mr. Soto to have the contractor start quietly.`}],
+cons:{
+a:{s:`Framed evaluation as evaluation and named who decides.`,t:`<p>Mr. Voss is a little impatient with "evaluate," but Maj. Hollis appreciates knowing it is a real path with real owners. You document the request and the agreed analysis, and coordinate with Wen and Rafael so nothing you said is heard as direction to the contractor.</p>`,i:`<strong>What this reveals:</strong> Evaluation of a requested feature is not approval to perform it. Confirm important conversations in the project record and coordinate with Contracting when a message could be understood as a change.`},
+b:{s:`Implied approval.`,t:`<p>"As good as approved" is a promise. Funds are not available and the authority is elsewhere. The correction comes later and costs more.</p>`,i:`<strong>What this reveals:</strong> Do not make the customer's preference look like an approved direction.`},
+c:{s:`Closed the door on the basis of one fact.`,t:`<p>"No money" may be true today. Decisions about scope and funds belong to officials, and the options may include phasing or reprioritization.</p>`,i:`<strong>What this reveals:</strong> Frame the options and the determination needed. A flat no pre-empts the people who decide.`},
+d:{s:`Directed unfunded, unauthorized work through a back channel.`,t:`<p>This is an unauthorized commitment. The Government is not bound, the contractor may seek payment, and Wen and Counsel have a mess to sort out in which you are the cause.</p>`,i:`<strong>What this reveals:</strong> Customer communications do not replace the contractual channel for contractor direction. Do not assume a later approval will cure it.`}}},
+{context:`<p>Jordan Pike, a friend and former colleague now at a design-build firm, calls. "I hear the district may solicit a similar facility next year. Any chance you can tell me how the Government is thinking about the evaluation approach? Just between us."</p>`,
+prompt:`What do you do?`,
+options:[
+{id:'a',text:`Decline to share anything nonpublic. Tell Jordan that questions go through Contracting's authorized communications. Because the relationship could affect your participation in a future procurement, describe the circumstances to the agency ethics official and Contracting and follow their determination, including any recusal.`},
+{id:'b',text:`Share the general approach. It is not secret and Jordan is a friend.`},
+{id:'c',text:`Say nothing to anyone and keep the call to yourself.`},
+{id:'d',text:`Decide that because your intentions are good there is no conflict and carry on.`}],
+cons:{
+a:{s:`Declined, pointed to the authorized channel and sought ethics advice.`,t:`<p>Jordan understands and is not offended. The ethics official thanks you for raising it early and advises on your participation, and Wen notes the contact in the file. Nothing in your conduct is open to question.</p>`,i:`<strong>What this reveals:</strong> Questions about relationships or protected information go promptly to the ethics official. Do not decide personally that good intentions eliminate a potential conflict. Use Contracting's authorized communication arrangements.`},
+b:{s:`Shared a nonpublic view with a friend at a firm that may compete.`,t:`<p>Even a casual remark can give one firm an advantage. The Government's integrity in the competition is at stake, and so is your career.</p>`,i:`<strong>What this reveals:</strong> Do not share the Government's thinking privately with a favored firm. Protect the procurement and the record.`},
+c:{s:`Kept a potential conflict private.`,t:`<p>If the contact comes to light later, the silence will look like concealment. Early disclosure would have cost nothing.</p>`,i:`<strong>What this reveals:</strong> Disclose circumstances through the required ethics and procurement channels before continuing affected participation.`},
+d:{s:`Self-certified your own conflict away.`,t:`<p>Your intentions are not the test. The appearance and the facts are assessed by specialists, who might require recusal.</p>`,i:`<strong>What this reveals:</strong> Specialist advice may require recusal or another action. Follow the applicable determination.`}}},
+{context:`<p>At the close of the project the team gathers for lessons learned. Someone proposes, "Our lesson: coordinate utilities earlier." Engineering and Construction are quiet.</p>`,
+prompt:`How do you shape the lesson?`,
+options:[
+{id:'a',text:`Ask which utility assumption escaped confirmation, which technical or field input was needed before relying on the procurement schedule, and which planning product should expose that dependency. Distinguish a missed control from an unavoidable unknown. Record condition, evidence, consequence, improvement, owner and where it will be used.`},
+{id:'b',text:`Accept the lesson as written. It is short and everyone agrees.`},
+{id:'c',text:`Assign blame to the team that missed the utility.`},
+{id:'d',text:`File the lessons and move on to the next project.`}],
+cons:{
+a:{s:`Turned a slogan into a specific, owned improvement.`,t:`<p>The team finds that one utility assumption was never confirmed with the field before the schedule relied on it, and that the planning product had no place to show it. They propose a specific addition to the planning checklist, with an owner and the place it will be used. They also acknowledge that some conditions could not have been known.</p>`,
+th:function(d){return d[2]==='a'?'<p>Your own ethics habit shows here too: you are as open about what you did not confirm as about what others missed.</p>':'';},
+i:`<strong>What this reveals:</strong> A lesson should change a future action. The case does not prove earlier coordination would have eliminated the conflict, so the lesson should distinguish a missed control from an unavoidable unknown.`},
+b:{s:`Accepted a slogan.`,t:`<p>The next team reads "coordinate utilities earlier" and does not know what to do differently. Nothing changes.</p>`,i:`<strong>What this reveals:</strong> "Coordinate utilities earlier" is too general to change behavior.`},
+c:{s:`Turned learning into blame.`,t:`<p>People stop sharing what they know. The next lessons session is thinner and less honest.</p>`,i:`<strong>What this reveals:</strong> Avoid assigning blame before facts are established. Learning needs candor.`},
+d:{s:`Filed a lesson without a plan for its use.`,t:`<p>Filing a lesson or completing a course is useful only if the acquired understanding improves decisions and results.</p>`,i:`<strong>What this reveals:</strong> Check at the next comparable event whether the change reduced the original problem.`}}}
+],
+debrief:{
+title:`The PM Ridgeway Needed`,
+html:`<p>Across sixteen case files the same habits kept paying off. <strong>Ask what the evidence supports. Ask who owns the decision. Bring facts, options and a recommendation to the right person. Say the hard thing early, plainly and kindly. Keep records accurate and ethics clean.</strong></p>
+<p>None of this makes a project easy. It makes it possible to make good decisions while options remain.</p>`,
+ledger:[[`Customer communication`,`Condition, uncertainty and next update stated. No invented date.`],[`Scope request`,`Evaluated, documented and routed. Not approved or directed.`],[`Outside contact`,`Declined. Ethics official and Contracting informed.`],[`Lessons learned`,`Specific, owned, tied to a planning product. Missed control separated from unavoidable unknown.`]],
+handoffTitle:`Transfer to Practice`,
+handoff:`<p>Choose one real project and one next decision. State the problem, the options, your recommendation, the authority that decides and the latest useful decision date. Then ask an experienced PM or a specialist to challenge it. Return to the Course Home to review all sixteen case files and your completion record.</p>`},
+kc:[
+{tag:'Judgment',text:`A required test failed and the retest sequence is unconfirmed. How should the PM respond to the customer asking about the move-in date?`,options:[`Reassure without evidence`,`State the condition and effect, what is confirmed and not, what the team is doing and when the next supported update will come, without inventing a date`,`Give a new date`,`Refer them to the contractor`],correct:1,explain:`The customer should leave knowing what will happen next and when another supported update will be available.`},
+{tag:'Doctrine',text:`Which phrasing best avoids implying approval of an added scope request?`,options:[`"Consider it done"`,`"We can evaluate the added capability and provide its delivery consequences. It is not authorized for performance through this discussion"`,`"We will find the funds"`,`"No"`],correct:1,explain:`Evaluation of a requested feature is not approval to perform it. Name the officials who determine the permissible path.`},
+{tag:'Judgment',text:`A friend at a firm asks how the Government is thinking about an upcoming evaluation approach. What should the PM do?`,options:[`Share general thoughts`,`Decline to share nonpublic information, direct questions to Contracting and raise the relationship with the ethics official`,`Keep the call private`,`Decide there is no conflict`],correct:1,explain:`Do not decide personally that good intentions eliminate a potential conflict.`},
+{tag:'Doctrine',text:`What makes a lesson learned useful?`,options:[`It is short and agreed`,`It identifies the condition, evidence, consequence, improvement, owner and where the improvement will be used, and distinguishes a missed control from an unavoidable unknown`,`It assigns blame`,`It is filed`],correct:1,explain:`A lesson should change a future action.`},
+{tag:'Doctrine',text:`If an unauthorized direction to a contractor occurs, what should the PM do?`,options:[`Assume a later approval will cure it`,`Preserve the facts and promptly involve Contracting and Counsel, without altering the record`,`Quietly reverse it`,`Ignore it`],correct:1,explain:`The appropriate officials determine the response. Do not alter the record or assume later approval cures it.`},
+{tag:'Judgment',text:`A missed commitment arose because a resource was never confirmed. How should the PM say so?`,options:[`Blame the Resource Provider`,`Say plainly that the assumed resource was unconfirmed and describe the decision now needed`,`Say nothing`,`Blame the customer`],correct:1,explain:`Acknowledge the miss, explain the verified cause, avoid premature blame and name corrective actions and owners.`}],
+commit:`Choose one real next decision on a project you manage. What is the problem, your recommendation, who decides, and by when?`
+};

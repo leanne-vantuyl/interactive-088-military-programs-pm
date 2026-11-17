@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case File 10 | Award Day | Interactive 088 Military Programs PM in USACE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--panel:#F3EFE4;--panel-2:#F8F6F2;--ink:#111111;--ink-2:#2A2A2A;
+  --gold:#5A4010;--gold-soft:#7A5A10;--gold-light:#3A2A08;
+  --border:rgba(90,64,16,.45);--border-strong:rgba(90,64,16,.75);
+  --accent:#1A4A10;--accent-bg:#E8F0E8;--warn-bg:#FFF8E8;--scenario-bg:#FFFFF8;
+  --danger:#7A1A1A;--danger-bg:#F8E4E4;--on-gold:#FFFFFF;--glow:none;
+}
+body.dark-mode{
+  --bg:#1A1F14;--panel:#252D1C;--panel-2:#202718;--ink:#F5F2EB;--ink-2:#C8C4B8;
+  --gold:#C8A84B;--gold-soft:#8B7235;--gold-light:#E2C97E;
+  --border:rgba(200,168,75,.3);--border-strong:rgba(200,168,75,.6);
+  --accent:#7BA05B;--accent-bg:rgba(123,160,91,.12);--warn-bg:rgba(200,168,75,.08);--scenario-bg:rgba(26,31,20,.6);
+  --danger:#E07C73;--danger-bg:rgba(192,57,43,.12);--on-gold:#1A1F14;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+html.font-l{font-size:18px;}
+html.font-s{font-size:14px;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:400;min-height:100vh;}
+
+header{border-bottom:2px solid var(--gold);padding:14px 0;position:sticky;top:0;background:var(--bg);z-index:200;}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:12px;}
+.logo-seal{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.6875rem;color:var(--gold);flex-shrink:0;}
+.logo-primary{font-family:'DM Serif Display',serif;font-size:.875rem;color:var(--ink);}
+.logo-sub{font-size:.5625rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+.case-badge{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);border:1px solid var(--border-strong);padding:3px 8px;letter-spacing:.1em;background:var(--panel);font-weight:700;}
+.hdr-btn{background:var(--panel);border:1px solid var(--border-strong);color:var(--ink);font-family:'DM Mono',monospace;font-size:.5625rem;padding:6px 11px;cursor:pointer;font-weight:700;}
+
+.case-quicknav{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:190;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.cqn-inner{display:flex;align-items:center;gap:4px;padding:7px 24px;max-width:1100px;margin:0 auto;}
+.cqn-link{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.05em;color:var(--gold);border:1px solid var(--border-strong);padding:5px 9px;text-decoration:none;flex-shrink:0;}
+.cqn-link:hover{background:var(--panel);}
+.cqn-link.current{background:var(--gold);color:var(--on-gold);border-color:var(--gold);font-weight:700;}
+.cqn-link.planned{opacity:.4;cursor:default;pointer-events:none;}
+.cqn-sep{color:var(--border-strong);flex-shrink:0;margin:0 2px;}
+
+.progress-bar-wrap{background:var(--panel);border-bottom:1px solid var(--border);padding:8px 0;}
+.progress-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+.progress-track{height:4px;background:rgba(120,120,120,.25);border-radius:2px;margin-bottom:6px;}
+.progress-fill{height:4px;background:var(--gold);border-radius:2px;transition:width .4s ease;}
+.progress-labels{display:flex;justify-content:space-between;}
+.progress-text{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);letter-spacing:.08em;}
+.progress-pct{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);font-weight:700;}
+
+.main{max-width:860px;margin:0 auto;padding:36px 24px 80px;}
+.screen{animation:fadeUp .3s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.section-nav{display:flex;gap:4px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-btn{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;background:var(--panel);border:2px solid var(--gold);color:var(--ink);cursor:pointer;font-weight:600;}
+.sec-btn.active{background:var(--gold);color:var(--on-gold);font-weight:700;}
+.sec-btn.complete{border-color:var(--accent);color:var(--accent);}
+.sec-btn.locked{opacity:.4;cursor:not-allowed;}
+
+.eyebrow{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.title-main{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4vw,2.375rem);line-height:1.18;color:var(--ink);margin-bottom:14px;}
+.title-main em{color:var(--gold);font-style:italic;}
+.title-sub{font-size:1.625rem;}
+.lede{font-size:.875rem;line-height:1.8;color:var(--ink);max-width:640px;margin-bottom:22px;}
+.lede strong{font-weight:700;}
+
+.card{border:2px solid var(--border-strong);background:var(--panel);padding:16px 18px;margin-bottom:14px;}
+.card-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.card p{font-size:.8125rem;line-height:1.7;color:var(--ink);margin-bottom:8px;}
+.card p:last-child{margin-bottom:0;}
+.card ul{margin:6px 0 8px 18px;font-size:.8125rem;line-height:1.7;color:var(--ink);}
+.card strong{font-weight:700;}
+.people-card{border-left:6px solid var(--accent);background:var(--accent-bg);}
+.people-card .card-label{color:var(--accent);}
+.proc-tag{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--ink);border:2px solid var(--gold);padding:3px 8px;display:inline-block;margin:6px 4px 0 0;letter-spacing:.07em;background:var(--bg);font-weight:700;}
+
+table.ref{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:.75rem;}
+table.ref th{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:7px 9px;background:var(--gold);color:var(--on-gold);}
+table.ref td{padding:8px 9px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;color:var(--ink);}
+table.ref td:first-child{font-weight:700;}
+.table-wrap{overflow-x:auto;}
+
+.reflect-block{margin-bottom:18px;}
+.reflect-q{font-size:.8125rem;color:var(--ink);font-weight:600;margin-bottom:8px;line-height:1.6;}
+.reflect-input{width:100%;background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:11px 13px;outline:none;min-height:80px;resize:vertical;}
+.name-input{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;padding:12px 15px;outline:none;width:100%;max-width:420px;}
+.theme-select-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px;}
+.theme-select-item label,.field-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;display:block;font-weight:700;}
+.theme-select{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:10px 12px;outline:none;width:100%;}
+.na-row{display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--ink);cursor:pointer;margin-bottom:14px;user-select:none;}
+.profile-display{margin-bottom:18px;border:2px solid var(--gold);padding:14px 16px;}
+.profile-value{font-size:.9375rem;color:var(--ink);}
+.link-btn{background:none;border:none;color:var(--gold);text-decoration:underline;cursor:pointer;font-size:.6875rem;margin-top:8px;font-family:'Inter',sans-serif;font-weight:600;}
+.form-msg{display:none;margin:10px 0;padding:10px 14px;border:2px solid var(--danger);background:var(--danger-bg);color:var(--ink);font-size:.8125rem;font-weight:600;}
+.form-msg.show{display:block;}
+
+.scenario-box{background:var(--scenario-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:18px 20px;margin-bottom:18px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.scenario-text{font-size:.875rem;line-height:1.8;color:var(--ink);}
+.scenario-text p{margin-bottom:10px;}
+.scenario-text p:last-child{margin-bottom:0;}
+.scenario-text strong{color:var(--gold);}
+.quote{border-left:3px solid var(--gold);padding:2px 0 2px 12px;margin:10px 0;font-style:italic;}
+.decision-prompt{font-family:'DM Serif Display',serif;font-size:1.125rem;color:var(--ink);margin:18px 0 14px;}
+.choice-option{display:block;width:100%;text-align:left;background:var(--bg);border:2px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;line-height:1.6;padding:13px 16px;margin-bottom:8px;cursor:pointer;}
+.choice-option:hover{border-color:var(--gold);background:var(--panel);}
+.choice-option.chosen{border-color:var(--gold);border-width:3px;opacity:1 !important;}
+.choice-letter{font-family:'DM Mono',monospace;font-weight:700;color:var(--gold);margin-right:8px;}
+
+.consequence-box{background:var(--accent-bg);border:2px solid var(--accent);border-left:6px solid var(--accent);padding:16px 18px;margin:16px 0;}
+.consequence-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.consequence-text{font-size:.8125rem;line-height:1.75;color:var(--ink);}
+.consequence-text p{margin-bottom:8px;}
+.insight-box{background:var(--warn-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:14px 16px;margin-top:12px;}
+.insight-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+.insight-text{font-size:.75rem;line-height:1.7;color:var(--ink);}
+
+.question-block{background:var(--panel-2);border:2px solid var(--border);padding:18px;margin-bottom:12px;}
+.question-num{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--gold);letter-spacing:.1em;margin-bottom:8px;font-weight:700;}
+.question-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;padding:2px 7px;border:2px solid var(--gold);color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;margin-left:8px;}
+.question-text{font-size:.875rem;color:var(--ink);line-height:1.55;margin-bottom:14px;font-weight:600;}
+.answer-option{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:2px solid var(--border);margin-bottom:6px;cursor:pointer;font-size:.8125rem;color:var(--ink);line-height:1.5;background:var(--bg);}
+.answer-option:hover{border-color:var(--gold);background:var(--panel);}
+.answer-option.selected{border:3px solid var(--gold);background:var(--panel);}
+.answer-option.correct{background:var(--accent);border-color:var(--accent);color:#FFFFFF;font-weight:700;}
+.answer-option.incorrect{background:var(--danger);border-color:var(--danger);color:#FFFFFF;font-weight:700;}
+body.dark-mode .answer-option.correct{background:#2F5A1F;color:#F5F2EB;}
+body.dark-mode .answer-option.incorrect{background:#7A2A22;color:#F5F2EB;}
+.answer-radio{width:14px;height:14px;border:2px solid var(--gold);border-radius:50%;flex-shrink:0;margin-top:2px;}
+.answer-option.selected .answer-radio{background:var(--gold);}
+.answer-option.correct .answer-radio,.answer-option.incorrect .answer-radio{background:#FFFFFF;border-color:#FFFFFF;}
+.kc-explain{font-size:.75rem;line-height:1.65;color:var(--ink);margin-top:10px;padding-top:10px;border-top:2px solid var(--border);display:none;}
+.kc-explain.show{display:block;}
+.kc-feedback{padding:14px 16px;margin-top:14px;font-size:.875rem;display:none;border:2px solid;color:var(--ink);}
+.kc-feedback.show{display:block;}
+.kc-feedback.pass{background:var(--accent-bg);border-color:var(--accent);}
+.kc-feedback.fail{background:var(--danger-bg);border-color:var(--danger);}
+.kc-score{font-family:'DM Mono',monospace;font-size:1.375rem;font-weight:700;margin-bottom:4px;}
+
+.path-list{list-style:none;margin:8px 0 0 0;padding:0;}
+.path-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.8125rem;line-height:1.6;color:var(--ink);}
+.path-list li:last-child{border-bottom:none;}
+.path-list .pl-k{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;font-weight:700;display:block;}
+
+.complete-wrap{background:var(--panel-2);border:3px solid var(--gold);padding:32px;text-align:center;margin-top:20px;}
+.complete-seal{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin:0 auto 14px;}
+.complete-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:8px;}
+.complete-sub{font-size:.8125rem;color:var(--ink);margin-bottom:20px;}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--on-gold);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;}
+.btn-primary:hover{filter:brightness(1.15);}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:2px solid var(--gold);cursor:pointer;}
+.btn-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.nav-row{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:18px;border-top:2px solid var(--gold);}
+
+footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
+.footer-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-attr{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);letter-spacing:.09em;font-weight:700;}
+.footer-doc{font-size:.5625rem;color:var(--ink-2);}
+.fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
+@media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-seal">088</div>
+      <div>
+        <div class="logo-primary">Interactive 088: Military Programs PM in USACE</div>
+        <div class="logo-sub">Case File 10 &middot; Procurement and Award</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span class="case-badge">CHAPTER 10 &middot; PROCUREMENT &amp; AWARD</span>
+      <button class="hdr-btn" id="font-toggle" onclick="toggleFontSize()">Text: M</button>
+      <button class="hdr-btn" id="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </div>
+  </div>
+</header>
+
+<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link current" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+
+<div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
+  <div class="progress-inner">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
+  </div>
+</div>
+
+<div class="main" id="main-content"></div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-attr">Interactive 088 &middot; PPM Community of Practice</span>
+    <span class="footer-doc">PROSPECT 088 Chapter 10 &middot; Case File 10 v0.1 preview &middot; Fictional scenario for instruction only</span>
+  </div>
+</footer>
+
+<script>
+/*META{"phase":"Procurement and Award","badge":"CHAPTER 10 &middot; PROCUREMENT &amp; AWARD","chapter":"Chapter 10"}META*/
+var CASE={
+n:'10',title:'Award Day',
+titleHtml:`Award<br><em>Day.</em>`,
+lede:`An offeror has a clever idea, the winning price looks good, and the sponsor wants the contract signed. <strong>Whose decision is each of those, and what does the PM have to have in hand before award?</strong>`,
+doctrine:`Notices, inquiries and amendments, source selection support, options, additives and alternatives, the award estimate, program amount and funds, and the gates before a Contracting Officer signs (Chapter 10).`,
+skill:`Staying out of a competition you do not control while still protecting the project, and delivering a hold recommendation that leaders can act on.`,
+minutes:'30',
+figures:`The dollar figures in this case file are illustrative training inputs from Chapter 10's own Ridgeway episode ($48.0M program amount and related values). Earlier chapters use different illustrative figures, and the manuscript flags that these are not reconciled and must not be read as one approved budget.`,
+cast:[`<strong>Nora Delgado</strong>, project manager (you)`,`<strong>Wen Zhao</strong>, Contracting Officer`,`<strong>Marcus Reyes</strong>, Resource Management`,`<strong>Elena Ortiz</strong>, cost engineer; <strong>Ingrid Larsen</strong>, Technical Lead; <strong>Rafael Soto</strong>, Construction`,`<strong>Dana Whitfield</strong>, Program Manager; <strong>Gerald Voss</strong>, sponsor representative`],
+trainingTitle:`The PM Supports a Competition It Does Not Control`,
+training:`<div class="card"><div class="card-label">Chapter 10 &middot; Procurement and Award</div>
+<p>The <strong>Contracting Officer</strong> controls the competition: notices, the official response to every question, amendments, source selection and the award decision. The PM organizes a prompt, defensible <em>technical</em> answer and exposes the schedule effect. A statement by an engineer at a site visit is not a substitute for an amendment. Public notices, pre-proposal meetings, inquiries and amendments are not independent PM communication channels, and sensitive deliberations stay in the authorized evaluation channel.</p>
+<p>If an inquiry or proposed deviation would materially change the requirement, route it through the KO. Engineering analyzes mission impact, cost and schedule. The KO decides whether to amend, extend or resolicit.</p></div>
+<div class="card"><div class="card-label">Options, Additives and Alternatives Are Different</div>
+<p>An <strong>option</strong> is a future contractual right. An <strong>additive</strong> is a predefined configuration priced for possible selection at initial award. An <strong>alternative</strong> is a different solution the solicitation permits. The KO tells the PDT which provision actually applies. The base must be a complete and usable facility. Do not use "we can always add it later," because later work may need a valid option exercise, a lawful change or another competitive action.</p></div>
+<div class="card"><div class="card-label">The Award Estimate and the Funds</div>
+<p>Do not report the winning price as the project cost. Reconcile the <strong>whole project</strong>: the contract, the risk-based change exposure, Government-managed costs and support. Then compare to the program amount, and separately ask what funds are legally available to obligate. A documented award recommendation does not itself make an award. The PM must not dictate negotiations or contact a selected offeror independently, and an award recommendation stays conditional until legal, fiscal and delegated approvals are complete.</p>
+<p>A credible hold recommendation names the exact deficiency, the cure, when the decision must occur, which technical work can continue lawfully, and the effect on the construction-contract-award milestone and occupancy forecast, without revising the approved baseline unless change control requires it.</p>
+<span class="proc-tag">CHAPTER 10</span><span class="proc-tag">FAR 5, 15, 36</span><span class="proc-tag">CC800</span><span class="proc-tag">AWARD CWE</span></div>
+<div class="card people-card"><div class="card-label">People Skill &middot; Saying "That Is the KO's Call" Without Sounding Evasive</div>
+<p>Say who decides, what you are doing to help them decide well, and when the person asking will know. "That is Ms. Zhao's call. I am getting her the engineering analysis today, and she will tell us whether it needs an amendment" is an answer, not a dodge.</p></div>`,
+domain:'Relationship Building',
+hook:`Notice in this case where you want to be helpful to an offeror or sponsor in a way that is not yours to offer.`,
+reflections:[
+`How do you handle someone outside the team who asks you for a quick informal answer in the middle of a competition?`,
+`What is the difference, in your own words, between the price of a contract and the cost of a project?`,
+`When you cannot support an award yet, how do you say so in a way that gives leaders a path?`],
+scenario:{label:'Ridgeway in Competition',text:`<p><strong>Project Ridgeway</strong> is in a two-phase conventional FAR Design-Build procurement. The Contracting Officer, <strong>Wen Zhao</strong>, runs the competition. Resource Management (<strong>Marcus Reyes</strong>), the cost engineer (<strong>Elena Ortiz</strong>) and the PDT support her.</p>
+<p>Figures in this case file are illustrative teaching inputs from the chapter, not an approved budget: program amount $48.0M, pre-solicitation estimate $47.0M.</p>`},
+decisions:[
+{context:`<p>During the Phase Two question period, an offeror calls you directly. They suggest precast panels would avoid the outage-window constraint on the utility tie-in, and ask, "Would the Government be open to that? Can you give us a quick yes?"</p>`,
+prompt:`What do you say?`,
+options:[
+{id:'a',text:`Do not signal approval or discuss it. Route the inquiry to the KO in writing, ask Engineering to evaluate equivalence to the performance criteria, update the acquisition schedule for a possible amendment, and share only KO-cleared information.`},
+{id:'b',text:`Say it sounds reasonable and you will check with Engineering informally.`},
+{id:'c',text:`Tell the offeror you will check with the sponsor first.`},
+{id:'d',text:`Tell the other offerors about it so it is fair.`}],
+cons:{
+a:{s:`Routed the inquiry to the KO and kept the competition clean.`,t:`<p>You tell the caller that all questions go through Ms. Zhao and that you cannot discuss it. Ingrid evaluates equivalence, finding the idea would materially affect site work. Wen decides it requires an amendment and considers the proposal due date. You update the subnet and forecast for the revised time.</p>`,i:`<strong>What this reveals:</strong> The PM does not respond directly or signal approval. The KO controls the official response and determines whether an amendment is needed.`},
+b:{s:`Hinted at approval to one offeror.`,t:`<p>The offeror reads "sounds reasonable" as a green light and builds a proposal on it. The Government now has an uneven playing field and a possible protest.</p>`,i:`<strong>What this reveals:</strong> A casual signal in a competition can undermine it. Failure to convey consistent terms puts the award at risk.`},
+c:{s:`Brought the sponsor into a procurement communication.`,t:`<p>The sponsor has no role in evaluating an offeror's inquiry, and the question has now moved outside the authorized channel.</p>`,i:`<strong>What this reveals:</strong> Sensitive procurement deliberations remain within the authorized evaluation channel.`},
+d:{s:`Released information on your own authority.`,t:`<p>Sharing before the KO decides what to say, and how, is itself an improper disclosure of an unresolved issue. Wen has to manage the consequences.</p>`,i:`<strong>What this reveals:</strong> Fairness is delivered through the KO's amendment, not by the PM broadcasting.`}}},
+{context:`<p>The evaluation concludes and the KO identifies an awardable configuration at $41.2 million (base plus Additive A). Mr. Voss, delighted, says, "So the project costs $41.2 million. We came in under the $48 million program amount." Elena has built a whole-project view.</p>`,
+prompt:`How do you respond?`,
+options:[
+{id:'a',text:`Explain that $41.2 million is the contract price. The award estimate adds risk-based change exposure and Government-managed costs (about $48.6 million in this illustration), which is about $0.6 million over the program amount. Review the excess, check that nothing indispensable was deferred, and work with RM and program officials.`},
+{id:'b',text:`Agree and report that the project costs $41.2 million.`},
+{id:'c',text:`Report that the $48.6 million estimate is automatically allowable.`},
+{id:'d',text:`Drop the change-exposure line so the total matches the program amount.`}],
+cons:{
+a:{s:`Reconciled the whole project and treated the excess as something to review.`,t:`<p>Elena shows the build-up: contract, change exposure, support, engineering and remaining Government costs. You explain both differences, to the program amount and to the prior estimate, and note that rates and methods still need verification. Mr. Voss is quieter, and better informed.</p>`,i:`<strong>What this reveals:</strong> Do not report the winning price as the project cost. Explain the variance rather than mask it, and do not assert that an estimate above the program amount is automatically allowable.`},
+b:{s:`Reported the contract price as the project cost.`,t:`<p>The command hears "under budget." Months later, support and change exposure surface and the apparent saving is reversed in public.</p>`,i:`<strong>What this reveals:</strong> The contract price is one component. A project-wide award estimate includes the Government-managed costs and risk allowance.`},
+c:{s:`Assumed an estimate above the program amount is permitted.`,t:`<p>Whether an excess is allowable turns on authorized cost and scope authorities, not on the estimate. Counsel and program officials, not the PM, advise on the statutory implications.</p>`,i:`<strong>What this reveals:</strong> Review the excess, test whether any deferred work is indispensable to a complete usable facility, and obtain the right decisions.`},
+d:{s:`Dropped a cost to make the totals match.`,t:`<p>The exposure still exists and is now hidden. The estimate has been changed to fit a number instead of the facts.</p>`,i:`<strong>What this reveals:</strong> Reducing the estimate by omitting an essential component is not risk management.`}}},
+{context:`<p>Marcus tells you that only $39.0 million is presently available to obligate for the $41.2 million initial contract, a gap of $2.2 million. Mr. Voss says, "The program amount is $48 million. There is plenty. Just have Wen sign it today."</p>`,
+prompt:`What do you do?`,
+options:[
+{id:'a',text:`Recommend a hold pending the lawful funding action. Present the exact deficiency, the cure options (funding and approvals, a permitted change to the award configuration under the RFP, or a documented delay), owners, decision dates, and the effect on CC800 and occupancy. Do not direct the KO to sign.`},
+{id:'b',text:`Ask Wen to sign today and sort out the funds afterward.`},
+{id:'c',text:`Tell Mr. Voss the program amount means the money is available.`},
+{id:'d',text:`Cancel the award.`}],
+cons:{
+a:{s:`Recommended a hold with the deficiency, the cures and the consequences.`,t:`<p>Your readiness brief shows award price, total estimate, variance to the program amount, authorization analysis, the funds shortfall, and the owner and timing of each pending approval. Dana takes the funding action to the program level. Wen waits for adequate fiscal assurance before she signs.</p>`,
+th:function(d){return d[1]==='a'?'<p>Because you reconciled the whole project earlier, the brief can speak to the full cost picture without another round of corrections.</p>':'';},
+i:`<strong>What this reveals:</strong> A credible hold recommendation names the deficiency and the cure and shows the forecast, without revising the approved baseline unless change control requires it. The PM does not infer that the program amount is ready cash.`},
+b:{s:`Pressed for a signature ahead of the funds.`,t:`<p>Wen declines. A contract cannot be signed without adequate fiscal assurance. You have asked an official to do what she cannot lawfully do.</p>`,i:`<strong>What this reveals:</strong> RM confirms the fiscal commitment. The KO signs only after the legal, fiscal and delegated approvals are complete.`},
+c:{s:`Equated program amount with available cash.`,t:`<p>Mr. Voss tells the command the funds are there. They are not. The correction arrives in the middle of the award week.</p>`,i:`<strong>What this reveals:</strong> Authorization, appropriation, funds distribution and award are different steps. A program amount is not available funds.`},
+d:{s:`Cancelled an award on the strength of a funding gap alone.`,t:`<p>Nothing required cancellation. A hold with a cure path preserves the competition and the options, and cancellation loses both.</p>`,i:`<strong>What this reveals:</strong> The right response to a gap is a documented hold and a cure, not a reflexive abandonment.`}}}
+],
+debrief:{
+title:`What the PM Brought to Award`,
+html:`<p>In each decision the PM stayed within the PM's role. The inquiry went to the KO, the price was reconciled into a whole-project estimate, and the funding gap became a hold recommendation with cures. Award itself is a KO act. The PM's job was to make sure everything the KO needed from the project side was true, documented and in the right hands.</p>
+<p>When award finally occurs, the PM confirms the executed record (contract identification, amount, selected additive, amendments, funds obligated, award date) and reconciles the project record to it before transferring the technical constraints and risks to Construction.</p>`,
+ledger:[[`Inquiry`,`Routed through the KO. Possible amendment and revised proposal time reflected in the forecast.`],[`Award estimate`,`Reconciled whole-project estimate. Excess to program amount under review (illustrative).`],[`Funds`,`Gap identified. Hold recommended pending lawful funding action.`],[`Award`,`KO act, after required approvals. Not yet recorded in this case.`]],
+handoffTitle:`Hand-off to Chapter 11`,
+handoff:`<p>Once the contract is signed, the question changes from "how do we buy it" to "how do we build it, and who is talking to the contractor." Case File 11 follows Ridgeway into construction, where the PM, Construction and the KO have to work as one team.</p>`},
+kc:[
+{tag:'Doctrine',text:`An offeror proposes a different technical solution during the question period. Who decides whether it requires an amendment?`,options:[`The PM`,`The Contracting Officer, supported by Engineering's analysis of impact`,`The sponsor`,`The end user`],correct:1,explain:`The PM routes the issue to the KO. The KO controls the official response and decides on an amendment, extension or resolicitation.`},
+{tag:'Doctrine',text:`What distinguishes an option from an additive?`,options:[`Nothing`,`An option is a defined future contractual right, while an additive is a predefined configuration priced for possible selection at initial award`,`An option is always unfunded`,`An additive is a post-award change`],correct:1,explain:`The KO tells the PDT which provision applies. "We can always add it later" is not a safe assumption.`},
+{tag:'Judgment',text:`The winning contract price is $41.2 million and the program amount is $48.0 million. What should the PM report as the project cost?`,options:[`$41.2 million`,`A reconciled whole-project estimate including change exposure and Government-managed costs, with variances explained and reviewed against the program amount`,`$48.0 million`,`Whatever the sponsor prefers`],correct:1,explain:`Do not report the winning price as the project cost. Reconcile the whole project.`},
+{tag:'Doctrine',text:`Does a program amount establish that funds are available to obligate?`,options:[`Yes`,`No. Authorization, appropriation, funds distribution and award are different steps, and RM certifies availability`,`Only for MILCON`,`Only after award`],correct:1,explain:`Do not infer that a program amount provides ready cash.`},
+{tag:'Judgment',text:`Only part of the needed funds are available at award time. What should the PM do?`,options:[`Ask the KO to sign anyway`,`Recommend a hold, describe the exact deficiency, the cures, owners, dates and forecast effects, and do not direct the KO`,`Cancel the award`,`Tell the sponsor the money exists`],correct:1,explain:`A credible hold recommendation gives leaders a path. The KO signs only when fiscal and other approvals are complete.`},
+{tag:'Doctrine',text:`After award, what establishes the award date for the project record?`,options:[`The scheduled ceremony`,`The executed contract record, reconciled with Contracting and RM`,`The sponsor's announcement`,`The evaluation completion`],correct:1,explain:`The PM confirms contract identification, selected additive, funds and award date from the executed record before reconciling the project system.`}],
+commit:`Where in your current work are you tempted to give an informal answer that belongs to someone else? What will you say instead?`
+};
+
+CASE.nextFile='CaseFile11_WhatTheFieldFound.html';CASE.nextN='11';
+var STORAGE_KEY='p088_cf'+CASE.n+'_v1';
+var CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};
+
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(CS));}catch(e){}}
+function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;var d=JSON.parse(raw);if(!d||!d.name)return false;CS=d;return true;}catch(e){return false;}}
+
+/* ===== THEME AND TEXT SIZE ===== */
+function applyTheme(t){
+  if(t==='dark'){document.body.classList.add('dark-mode');}else{document.body.classList.remove('dark-mode');}
+  var b=document.getElementById('theme-toggle');
+  if(b)b.textContent=(t==='dark')?'Light Mode':'Dark Mode';
+  try{localStorage.setItem('pm-course-theme',t);}catch(e){}
+}
+function toggleTheme(){applyTheme(document.body.classList.contains('dark-mode')?'light':'dark');}
+var FONT_SIZES=['font-s','','font-l'];
+var FONT_LABELS={'font-s':'Text: S','':'Text: M','font-l':'Text: L'};
+function applyFontSize(cls){
+  document.documentElement.classList.remove('font-s','font-l');
+  if(cls){document.documentElement.classList.add(cls);}
+  var b=document.getElementById('font-toggle');
+  if(b)b.textContent=FONT_LABELS[cls];
+  try{localStorage.setItem('pm-fontsize',cls);}catch(e){}
+}
+function toggleFontSize(){
+  var cur=document.documentElement.classList.contains('font-l')?'font-l':(document.documentElement.classList.contains('font-s')?'font-s':'');
+  applyFontSize(FONT_SIZES[(FONT_SIZES.indexOf(cur)+1)%FONT_SIZES.length]);
+}
+(function(){
+  var f='',t='light';
+  try{f=localStorage.getItem('pm-fontsize')||'';var s=localStorage.getItem('pm-course-theme')||'';if(s.indexOf('dark')===0)t='dark';}catch(e){}
+  applyFontSize(f);applyTheme(t);
+})();
+
+/* ===== SECTIONS ===== */
+var SECTIONS=['welcome','training','discussion','casestudy','kc','complete'];
+var SECTION_LABELS={welcome:'Welcome',training:'Training',discussion:'Discussion',casestudy:'Case Study',kc:'Knowledge Check',complete:'Complete'};
+function updateProgress(){
+  var idx=SECTIONS.indexOf(CS.section);
+  var pct=Math.round((idx/(SECTIONS.length-1))*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('progress-label').textContent=SECTION_LABELS[CS.section]||'';
+}
+function renderNav(){
+  var order=['training','discussion','casestudy','kc'];
+  var html='<div class="section-nav">';
+  order.forEach(function(s,idx){
+    var cls='sec-btn'+(CS.section===s?' active':'')+(CS.sectionsComplete[s]?' complete':'');
+    var locked=(idx>0 && !CS.sectionsComplete[order[idx-1]] && CS.section!==s);
+    if(locked)cls+=' locked';
+    html+='<button class="'+cls+'" '+(locked?'disabled':'onclick="goSection(\''+s+'\')"')+'>'+(CS.sectionsComplete[s]?'&#10003; ':'')+SECTION_LABELS[s]+'</button>';
+  });
+  return html+'</div>';
+}
+function goSection(s){CS.section=s;saveState();render();}
+function completeSection(cur,next){CS.sectionsComplete[cur]=true;CS.section=next;saveState();render();}
+function render(){
+  var m=document.getElementById('main-content');
+  document.getElementById('progress-bar-wrap').style.display=(CS.section==='welcome')?'none':'block';
+  if(CS.section==='welcome')m.innerHTML=renderWelcome();
+  else if(CS.section==='training')m.innerHTML=renderTraining();
+  else if(CS.section==='discussion')m.innerHTML=renderDiscussion();
+  else if(CS.section==='casestudy')m.innerHTML=renderCaseStudy();
+  else if(CS.section==='kc')m.innerHTML=renderKC();
+  else if(CS.section==='complete')m.innerHTML=renderComplete();
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showMsg(t){var el=document.getElementById('form-msg');if(el){el.textContent=t;el.className='form-msg show';}}
+
+/* ===== LEARNER PROFILE (shared across the course series) ===== */
+var THEME_DOMAIN={'Analytical':'Strategic Thinking','Context':'Strategic Thinking','Futuristic':'Strategic Thinking','Ideation':'Strategic Thinking','Input':'Strategic Thinking','Intellection':'Strategic Thinking','Learner':'Strategic Thinking','Strategic':'Strategic Thinking','Adaptability':'Relationship Building','Connectedness':'Relationship Building','Developer':'Relationship Building','Empathy':'Relationship Building','Harmony':'Relationship Building','Includer':'Relationship Building','Individualization':'Relationship Building','Positivity':'Relationship Building','Relator':'Relationship Building','Activator':'Influencing','Command':'Influencing','Communication':'Influencing','Competition':'Influencing','Maximizer':'Influencing','Self-Assurance':'Influencing','Significance':'Influencing','Woo':'Influencing','Achiever':'Executing','Arranger':'Executing','Belief':'Executing','Consistency':'Executing','Deliberative':'Executing','Discipline':'Executing','Focus':'Executing','Responsibility':'Executing','Restorative':'Executing'};
+var THEME_OPTIONS='<option value="">Select</option><optgroup label="Strategic Thinking"><option>Analytical</option><option>Context</option><option>Futuristic</option><option>Ideation</option><option>Input</option><option>Intellection</option><option>Learner</option><option>Strategic</option></optgroup><optgroup label="Relationship Building"><option>Adaptability</option><option>Connectedness</option><option>Developer</option><option>Empathy</option><option>Harmony</option><option>Includer</option><option>Individualization</option><option>Positivity</option><option>Relator</option></optgroup><optgroup label="Influencing"><option>Activator</option><option>Command</option><option>Communication</option><option>Competition</option><option>Maximizer</option><option>Self-Assurance</option><option>Significance</option><option>Woo</option></optgroup><optgroup label="Executing"><option>Achiever</option><option>Arranger</option><option>Belief</option><option>Consistency</option><option>Deliberative</option><option>Discipline</option><option>Focus</option><option>Responsibility</option><option>Restorative</option></optgroup>';
+function getProfile(){try{var r=localStorage.getItem('pm-learner-profile');return r?JSON.parse(r):null;}catch(e){return null;}}
+function saveProfile(name,themes){try{localStorage.setItem('pm-learner-profile',JSON.stringify({name:name,themes:themes,savedAt:new Date().toISOString()}));}catch(e){}}
+function clearProfileAndReload(){try{localStorage.removeItem('pm-learner-profile');}catch(e){}render();}
+function toggleNAThemes(){document.getElementById('theme-grid').style.display=document.getElementById('na-checkbox').checked?'none':'grid';}
+function renderProfileFields(){
+  var p=getProfile();
+  if(p&&p.name){
+    var th=(p.themes&&p.themes[0]!=='N/A')?p.themes.join(', '):'Not provided';
+    return '<div class="profile-display"><div class="field-label">Learner</div><div class="profile-value">'+p.name+'</div>'
+      +'<div class="field-label" style="margin-top:10px;">Top Five Strengths (optional)</div><div class="profile-value">'+th+'</div>'
+      +'<button class="link-btn" onclick="clearProfileAndReload()">Not you, or need to change this? Clear and re-enter</button></div>';
+  }
+  var sels='';
+  for(var i=1;i<=5;i++){sels+='<div class="theme-select-item"><label for="theme-select-'+i+'">Theme '+i+'</label><select class="theme-select" id="theme-select-'+i+'">'+THEME_OPTIONS+'</select></div>';}
+  return '<div style="margin-bottom:18px;"><label class="field-label" for="name-input">Your name</label>'
+    +'<input class="name-input" id="name-input" type="text" placeholder="First and last name"></div>'
+    +'<div class="field-label">Your top five CliftonStrengths themes (optional)</div>'
+    +'<label class="na-row"><input type="checkbox" id="na-checkbox" onchange="toggleNAThemes()"> I do not know my themes, or prefer to skip</label>'
+    +'<div class="theme-select-grid" id="theme-grid">'+sels+'</div>';
+}
+
+/* ===== SEEDED SHUFFLE (option order is fixed per case file, so saved answers stay valid) ===== */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var LETTERS=['A','B','C','D'];
+(function prepare(){
+  var seed=parseInt(CASE.n,10)*1000+7;
+  CASE.decisions.forEach(function(d,di){
+    var rnd=mulberry(seed+di*31);
+    var a=d.options.slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    a.forEach(function(o,k){o.letter=LETTERS[k];});
+    d.options=a;
+  });
+})();
+
+/* ===== WELCOME ===== */
+function renderWelcome(){
+  var saved=loadState();
+  var resume=(saved&&CS.name)?'<button class="btn-secondary" onclick="render()" style="margin-left:10px;">Resume as '+CS.name+' &rarr;</button>':'';
+  var cast='';
+  if(CASE.cast&&CASE.cast.length){cast='<div class="card"><div class="card-label">Who You Will Meet</div><ul>'+CASE.cast.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';}
+  return '<div class="screen">'
+  +'<p class="eyebrow">Interactive 088 &middot; Case File '+CASE.n+'</p>'
+  +'<h1 class="title-main">'+CASE.titleHtml+'</h1>'
+  +'<p class="lede">'+CASE.lede+'</p>'
+  +'<div class="card"><div class="card-label">What This Case File Covers</div>'
+  +'<p><strong>Military Programs Doctrine:</strong> '+CASE.doctrine+'</p>'
+  +'<p><strong>People Skill:</strong> '+CASE.skill+'</p></div>'
+  +cast
+  +'<div class="card"><div class="card-label">How This Works</div>'
+  +'<p>Training (5 min) &rarr; Reflection &rarr; Case Study ('+CASE.decisions.length+' branching decisions on Project Ridgeway) &rarr; Knowledge Check (6 questions, formative, 4 of 6 to move on). About '+CASE.minutes+' minutes in total. Your answers stay on this device.</p></div>'
+  +renderProfileFields()
+  +'<div class="form-msg" id="form-msg"></div>'
+  +'<div class="btn-row"><button class="btn-primary" onclick="startCase()">Begin Case File &rarr;</button>'+resume+'</div>'
+  +'<p class="fine">Project Ridgeway and every person in it are fictional. '+(CASE.figures||'The scenario adds no funding amounts, dates or approvals.')+' Governing regulations, delegations and authoritative records control actual projects.</p>'
+  +'</div>';
+}
+function startCase(){
+  var p=getProfile(),name,themes;
+  if(p&&p.name){name=p.name;themes=p.themes;}
+  else{
+    name=document.getElementById('name-input').value.replace(/^\s+|\s+$/g,'');
+    if(!name){showMsg('Please enter your name to continue.');return;}
+    if(document.getElementById('na-checkbox').checked){themes=['N/A'];}
+    else{
+      themes=[];
+      for(var i=1;i<=5;i++){
+        var v=document.getElementById('theme-select-'+i).value;
+        if(!v){showMsg('Please select all five themes, or check the box to skip this step.');return;}
+        themes.push(v);
+      }
+    }
+    saveProfile(name,themes);
+  }
+  CS.name=name;CS.themes=themes;CS.section='training';saveState();render();
+}
+
+/* ===== TRAINING ===== */
+function renderTraining(){
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Training &middot; 5 Minutes</p>'
+  +'<h2 class="title-main title-sub">'+CASE.trainingTitle+'</h2>'
+  +CASE.training
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'training\',\'discussion\')">Continue to Discussion &rarr;</button></div>'
+  +'</div>';
+}
+
+/* ===== DISCUSSION ===== */
+function strengthNote(){
+  var themes=(CS.themes||[]).filter(function(t){return t&&t!=='N/A';});
+  if(!themes.length)return 'Reflect on how your natural strengths shaped your approach to this scenario. Which choices came naturally, and which took deliberate effort?';
+  var t=themes[0],i;
+  for(i=0;i<themes.length;i++){if(THEME_DOMAIN[themes[i]]===CASE.domain){t=themes[i];break;}}
+  var d=THEME_DOMAIN[t];
+  var stem={
+   'Strategic Thinking':'Your <strong>'+t+'</strong> likely helps you see how the pieces connect. ',
+   'Relationship Building':'Your <strong>'+t+'</strong> likely helps you read the people involved. ',
+   'Influencing':'Your <strong>'+t+'</strong> likely helps you move others toward a decision. ',
+   'Executing':'Your <strong>'+t+'</strong> likely pushes you to get things done. '
+  }[d];
+  return stem+CASE.hook;
+}
+function renderDiscussion(){
+  var rq='';
+  CASE.reflections.forEach(function(q,i){rq+='<div class="reflect-block"><div class="reflect-q">'+(i+1)+'. '+q+'</div><textarea class="reflect-input" id="r'+(i+1)+'" placeholder="Type your thoughts..."></textarea></div>';});
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Discussion and Reflection</p>'
+  +'<h2 class="title-main title-sub">Before You See the Scenario</h2>'
+  +'<p class="lede">These reflections are not graded. Answer honestly. Your responses are saved only on this device.</p>'
+  +'<div class="card"><div class="card-label">Your Strengths Lens</div><p>'+strengthNote()+'</p></div>'
+  +rq
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="saveReflectionsAndContinue()">Continue to Case Study &rarr;</button></div>'
+  +'</div>';
+}
+function saveReflectionsAndContinue(){
+  var r={};
+  for(var i=1;i<=CASE.reflections.length;i++){var el=document.getElementById('r'+i);r['r'+i]=el?el.value:'';}
+  CS.reflections=r;
+  completeSection('discussion','casestudy');
+}
+
+/* ===== CASE STUDY ===== */
+var NDEC=CASE.decisions.length;
+function stepAt(i){
+  if(i===0)return {type:'scenario'};
+  if(i<=NDEC)return {type:'decision',d:CASE.decisions[i-1],label:'Decision '+i+' of '+NDEC};
+  return {type:'debrief'};
+}
+function bestCount(){var n=0;for(var i=1;i<=NDEC;i++){if(CS.decisions[i]==='a')n++;}return n;}
+function renderCaseStudy(){
+  var idx=CS.caseStep||0,step=stepAt(idx);
+  var html='<div class="screen">'+renderNav()+'<p class="eyebrow">Case Study &middot; Project Ridgeway</p>';
+  if(step.type==='scenario'){
+    html+='<h2 class="title-main title-sub">'+CASE.scenario.label+'</h2><div class="scenario-box"><div class="scenario-label">Scenario Setup</div><div class="scenario-text">'+CASE.scenario.text+'</div></div>'
+    +'<div class="nav-row"><span></span><button class="btn-primary" onclick="caseNext()">Begin Decision 1 &rarr;</button></div>';
+  }else if(step.type==='decision'){
+    var d=step.d;
+    html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
+    +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+  }else{
+    html+=renderDebrief();
+  }
+  return html+'</div>';
+}
+function caseNext(){
+  CS.caseStep=(CS.caseStep||0)+1;saveState();
+  document.getElementById('main-content').innerHTML=renderCaseStudy();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function chooseOption(id){
+  var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
+  if(document.getElementById('case-nav').style.display==='flex')return;
+  CS.decisions[idx]=id;saveState();
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  var c=d.cons[id];
+  var extra=c.th?c.th(CS.decisions):'';
+  document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
+    +'<div class="insight-box"><div class="insight-label">Insight</div><div class="insight-text">'+c.i+'</div></div></div>';
+  document.getElementById('case-nav').style.display='flex';
+  if(idx===NDEC)document.getElementById('case-next-btn').innerHTML='Continue to Debrief &rarr;';
+}
+function renderDebrief(){
+  var items='';
+  for(var i=1;i<=NDEC;i++){
+    var d=CASE.decisions[i-1],id=CS.decisions[i];
+    if(!id)continue;
+    var o=d.options.filter(function(x){return x.id===id;})[0];
+    items+='<li><span class="pl-k">Decision '+i+' &middot; you chose '+o.letter+'</span>'+d.cons[id].s+'</li>';
+  }
+  var n=bestCount();
+  var lead=(n===NDEC)?'You took the best-supported route on every decision. The harder skill is holding it when someone is standing in front of you asking for something else.':(n*2>=NDEC?'You took the best-supported route on '+n+' of '+NDEC+' decisions. Look at the others and ask what pressure pulled you off it.':'Several of your choices moved quickly toward what someone was asking for. That is a natural instinct. This case is about staying responsive without getting ahead of the evidence or the authority.');
+  var B=CASE.debrief;
+  var ledger='';
+  if(B.ledger){ledger='<div class="card"><div class="card-label">Ridgeway at the End of Case File '+CASE.n+'</div><div class="table-wrap"><table class="ref"><thead><tr><th>Item</th><th>Status in this case</th></tr></thead><tbody>'+B.ledger.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('')+'</tbody></table></div></div>';}
+  return '<h2 class="title-main title-sub">Case Debrief</h2>'
+  +'<div class="card people-card"><div class="card-label">Your Path Through Ridgeway</div><p>'+lead+'</p><ul class="path-list">'+items+'</ul></div>'
+  +'<div class="card"><div class="card-label">'+B.title+'</div>'+B.html+'</div>'
+  +ledger
+  +'<div class="card"><div class="card-label">'+B.handoffTitle+'</div>'+B.handoff+'</div>'
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'casestudy\',\'kc\')">Continue to Knowledge Check &rarr;</button></div>';
+}
+
+/* ===== KNOWLEDGE CHECK ===== */
+var KC_QUESTIONS=CASE.kc;
+var kcAnswers={},kcOrder={};
+function shuffleArray(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildKCOrder(){kcOrder={};KC_QUESTIONS.forEach(function(q,qi){var ix=[];for(var i=0;i<q.options.length;i++)ix.push(i);kcOrder[qi]=shuffleArray(ix);});}
+function renderKC(){
+  kcAnswers={};buildKCOrder();
+  var q='';
+  KC_QUESTIONS.forEach(function(Q,qi){
+    q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
+  });
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
+  +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
+  +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
+  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
+}
+function selectKCAnswer(qi,pos){
+  var n=KC_QUESTIONS[qi].options.length;
+  for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
+}
+function submitKC(){
+  var correct=0;
+  KC_QUESTIONS.forEach(function(q,qi){
+    var ord=kcOrder[qi],sel=kcAnswers[qi],ok=(ord[sel]===q.correct),cp=ord.indexOf(q.correct);
+    if(ok)correct++;
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.remove('selected');
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.add(ok?'correct':'incorrect');
+    if(!ok)document.getElementById('kc-opt-'+qi+'-'+cp).classList.add('correct');
+    document.getElementById('kc-explain-'+qi).classList.add('show');
+  });
+  CS.kcScore=correct;
+  var passed=(correct/KC_QUESTIONS.length)>=0.6;
+  var fb=document.getElementById('kc-feedback');
+  fb.className='kc-feedback show '+(passed?'pass':'fail');
+  fb.innerHTML='<div class="kc-score">'+correct+'/'+KC_QUESTIONS.length+'</div>'+(passed?'<strong>Well done.</strong> You have completed Case File '+CASE.n+'.':'<strong>Review the explanations above.</strong> This is a formative check, not a grade. The explanations are the learning.');
+  var row=document.getElementById('kc-btn-row');
+  if(passed){CS.sectionsComplete.kc=true;saveState();row.innerHTML='<button class="btn-primary" onclick="goSection(\'complete\')">Finish Case File &rarr;</button>';}
+  else{row.innerHTML='<button class="btn-primary" onclick="goSection(\'kc\')">Retake Knowledge Check</button>';}
+  fb.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ===== COMPLETE ===== */
+function renderComplete(){
+  CS.section='complete';saveState();
+  var next=CASE.nextFile?'<a href="'+CASE.nextFile+'" style="color:var(--gold);font-weight:700;">Continue to Case File '+CASE.nextN+' &rarr;</a> &middot; ':'This is the final case file. ';
+  return '<div class="screen"><div class="complete-wrap"><div class="complete-seal">&#10003;</div>'
+  +'<div class="complete-title">Case File '+CASE.n+' Complete</div>'
+  +'<div class="complete-sub">'+CS.name+' &middot; '+CASE.title+' &middot; Score: '+CS.kcScore+'/'+KC_QUESTIONS.length+'</div>'
+  +'<div style="text-align:left;max-width:480px;margin:0 auto 20px;"><label class="field-label" for="commitment">'+CASE.commit+'</label>'
+  +'<textarea class="reflect-input" id="commitment" placeholder="Type your commitment...">'+(CS.commitment||'')+'</textarea></div>'
+  +'<div class="form-msg" id="form-msg" style="text-align:left;"></div>'
+  +'<div class="btn-row" style="justify-content:center;"><button class="btn-primary" onclick="saveCommitment()">Save and Finish</button><button class="btn-secondary" onclick="askRestart()">Restart Case File</button></div>'
+  +'<div id="restart-confirm" style="display:none;margin-top:14px;" class="form-msg">This clears your progress for this case file. <button class="link-btn" onclick="restartCase()">Yes, restart</button> &middot; <button class="link-btn" onclick="cancelRestart()">Cancel</button></div>'
+  +'<p class="fine">'+next+'<a href="index.html" style="color:var(--gold);font-weight:700;">Course Home</a></p></div></div>';
+}
+function saveCommitment(){
+  CS.commitment=document.getElementById('commitment').value;saveState();
+  var el=document.getElementById('form-msg');el.style.borderColor='var(--accent)';el.style.background='var(--accent-bg)';el.textContent='Saved on this device. Thank you for completing Case File '+CASE.n+'.';el.className='form-msg show';
+}
+function askRestart(){var e=document.getElementById('restart-confirm');e.className='form-msg show';e.style.display='block';}
+function cancelRestart(){document.getElementById('restart-confirm').style.display='none';}
+function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
+
+(function init(){render();})();
+
+</script>
+</body>
+</html>

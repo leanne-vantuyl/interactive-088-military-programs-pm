@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive 088 Military Programs PM in USACE | Course Home</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--panel:#F3EFE4;--ink:#111111;--ink-2:#2A2A2A;--gold:#5A4010;--gold-soft:#7A5A10;
+  --border:rgba(90,64,16,.45);--border-strong:rgba(90,64,16,.75);--accent:#1A4A10;--accent-bg:#E8F0E8;--on-gold:#FFFFFF;--warn-bg:#FFF8E8;
+}
+body.dark-mode{
+  --bg:#1A1F14;--panel:#252D1C;--ink:#F5F2EB;--ink-2:#C8C4B8;--gold:#C8A84B;--gold-soft:#8B7235;
+  --border:rgba(200,168,75,.3);--border-strong:rgba(200,168,75,.6);--accent:#7BA05B;--accent-bg:rgba(123,160,91,.12);--on-gold:#1A1F14;--warn-bg:rgba(200,168,75,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}html.font-l{font-size:18px;}html.font-s{font-size:14px;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;min-height:100vh;}
+.wrap{max-width:780px;margin:0 auto;padding:28px 22px 60px;}
+.topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:16px;margin-bottom:28px;gap:10px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:12px;}
+.logo-seal{width:40px;height:40px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.75rem;color:var(--gold);flex-shrink:0;}
+.logo-primary{font-family:'DM Serif Display',serif;font-size:.9375rem;color:var(--ink);}
+.logo-sub{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-top:2px;font-weight:500;}
+.hdr-btn{background:var(--panel);border:1px solid var(--border-strong);color:var(--ink);font-family:'DM Mono',monospace;font-size:.5625rem;padding:7px 12px;cursor:pointer;letter-spacing:.08em;font-weight:700;}
+.eyebrow{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.title-main{font-family:'DM Serif Display',serif;font-size:clamp(1.75rem,5vw,2.625rem);line-height:1.18;color:var(--ink);margin-bottom:14px;}
+.title-main em{color:var(--gold);}
+.lede{font-size:.875rem;color:var(--ink);line-height:1.7;margin-bottom:24px;max-width:640px;}
+.instr-card{border:2px solid var(--border-strong);border-left:6px solid var(--accent);padding:18px 20px;margin-bottom:24px;background:var(--panel);}
+.instr-card .card-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.instr-card p{font-size:.8125rem;line-height:1.7;color:var(--ink);margin-bottom:8px;}
+.instr-card p:last-child{margin-bottom:0;}
+.notice{border:2px dashed var(--gold);background:var(--warn-bg);padding:12px 16px;margin-bottom:24px;font-size:.75rem;line-height:1.6;color:var(--ink);}
+.notice strong{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px;}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 18px;margin-top:8px;}
+.cast div{font-size:.75rem;line-height:1.5;color:var(--ink);}
+.cast b{display:block;font-weight:700;}
+.progress-bar-outer{height:6px;background:rgba(120,120,120,.25);width:100%;margin-bottom:6px;}
+.progress-bar-inner{height:6px;background:var(--accent);width:0%;transition:width .3s;}
+.progress-summary{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--ink);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+.phase-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin:30px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border);font-weight:700;}
+.case-card{display:flex;align-items:center;gap:16px;border:2px solid var(--border-strong);padding:16px 18px;margin-bottom:10px;text-decoration:none;color:var(--ink);background:var(--bg);}
+a.case-card:hover{background:var(--panel);}
+.case-card.planned{border-style:dashed;border-color:var(--border);opacity:.85;}
+.case-num{font-family:'DM Mono',monospace;font-size:.6875rem;color:var(--gold);border:2px solid var(--gold);border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;}
+.case-num.done{background:var(--accent);border-color:var(--accent);color:#FFFFFF;}
+.case-body{flex:1;min-width:0;}
+.case-title{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--ink);margin-bottom:3px;}
+.case-hook{font-size:.75rem;color:var(--ink-2);line-height:1.5;margin-bottom:4px;}
+.case-meta{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;font-weight:700;}
+.case-time{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink-2);letter-spacing:.08em;text-transform:uppercase;flex-shrink:0;white-space:nowrap;}
+.pill{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;flex-shrink:0;border:2px solid var(--accent);color:var(--accent);padding:3px 8px;font-weight:700;}
+.pill.soon{border-color:var(--gold-soft);color:var(--gold);}
+.case-arrow{font-family:'DM Mono',monospace;font-size:.875rem;color:var(--gold);flex-shrink:0;}
+.footer-note{margin-top:36px;padding-top:18px;border-top:2px solid var(--gold);font-size:.6875rem;color:var(--ink-2);line-height:1.7;}
+.footer-doc{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--gold);font-weight:700;}
+.cert-section{display:none;margin-top:36px;border:3px solid var(--gold);padding:32px;text-align:center;}
+.cert-section.show{display:block;}
+.cert-title{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.cert-name{font-family:'DM Serif Display',serif;font-size:1.75rem;margin-bottom:6px;}
+.cert-sub{font-size:.8125rem;line-height:1.7;max-width:480px;margin:0 auto 18px;}
+.cert-meta{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);letter-spacing:.08em;margin-bottom:6px;}
+@media print{.topbar,.eyebrow,.title-main,.lede,.progress-bar-outer,.progress-summary,.phase-label,.case-card,.instr-card,.notice,.footer-note{display:none!important;}.cert-section.show{display:block!important;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-seal">088</div>
+      <div><div class="logo-primary">Interactive 088: Military Programs PM in USACE</div><div class="logo-sub">PROSPECT 088 &middot; Interactive Companion &middot; 16 Case Files</div></div>
+    </div>
+    <div><button class="hdr-btn" id="font-toggle" onclick="toggleFontSize()">Text: M</button> <button class="hdr-btn" id="theme-btn" onclick="toggleTheme()">Dark Mode</button></div>
+  </div>
+
+  <p class="eyebrow">Course Home</p>
+  <h1 class="title-main">Sixteen Case Files.<br><em>One Facility.</em></h1>
+  <p class="lede">An interactive, scenario-based companion to <strong>PROSPECT 088</strong>, built for Military Programs project managers. Follow <strong>Nora Delgado</strong> and her Project Delivery Team through <strong>Project Ridgeway</strong>, a fictional Army MILCON maintenance facility, from a customer&rsquo;s first request to completion and closeout. Each case file pairs a chapter&rsquo;s Military Programs doctrine with a people skill, through a branching scenario and a 6-question Knowledge Check.</p>
+
+  <div class="notice"><strong>Preview build</strong>All sixteen case files are complete and playable, one per PROSPECT 088 chapter. Content follows the PROSPECT 088 consolidated manuscript v0.10 (peer review draft) and is not yet validated for production. Dollar figures in Case Files 03, 07 and 10 are illustrative inputs taken from different chapters and are not one approved Ridgeway budget.</div>
+
+  <div class="instr-card">
+    <div class="card-label">For Facilitators and Self-Paced Learners</div>
+    <p>Each case file runs about <strong>25 to 30 minutes</strong> and stands on its own: training, reflection, a branching scenario of three or four decisions, and a formative Knowledge Check (4 of 6 to move on). The full course is roughly <strong>8 hours</strong> and follows the order of the PROSPECT 088 chapters.</p>
+    <p>Recommended use: one or two case files per week as self-paced reinforcement, or individual case files as discussion starters in PDT, program or branch training. The storyline is continuous, and each case file works if used out of sequence.</p>
+  </div>
+
+  <div class="instr-card">
+    <div class="card-label">The Ridgeway Cast</div>
+    <div class="cast">
+      <div><b>Nora Delgado</b>Project Manager, District Military Programs Branch</div>
+      <div><b>Dana Whitfield</b>Program Manager (PgM)</div>
+      <div><b>Calvin Osei</b>Deputy for Programs and Project Management (DPM)</div>
+      <div><b>Ingrid Larsen</b>Engineering</div>
+      <div><b>Rafael Soto</b>Construction Branch</div>
+      <div><b>Gerald Voss</b>Sponsor representative</div>
+      <div><b>Lorraine Beck</b>Installation Directorate of Public Works</div>
+      <div><b>Maj. Teresa Hollis</b>End user, maintenance operations</div>
+      <div><b>Priya Natarajan</b>Project scheduler</div>
+      <div><b>Wen Zhao</b>Contracting Officer</div>
+      <div><b>Marcus Reyes</b>Resource Management</div>
+      <div><b>Elena Ortiz</b>Cost engineer</div>
+      <div><b>Anita Kapoor</b>Real Estate and property</div>
+      <div><b>Carlos Ibarra</b>Contractor project manager</div>
+    </div>
+  </div>
+
+  <div class="progress-summary" id="overall-text">Loading progress...</div>
+  <div class="progress-bar-outer"><div class="progress-bar-inner" id="overall-bar"></div></div>
+
+  <div id="case-list"></div>
+
+  <div class="cert-section" id="cert-section">
+    <div class="cert-title">Certificate of Completion</div>
+    <div class="cert-name" id="cert-name">Learner Name</div>
+    <div class="cert-sub">has completed all sixteen case files of <strong>Interactive 088: Military Programs PM in USACE</strong>, the interactive companion to PROSPECT 088.</div>
+    <div class="cert-meta" id="cert-meta"></div>
+  </div>
+
+  <div class="footer-note">
+    Each case file tracks your progress and Knowledge Check score separately in your browser. Progress shown here is per browser and per device.<br>
+    Project Ridgeway and its people are fictional. The scenarios add no funding amounts, dates or approvals. Governing regulations, delegations and authoritative records control actual projects.<br><br>
+    <span class="footer-doc">PROSPECT 088 &middot; Manuscript v0.10 &middot; Course Index v0.1 preview</span>
+  </div>
+</div>
+
+<script>
+var CASES=[
+ {n:'01',group:'Mission and Acceptance',title:'A Request, Not a Project',hook:'The customer wants a date. Nothing has been accepted. What do you do before the first meeting?',meta:'Ch 1 &middot; Mission and Responsibility',time:'~25 min',file:'CaseFile01_ARequestNotAProject.html'},
+ {n:'02',title:'Whose Call Is It?',hook:'PM and PgM, authority and delegation, and a decision that is not yours to make.',meta:'Ch 2 &middot; PPM Fundamentals',time:'~25 min',file:'CaseFile02_WhoseCallIsIt.html'},
+ {n:'03',title:'Before You Say Yes',hook:'The work acceptance decision as an informed management decision.',meta:'Ch 3 &middot; Work Acceptance',time:'~30 min',file:'CaseFile03_BeforeYouSayYes.html'},
+ {n:'04',group:'Initiation and Planning',title:'Two Records, One Project',hook:'Funding authority, the project record and the financial record do not always agree.',meta:'Ch 4 &middot; Initiation and Funding',time:'~30 min',file:'CaseFile04_TwoRecordsOneProject.html'},
+ {n:'05',title:'The Plan Is an Agreement',hook:'A PMP the team has not endorsed is a binder, not a plan.',meta:'Ch 5 &middot; PMP/PgMP Development',time:'~30 min',file:'CaseFile05_ThePlanIsAnAgreement.html'},
+ {n:'06',title:'The Date Everyone Believes',hook:'A schedule that looks credible and the milestones that quietly depend on others.',meta:'Ch 6 &middot; Schedule',time:'~30 min',file:'CaseFile06_TheDateEveryoneBelieves.html'},
+ {n:'07',title:'The Number That Moved',hook:'Programmed amount, current working estimate and what each one actually means.',meta:'Ch 7 &middot; Cost and Financial Management',time:'~30 min',file:'CaseFile07_TheNumberThatMoved.html'},
+ {n:'08',title:'Choosing the Path to Award',hook:'Acquisition strategy is a project management decision.',meta:'Ch 8 &middot; Acquisition Planning',time:'~30 min',file:'CaseFile08_ChoosingThePathToAward.html'},
+ {n:'09',group:'Design and Procurement',title:'Comments Nobody Resolved',hook:'Design management, review comments and technical readiness.',meta:'Ch 9 &middot; Design Management',time:'~30 min',file:'CaseFile09_CommentsNobodyResolved.html'},
+ {n:'10',title:'Award Day',hook:'Advertisement, source selection and the decisions between proposal and award.',meta:'Ch 10 &middot; Construction Procurement',time:'~30 min',file:'CaseFile10_AwardDay.html'},
+ {n:'11',group:'Construction, Controls and Governance',title:'What the Field Found',hook:'Construction contract administration when conditions are not as drawn.',meta:'Ch 11 &middot; Construction and Contract Administration',time:'~30 min',file:'CaseFile11_WhatTheFieldFound.html'},
+ {n:'12',title:'Change Has a Gate',hook:'Integrated controls and formal change management under customer pressure.',meta:'Ch 12 &middot; Execution, Controls and Change',time:'~30 min',file:'CaseFile12_ChangeHasAGate.html'},
+ {n:'13',title:'What the Monthly Review Does Not Show',hook:'Governance, reporting and the difference between a display and the record behind it.',meta:'Ch 13 &middot; Governance and Reporting',time:'~25 min',file:'CaseFile13_WhatTheMonthlyReviewDoesNotShow.html'},
+ {n:'14',title:'One Customer, Many Requirements',hook:'Business-line and customer overlays on a single project.',meta:'Ch 14 &middot; Business-Line and Customer Requirements',time:'~25 min',file:'CaseFile14_OneCustomerManyRequirements.html'},
+ {n:'15',group:'Completion and Practice',title:'Turnover Is Not the End',hook:'Completion, turnover and closeout from the customer&rsquo;s side of the fence.',meta:'Ch 15 &middot; Completion and Closeout',time:'~30 min',file:'CaseFile15_TurnoverIsNotTheEnd.html'},
+ {n:'16',title:'Putting It Together',hook:'Integrated delivery and professional practice across the whole lifecycle.',meta:'Ch 16 &middot; Integrated Practice',time:'~30 min',file:'CaseFile16_PuttingItTogether.html'}
+];
+function applyTheme(t){
+  if(t==='dark')document.body.classList.add('dark-mode');else document.body.classList.remove('dark-mode');
+  document.getElementById('theme-btn').textContent=(t==='dark')?'Light Mode':'Dark Mode';
+  try{localStorage.setItem('pm-course-theme',t);}catch(e){}
+}
+function toggleTheme(){applyTheme(document.body.classList.contains('dark-mode')?'light':'dark');}
+var FS=['font-s','','font-l'],FL={'font-s':'Text: S','':'Text: M','font-l':'Text: L'};
+function applyFontSize(c){
+  document.documentElement.classList.remove('font-s','font-l');if(c)document.documentElement.classList.add(c);
+  document.getElementById('font-toggle').textContent=FL[c];try{localStorage.setItem('pm-fontsize',c);}catch(e){}
+}
+function toggleFontSize(){
+  var cur=document.documentElement.classList.contains('font-l')?'font-l':(document.documentElement.classList.contains('font-s')?'font-s':'');
+  applyFontSize(FS[(FS.indexOf(cur)+1)%FS.length]);
+}
+(function(){
+  var f='',t='light';
+  try{f=localStorage.getItem('pm-fontsize')||'';var s=localStorage.getItem('pm-course-theme')||'';if(s.indexOf('dark')===0)t='dark';}catch(e){}
+  applyFontSize(f);applyTheme(t);
+})();
+
+(function build(){
+  var html='',done=0,sum=0,cnt=0,learner='';
+  CASES.forEach(function(c){
+    if(c.group)html+='<div class="phase-label">'+c.group+'</div>';
+    var live=!!c.file,complete=false;
+    if(live){
+      var raw=null;try{raw=localStorage.getItem('p088_cf'+c.n+'_v1');}catch(e){}
+      if(raw){try{var d=JSON.parse(raw);if(d&&d.name&&!learner)learner=d.name;if(d&&d.section==='complete'&&d.kcScore!=null){complete=true;done++;sum+=d.kcScore;cnt++;}}catch(e){}}
+    }
+    var num='<div class="case-num'+(complete?' done':'')+'">'+(complete?'&#10003;':parseInt(c.n,10))+'</div>';
+    var body='<div class="case-body"><div class="case-title">'+c.title+'</div><div class="case-hook">'+c.hook+'</div><div class="case-meta">'+c.meta+'</div></div>';
+    if(live){
+      html+='<a class="case-card" href="'+c.file+'">'+num+body+'<div class="case-time">'+c.time+'</div>'+(complete?'<div class="pill">Complete</div>':'')+'<div class="case-arrow">&rarr;</div></a>';
+    }else{
+      html+='<div class="case-card planned">'+num+body+'<div class="pill soon">In development</div></div>';
+    }
+  });
+  document.getElementById('case-list').innerHTML=html;
+  var total=CASES.length;
+  document.getElementById('overall-bar').style.width=Math.round(done/total*100)+'%';
+  document.getElementById('overall-text').textContent=(done===0)?'0 of '+total+' case files complete (1 of '+total+' available in this preview)':(done===total?'All '+total+' case files complete':done+' of '+total+' case files complete');
+  if(done===total){
+    var t=new Date();
+    document.getElementById('cert-name').textContent=learner||'Learner';
+    document.getElementById('cert-meta').textContent='Average Knowledge Check Score: '+(sum/cnt).toFixed(1)+' / 6 · Completed: '+(t.getMonth()+1)+'/'+t.getDate()+'/'+t.getFullYear();
+    document.getElementById('cert-section').className='cert-section show';
+  }
+})();
+</script>
+</body>
+</html>

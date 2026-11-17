@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case File 15 | Turnover Is Not the End | Interactive 088 Military Programs PM in USACE</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF;--panel:#F3EFE4;--panel-2:#F8F6F2;--ink:#111111;--ink-2:#2A2A2A;
+  --gold:#5A4010;--gold-soft:#7A5A10;--gold-light:#3A2A08;
+  --border:rgba(90,64,16,.45);--border-strong:rgba(90,64,16,.75);
+  --accent:#1A4A10;--accent-bg:#E8F0E8;--warn-bg:#FFF8E8;--scenario-bg:#FFFFF8;
+  --danger:#7A1A1A;--danger-bg:#F8E4E4;--on-gold:#FFFFFF;--glow:none;
+}
+body.dark-mode{
+  --bg:#1A1F14;--panel:#252D1C;--panel-2:#202718;--ink:#F5F2EB;--ink-2:#C8C4B8;
+  --gold:#C8A84B;--gold-soft:#8B7235;--gold-light:#E2C97E;
+  --border:rgba(200,168,75,.3);--border-strong:rgba(200,168,75,.6);
+  --accent:#7BA05B;--accent-bg:rgba(123,160,91,.12);--warn-bg:rgba(200,168,75,.08);--scenario-bg:rgba(26,31,20,.6);
+  --danger:#E07C73;--danger-bg:rgba(192,57,43,.12);--on-gold:#1A1F14;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}
+html.font-l{font-size:18px;}
+html.font-s{font-size:14px;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-weight:400;min-height:100vh;}
+
+header{border-bottom:2px solid var(--gold);padding:14px 0;position:sticky;top:0;background:var(--bg);z-index:200;}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.logo-block{display:flex;align-items:center;gap:12px;}
+.logo-seal{width:38px;height:38px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:.6875rem;color:var(--gold);flex-shrink:0;}
+.logo-primary{font-family:'DM Serif Display',serif;font-size:.875rem;color:var(--ink);}
+.logo-sub{font-size:.5625rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-weight:600;}
+.case-badge{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);border:1px solid var(--border-strong);padding:3px 8px;letter-spacing:.1em;background:var(--panel);font-weight:700;}
+.hdr-btn{background:var(--panel);border:1px solid var(--border-strong);color:var(--ink);font-family:'DM Mono',monospace;font-size:.5625rem;padding:6px 11px;cursor:pointer;font-weight:700;}
+
+.case-quicknav{background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:190;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.cqn-inner{display:flex;align-items:center;gap:4px;padding:7px 24px;max-width:1100px;margin:0 auto;}
+.cqn-link{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.05em;color:var(--gold);border:1px solid var(--border-strong);padding:5px 9px;text-decoration:none;flex-shrink:0;}
+.cqn-link:hover{background:var(--panel);}
+.cqn-link.current{background:var(--gold);color:var(--on-gold);border-color:var(--gold);font-weight:700;}
+.cqn-link.planned{opacity:.4;cursor:default;pointer-events:none;}
+.cqn-sep{color:var(--border-strong);flex-shrink:0;margin:0 2px;}
+
+.progress-bar-wrap{background:var(--panel);border-bottom:1px solid var(--border);padding:8px 0;}
+.progress-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+.progress-track{height:4px;background:rgba(120,120,120,.25);border-radius:2px;margin-bottom:6px;}
+.progress-fill{height:4px;background:var(--gold);border-radius:2px;transition:width .4s ease;}
+.progress-labels{display:flex;justify-content:space-between;}
+.progress-text{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--ink);letter-spacing:.08em;}
+.progress-pct{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);font-weight:700;}
+
+.main{max-width:860px;margin:0 auto;padding:36px 24px 80px;}
+.screen{animation:fadeUp .3s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.section-nav{display:flex;gap:4px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-btn{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 12px;background:var(--panel);border:2px solid var(--gold);color:var(--ink);cursor:pointer;font-weight:600;}
+.sec-btn.active{background:var(--gold);color:var(--on-gold);font-weight:700;}
+.sec-btn.complete{border-color:var(--accent);color:var(--accent);}
+.sec-btn.locked{opacity:.4;cursor:not-allowed;}
+
+.eyebrow{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.title-main{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,4vw,2.375rem);line-height:1.18;color:var(--ink);margin-bottom:14px;}
+.title-main em{color:var(--gold);font-style:italic;}
+.title-sub{font-size:1.625rem;}
+.lede{font-size:.875rem;line-height:1.8;color:var(--ink);max-width:640px;margin-bottom:22px;}
+.lede strong{font-weight:700;}
+
+.card{border:2px solid var(--border-strong);background:var(--panel);padding:16px 18px;margin-bottom:14px;}
+.card-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.card p{font-size:.8125rem;line-height:1.7;color:var(--ink);margin-bottom:8px;}
+.card p:last-child{margin-bottom:0;}
+.card ul{margin:6px 0 8px 18px;font-size:.8125rem;line-height:1.7;color:var(--ink);}
+.card strong{font-weight:700;}
+.people-card{border-left:6px solid var(--accent);background:var(--accent-bg);}
+.people-card .card-label{color:var(--accent);}
+.proc-tag{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--ink);border:2px solid var(--gold);padding:3px 8px;display:inline-block;margin:6px 4px 0 0;letter-spacing:.07em;background:var(--bg);font-weight:700;}
+
+table.ref{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:.75rem;}
+table.ref th{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:7px 9px;background:var(--gold);color:var(--on-gold);}
+table.ref td{padding:8px 9px;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;color:var(--ink);}
+table.ref td:first-child{font-weight:700;}
+.table-wrap{overflow-x:auto;}
+
+.reflect-block{margin-bottom:18px;}
+.reflect-q{font-size:.8125rem;color:var(--ink);font-weight:600;margin-bottom:8px;line-height:1.6;}
+.reflect-input{width:100%;background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:11px 13px;outline:none;min-height:80px;resize:vertical;}
+.name-input{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;padding:12px 15px;outline:none;width:100%;max-width:420px;}
+.theme-select-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:18px;}
+.theme-select-item label,.field-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;display:block;font-weight:700;}
+.theme-select{background:var(--bg);border:2px solid var(--gold);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;padding:10px 12px;outline:none;width:100%;}
+.na-row{display:flex;align-items:center;gap:8px;font-size:.8125rem;color:var(--ink);cursor:pointer;margin-bottom:14px;user-select:none;}
+.profile-display{margin-bottom:18px;border:2px solid var(--gold);padding:14px 16px;}
+.profile-value{font-size:.9375rem;color:var(--ink);}
+.link-btn{background:none;border:none;color:var(--gold);text-decoration:underline;cursor:pointer;font-size:.6875rem;margin-top:8px;font-family:'Inter',sans-serif;font-weight:600;}
+.form-msg{display:none;margin:10px 0;padding:10px 14px;border:2px solid var(--danger);background:var(--danger-bg);color:var(--ink);font-size:.8125rem;font-weight:600;}
+.form-msg.show{display:block;}
+
+.scenario-box{background:var(--scenario-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:18px 20px;margin-bottom:18px;}
+.scenario-label{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+.scenario-text{font-size:.875rem;line-height:1.8;color:var(--ink);}
+.scenario-text p{margin-bottom:10px;}
+.scenario-text p:last-child{margin-bottom:0;}
+.scenario-text strong{color:var(--gold);}
+.quote{border-left:3px solid var(--gold);padding:2px 0 2px 12px;margin:10px 0;font-style:italic;}
+.decision-prompt{font-family:'DM Serif Display',serif;font-size:1.125rem;color:var(--ink);margin:18px 0 14px;}
+.choice-option{display:block;width:100%;text-align:left;background:var(--bg);border:2px solid var(--border);color:var(--ink);font-family:'Inter',sans-serif;font-size:.8125rem;line-height:1.6;padding:13px 16px;margin-bottom:8px;cursor:pointer;}
+.choice-option:hover{border-color:var(--gold);background:var(--panel);}
+.choice-option.chosen{border-color:var(--gold);border-width:3px;opacity:1 !important;}
+.choice-letter{font-family:'DM Mono',monospace;font-weight:700;color:var(--gold);margin-right:8px;}
+
+.consequence-box{background:var(--accent-bg);border:2px solid var(--accent);border-left:6px solid var(--accent);padding:16px 18px;margin:16px 0;}
+.consequence-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.consequence-text{font-size:.8125rem;line-height:1.75;color:var(--ink);}
+.consequence-text p{margin-bottom:8px;}
+.insight-box{background:var(--warn-bg);border:2px solid var(--gold-soft);border-left:6px solid var(--gold);padding:14px 16px;margin-top:12px;}
+.insight-label{font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+.insight-text{font-size:.75rem;line-height:1.7;color:var(--ink);}
+
+.question-block{background:var(--panel-2);border:2px solid var(--border);padding:18px;margin-bottom:12px;}
+.question-num{font-family:'DM Mono',monospace;font-size:.5rem;color:var(--gold);letter-spacing:.1em;margin-bottom:8px;font-weight:700;}
+.question-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.08em;padding:2px 7px;border:2px solid var(--gold);color:var(--gold);text-transform:uppercase;margin-bottom:8px;font-weight:700;margin-left:8px;}
+.question-text{font-size:.875rem;color:var(--ink);line-height:1.55;margin-bottom:14px;font-weight:600;}
+.answer-option{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;border:2px solid var(--border);margin-bottom:6px;cursor:pointer;font-size:.8125rem;color:var(--ink);line-height:1.5;background:var(--bg);}
+.answer-option:hover{border-color:var(--gold);background:var(--panel);}
+.answer-option.selected{border:3px solid var(--gold);background:var(--panel);}
+.answer-option.correct{background:var(--accent);border-color:var(--accent);color:#FFFFFF;font-weight:700;}
+.answer-option.incorrect{background:var(--danger);border-color:var(--danger);color:#FFFFFF;font-weight:700;}
+body.dark-mode .answer-option.correct{background:#2F5A1F;color:#F5F2EB;}
+body.dark-mode .answer-option.incorrect{background:#7A2A22;color:#F5F2EB;}
+.answer-radio{width:14px;height:14px;border:2px solid var(--gold);border-radius:50%;flex-shrink:0;margin-top:2px;}
+.answer-option.selected .answer-radio{background:var(--gold);}
+.answer-option.correct .answer-radio,.answer-option.incorrect .answer-radio{background:#FFFFFF;border-color:#FFFFFF;}
+.kc-explain{font-size:.75rem;line-height:1.65;color:var(--ink);margin-top:10px;padding-top:10px;border-top:2px solid var(--border);display:none;}
+.kc-explain.show{display:block;}
+.kc-feedback{padding:14px 16px;margin-top:14px;font-size:.875rem;display:none;border:2px solid;color:var(--ink);}
+.kc-feedback.show{display:block;}
+.kc-feedback.pass{background:var(--accent-bg);border-color:var(--accent);}
+.kc-feedback.fail{background:var(--danger-bg);border-color:var(--danger);}
+.kc-score{font-family:'DM Mono',monospace;font-size:1.375rem;font-weight:700;margin-bottom:4px;}
+
+.path-list{list-style:none;margin:8px 0 0 0;padding:0;}
+.path-list li{padding:8px 0;border-bottom:1px solid var(--border);font-size:.8125rem;line-height:1.6;color:var(--ink);}
+.path-list li:last-child{border-bottom:none;}
+.path-list .pl-k{font-family:'DM Mono',monospace;font-size:.5625rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase;font-weight:700;display:block;}
+
+.complete-wrap{background:var(--panel-2);border:3px solid var(--gold);padding:32px;text-align:center;margin-top:20px;}
+.complete-seal{width:54px;height:54px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin:0 auto 14px;}
+.complete-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:8px;}
+.complete-sub{font-size:.8125rem;color:var(--ink);margin-bottom:20px;}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--on-gold);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;}
+.btn-primary:hover{filter:brightness(1.15);}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.btn-secondary{display:inline-flex;align-items:center;gap:7px;background:var(--panel);color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:.6875rem;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:2px solid var(--gold);cursor:pointer;}
+.btn-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:20px;}
+.nav-row{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding-top:18px;border-top:2px solid var(--gold);}
+
+footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
+.footer-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-attr{font-family:'DM Mono',monospace;font-size:.5625rem;color:var(--gold);letter-spacing:.09em;font-weight:700;}
+.footer-doc{font-size:.5625rem;color:var(--ink-2);}
+.fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
+@media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-block">
+      <div class="logo-seal">088</div>
+      <div>
+        <div class="logo-primary">Interactive 088: Military Programs PM in USACE</div>
+        <div class="logo-sub">Case File 15 &middot; Turnover and Closeout</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <span class="case-badge">CHAPTER 15 &middot; TURNOVER &amp; CLOSEOUT</span>
+      <button class="hdr-btn" id="font-toggle" onclick="toggleFontSize()">Text: M</button>
+      <button class="hdr-btn" id="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </div>
+  </div>
+</header>
+
+<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link current" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+
+<div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
+  <div class="progress-inner">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
+  </div>
+</div>
+
+<div class="main" id="main-content"></div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-attr">Interactive 088 &middot; PPM Community of Practice</span>
+    <span class="footer-doc">PROSPECT 088 Chapter 15 &middot; Case File 15 v0.1 preview &middot; Fictional scenario for instruction only</span>
+  </div>
+</footer>
+
+<script>
+/*META{"phase":"Turnover and Closeout","badge":"CHAPTER 15 &middot; TURNOVER &amp; CLOSEOUT","chapter":"Chapter 15"}META*/
+var CASE={
+n:'15',title:'Turnover Is Not the End',
+titleHtml:`Turnover Is<br><em>Not the End.</em>`,
+lede:`The building is nearly done and everyone wants to open it. A system test failed, the property package is a draft, and the punch list is one long list. <strong>What has to be true before "complete" means usable, and who decides each part?</strong>`,
+doctrine:`Completion conditions, keeping the completion decisions separate, turnover readiness evidence, property documentation, classifying remaining work, warranty knowledge, financial reconciliation and the path to closure (Chapter 15).`,
+skill:`Saying "not yet" to a leader who wants a ribbon cutting, and keeping a customer informed while others hold the authority to accept.`,
+minutes:'30',
+figures:`The 25-day and $700,000 utility exposure remains a planning assumption from earlier case files. No settlement, funding approval or revised baseline is assumed, and no calendar dates are stated here.`,
+cast:[`<strong>Nora Delgado</strong>, project manager (you)`,`<strong>Rafael Soto</strong>, Construction; <strong>Wen Zhao</strong>, Contracting Officer`,`<strong>Anita Kapoor</strong>, Real Estate and property; <strong>Marcus Reyes</strong>, Resource Management`,`<strong>Maj. Teresa Hollis</strong>, end user; <strong>Lorraine Beck</strong>, installation DPW`,`<strong>Calvin Osei</strong>, DPM; <strong>Gerald Voss</strong>, sponsor representative`],
+trainingTitle:`Seven Completion Decisions, Seven Records`,
+training:`<div class="card"><div class="card-label">Chapter 15 &middot; Turnover and Closeout</div>
+<p>Start with <strong>what is being delivered, who receives it, and what each receiving party needs</strong>. Ask the customer what will happen right after transfer: moving people in, installing equipment, storing material and opening for operations create different access, safety, utility and security needs. A ribbon-cutting is a communications event. It is not evidence that turnover conditions are met.</p>
+<p>Several decisions occur close together. <strong>Never assume one signature settles every decision.</strong></p>
+<div class="table-wrap"><table class="ref"><thead><tr><th>Event</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Beneficial occupancy (BOD)</td><td>The agreed project-specific condition is achieved, with verified readiness and an authorized determination</td></tr>
+<tr><td>Possession or use</td><td>KO-controlled arrangements and a remaining-work record. Use before completion is not acceptance.</td></tr>
+<tr><td>Contractual acceptance</td><td>Acceptance by an authorized official under the clause and delegation</td></tr>
+<tr><td>Property acceptance</td><td>Signed transfer and acceptance of real property accountability</td></tr>
+<tr><td>Operational activation</td><td>Customer confirms personnel, equipment and operating readiness</td></tr>
+<tr><td>Contract closeout</td><td>Administrative actions complete, by the KO or contract administration</td></tr>
+<tr><td>Financial and project closure</td><td>Reconciliation and continuing duties resolved through authorized processes</td></tr>
+</tbody></table></div></div>
+<div class="card"><div class="card-label">Readiness Is Evidence</div>
+<p>Ask what was tested, what failed, what correction remains and who can confirm the result. A successful equipment startup may not show integrated performance. Training should be usable by the actual operators, and a sign-in sheet is weak evidence of learning. <strong>Do not offer a general "conditional occupancy" for a failed mandatory requirement.</strong> Ask the authorized officials whether a lawful, restricted or phased use exists, and obtain their documented decision.</p>
+<p>Property documentation is a prerequisite, not an afterthought. A draft property package that has not been reconciled can block beneficial occupancy even when the technical retest succeeds.</p></div>
+<div class="card"><div class="card-label">Classify Remaining Work</div>
+<p>Separate contract deficiencies, unfinished deliverables, customer activation tasks, additional requested features, disputed matters and property or administrative actions. Each has a different owner and route. Classification is a coordinated determination, not a way to move unwanted work to another office. Close an item only when the designated reviewer verifies the evidence. A contractor's statement that a repair is finished is not the closure record. A completed BOD actual should coexist with a truthful remaining-work forecast.</p>
+<span class="proc-tag">CHAPTER 15</span><span class="proc-tag">DD 1354</span><span class="proc-tag">PROC4000</span><span class="proc-tag">WARRANTY</span></div>
+<div class="card people-card"><div class="card-label">People Skill &middot; Slowing Down a Leader Who Wants to Open the Building</div>
+<p>Give the leader something to say yes to. "We cannot open it today. Here is the retest date, here is what the installation needs from us, and here is the earliest lawful way to use the building before then, if one exists." Respect their urgency by turning it into a short list of dated actions.</p></div>`,
+domain:'Executing',
+hook:`Notice where urgency tempts you to treat one favorable signature or event as if it settled everything.`,
+reflections:[
+`Have you ever seen a facility opened before it was ready? What decision was actually missing?`,
+`When a punch list arrives as one list, how do you decide whose item each one is?`,
+`What do you do when a leader asks you to find a way to open something that failed a test?`],
+scenario:{label:'Near Turnover',text:`<p><strong>Project Ridgeway</strong> is nearing turnover. The Contracting Officer, <strong>Wen Zhao</strong>, and Construction, <strong>Rafael Soto</strong>, administer the contract. The end user, <strong>Maj. Teresa Hollis</strong>, has a unit waiting. The installation's public works representative, <strong>Lorraine Beck</strong>, will receive the facility.</p>
+<p>The Chapter 11 mechanical system failed a test and is not yet corrected. The utility matter from earlier remains open. Leaders are asking when the building will open.</p>`},
+decisions:[
+{context:`<p>Maj. Hollis wants to start moving equipment into a ready area while the failed system is being corrected. The sponsor suggests a ribbon-cutting next week "to keep momentum." A senior leader says, "Can we just call it conditional occupancy?"</p>`,
+prompt:`What do you do?`,
+options:[
+{id:'a',text:`Get the correction and retest path and update the forecast, keeping the original commitment visible. Refer the equipment request to Construction and the KO for the possession decision, including separation from the affected system. Ask the authorized officials whether any lawful restricted or phased use exists and document the answer. Treat the ribbon-cutting as a communications event.`},
+{id:'b',text:`Agree to conditional occupancy since leadership asked.`},
+{id:'c',text:`Tell Maj. Hollis to go ahead with the equipment. It is only a ready area.`},
+{id:'d',text:`Refuse all discussion until the retest passes.`}],
+cons:{
+a:{s:`Kept the decisions separate and referred each to its owner.`,t:`<p>Wen and Rafael evaluate the equipment request and decide the area can be used under defined arrangements, with the affected system separated. No general conditional occupancy is offered for the failed system. You brief the retest path and an updated forecast, with the commitment still shown. The ribbon-cutting is scheduled for a date tied to verified readiness.</p>`,i:`<strong>What this reveals:</strong> Do not offer a general conditional occupancy for a failed mandatory requirement. Leadership interest in opening the building does not supply a technical approval or contracting action. Possession is a KO-controlled arrangement.`},
+b:{s:`Offered a blanket status for a failed requirement.`,t:`<p>The label implies a safe use the officials have not determined. If something goes wrong, the record shows no decision behind it.</p>`,i:`<strong>What this reveals:</strong> Ask the authorized officials whether lawful restricted or phased use is available and get their documented decision.`},
+c:{s:`Allowed access without the KO's arrangements.`,t:`<p>Possession can shift risk and entitlement. The contractor raises damage and delay questions you now have to answer.</p>`,i:`<strong>What this reveals:</strong> Coordinate proposed access with Construction and the KO before promising entry.`},
+d:{s:`Refused to engage with a legitimate operational need.`,t:`<p>The unit's need is real. The leaders conclude the PM is an obstacle, and the possession discussion happens without you.</p>`,i:`<strong>What this reveals:</strong> Staying useful means offering a dated path and the lawful options, not only a no.`}}},
+{context:`<p>The retest succeeds. The property package, however, is still a draft: the property record identifier and the expenditure information have not been reconciled. Operator training was held, and the sign-in sheet shows full attendance, but the operators were on a shift change for part of the session.</p>`,
+prompt:`How do you handle the readiness decision?`,
+options:[
+{id:'a',text:`Bring the missing property information, its owner, signature route and a realistic completion date into the readiness decision. Check with the operators whether they can find the manual, identify equipment and obtain help, and schedule a follow-up where needed. Report BOD actual only when the responsible officials authorize it.`},
+{id:'b',text:`Record BOD because the retest passed.`},
+{id:'c',text:`Treat the sign-in sheet as proof of training and skip the follow-up.`},
+{id:'d',text:`Complete the property package yourself so the date holds.`}],
+cons:{
+a:{s:`Tested readiness against property documentation and actual operator capability.`,t:`<p>Anita identifies the reconciliation needed and the signature route, and gives a realistic date. A short follow-up session is held for the shift that missed part of the training, and the operators can find and use the manual. The readiness brief shows what is complete and what remains, and BOD is recorded when authorized.</p>`,i:`<strong>What this reveals:</strong> A successful retest does not establish readiness for beneficial occupancy. Make property documentation a prerequisite, and treat a sign-in sheet as weak evidence.`},
+b:{s:`Let one successful test stand for readiness.`,t:`<p>BOD is recorded and the property documentation is not ready. The record has to be corrected and the customer's expectations reset.</p>`,i:`<strong>What this reveals:</strong> Readiness is the whole set of prerequisites, not the last test.`},
+c:{s:`Accepted attendance as learning.`,t:`<p>In the first month the operators call for help on routine tasks, and the warranty contacts are unfamiliar.</p>`,i:`<strong>What this reveals:</strong> Operational information and training should be usable by the actual operators. Arrange attendance around shifts.`},
+d:{s:`Took on a property official's work.`,t:`<p>Property accountability is established by the proper official and signature. Your version has no standing, and Anita has to redo it.</p>`,i:`<strong>What this reveals:</strong> The PM gathers and sequences the evidence. The property official determines and signs.`}}},
+{context:`<p>The building is handed off under agreed arrangements. A single punch list of forty items arrives, mixing contract deficiencies, items the customer will do, a request for a new storage cage, and a disputed finish. A month later an operator reports a recurring system failure. Someone suggests, "Call it a new requirement so we can fund a quick fix."</p>`,
+prompt:`What do you do?`,
+options:[
+{id:'a',text:`Classify the list into contract deficiencies, unfinished deliverables, customer activation tasks, additional requests, disputed matters and property or administrative actions, with owners and closure evidence. For the failure, follow the defect-reporting path with evidence, let Construction and the KO determine the notice and correction, and keep the customer informed. Keep the open utility matter in the closure plan.`},
+{id:'b',text:`Leave the list as one list and work through it in order.`},
+{id:'c',text:`Describe the failure as a new requirement to get funds.`},
+{id:'d',text:`Tell the customer the building is complete and further issues are theirs.`}],
+cons:{
+a:{s:`Classified the remaining work and used the defect path, and kept closure items open.`,t:`<p>The forty items sort into six categories with owners. The storage cage is an additional request that goes to the program, and the finish dispute goes to Construction, the KO and Counsel. The operator's failure follows the agreed defect path, with evidence of symptom and date, and Wen and Rafael determine the contract action. At the monthly review you report the actual turnover condition alongside the remaining actions.</p>`,
+th:function(d){return d[1]==='a'?'<p>Because the property package and training were handled before BOD, the remaining items are about the work, not the paper.</p>':'';},
+i:`<strong>What this reveals:</strong> A single undifferentiated list hides different decisions. Classification is a coordinated determination. Do not describe a report as a new requirement merely to find money for a quick repair.`},
+b:{s:`Worked an undifferentiated list.`,t:`<p>Items bounce between offices because nobody has classified who owes them. The cage request and the disputed finish stay in the queue as if they were routine defects.</p>`,i:`<strong>What this reveals:</strong> Link each item to the requirement or decision that establishes who owes it.`},
+c:{s:`Mislabeled a defect to find a funding path.`,t:`<p>If it is a defect, the contract and warranty route applies. Calling it a new requirement distorts the record and can raise legal and fiscal questions.</p>`,i:`<strong>What this reveals:</strong> The response starts with the agreed defect-reporting path and the evidence of the symptom.`},
+d:{s:`Declared completion while the record had open items.`,t:`<p>The warranty path, the open utility matter and the property closeout all still have owners. Declaring the project complete orphans them.</p>`,i:`<strong>What this reveals:</strong> A completed BOD milestone should coexist with a truthful remaining-work forecast. Retain the open matters in the closure plan until the right offices determine their disposition.`}}}
+],
+debrief:{
+title:`Complete and Usable`,
+html:`<p>The decisions here separated things that tend to merge under pressure: opening, possession, acceptance, property, activation and closure. The PM's contribution was to keep each with its owner, to measure readiness by evidence, and to stay useful to a customer who needed the facility.</p>`,
+ledger:[[`Mechanical system`,`Retest passed and verified by responsible officials.`],[`Possession`,`Defined arrangements decided by the KO. No general conditional occupancy.`],[`Property package`,`Reconciliation owned. BOD recorded when authorized.`],[`Remaining work`,`Classified with owners and closure evidence.`],[`Utility matter`,`Open. Retained in the closure plan pending determination.`],[`Closure`,`Not yet. Financial reconciliation and project closure follow.`]],
+handoffTitle:`Hand-off to Chapter 16`,
+handoff:`<p>The last case file steps back from the lifecycle to the person at the center of it: the PM who has to communicate, hold ethical lines and lead teams across all of these decisions. Case File 16 puts it together.</p>`},
+kc:[
+{tag:'Doctrine',text:`Does a ribbon-cutting date provide evidence that turnover conditions are met?`,options:[`Yes`,`No. It is a communications event and supplies no independent evidence of readiness`,`Only for MILCON`,`Only with leadership attendance`],correct:1,explain:`Define completion conditions before the final inspection and base readiness on evidence.`},
+{tag:'Doctrine',text:`Possession or use of work before completion is equivalent to...`,options:[`Contractual acceptance`,`Not acceptance. The KO controls the arrangements and the remaining-work record`,`Property acceptance`,`Operational activation`],correct:1,explain:`When the applicable clause is incorporated, use before completion does not constitute acceptance.`},
+{tag:'Judgment',text:`A leader asks for "conditional occupancy" for a facility with a failed mandatory system. What is the right response?`,options:[`Grant it`,`Do not offer a general conditional occupancy. Ask authorized officials whether lawful restricted or phased use exists and document their decision`,`Refuse to discuss`,`Let the contractor decide`],correct:1,explain:`Leadership interest does not supply a technical approval or contracting action.`},
+{tag:'Judgment',text:`The retest passed but the property package is a draft. What should the PM do?`,options:[`Record BOD`,`Bring the missing information, owner, signature route and realistic date into the readiness decision`,`Complete the package personally`,`Ignore it`],correct:1,explain:`A successful retest does not establish readiness when property prerequisites are open.`},
+{tag:'Doctrine',text:`How should a long punch list be handled?`,options:[`As one list in order`,`Classify items by who owes them (contract deficiency, unfinished deliverable, customer task, additional request, dispute, administrative action) and assign owners and closure evidence`,`Give it all to the contractor`,`Give it all to the customer`],correct:1,explain:`Classification is a coordinated determination, not a way to move unwanted work.`},
+{tag:'Judgment',text:`An operator reports a recurring system failure after handoff. What is the best first step?`,options:[`Call it a new requirement to get funds`,`Follow the agreed defect-reporting path with evidence of the symptom and date, and let Construction and the KO determine notice and correction`,`Ignore it`,`Replace the system`],correct:1,explain:`Do not describe a report as a new requirement merely to find money for a quick repair.`}],
+commit:`Which completion decision in your project is currently being treated as if it settled several others? Who owns each?`
+};
+
+CASE.nextFile='CaseFile16_PuttingItTogether.html';CASE.nextN='16';
+var STORAGE_KEY='p088_cf'+CASE.n+'_v1';
+var CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};
+
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(CS));}catch(e){}}
+function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;var d=JSON.parse(raw);if(!d||!d.name)return false;CS=d;return true;}catch(e){return false;}}
+
+/* ===== THEME AND TEXT SIZE ===== */
+function applyTheme(t){
+  if(t==='dark'){document.body.classList.add('dark-mode');}else{document.body.classList.remove('dark-mode');}
+  var b=document.getElementById('theme-toggle');
+  if(b)b.textContent=(t==='dark')?'Light Mode':'Dark Mode';
+  try{localStorage.setItem('pm-course-theme',t);}catch(e){}
+}
+function toggleTheme(){applyTheme(document.body.classList.contains('dark-mode')?'light':'dark');}
+var FONT_SIZES=['font-s','','font-l'];
+var FONT_LABELS={'font-s':'Text: S','':'Text: M','font-l':'Text: L'};
+function applyFontSize(cls){
+  document.documentElement.classList.remove('font-s','font-l');
+  if(cls){document.documentElement.classList.add(cls);}
+  var b=document.getElementById('font-toggle');
+  if(b)b.textContent=FONT_LABELS[cls];
+  try{localStorage.setItem('pm-fontsize',cls);}catch(e){}
+}
+function toggleFontSize(){
+  var cur=document.documentElement.classList.contains('font-l')?'font-l':(document.documentElement.classList.contains('font-s')?'font-s':'');
+  applyFontSize(FONT_SIZES[(FONT_SIZES.indexOf(cur)+1)%FONT_SIZES.length]);
+}
+(function(){
+  var f='',t='light';
+  try{f=localStorage.getItem('pm-fontsize')||'';var s=localStorage.getItem('pm-course-theme')||'';if(s.indexOf('dark')===0)t='dark';}catch(e){}
+  applyFontSize(f);applyTheme(t);
+})();
+
+/* ===== SECTIONS ===== */
+var SECTIONS=['welcome','training','discussion','casestudy','kc','complete'];
+var SECTION_LABELS={welcome:'Welcome',training:'Training',discussion:'Discussion',casestudy:'Case Study',kc:'Knowledge Check',complete:'Complete'};
+function updateProgress(){
+  var idx=SECTIONS.indexOf(CS.section);
+  var pct=Math.round((idx/(SECTIONS.length-1))*100);
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pct').textContent=pct+'%';
+  document.getElementById('progress-label').textContent=SECTION_LABELS[CS.section]||'';
+}
+function renderNav(){
+  var order=['training','discussion','casestudy','kc'];
+  var html='<div class="section-nav">';
+  order.forEach(function(s,idx){
+    var cls='sec-btn'+(CS.section===s?' active':'')+(CS.sectionsComplete[s]?' complete':'');
+    var locked=(idx>0 && !CS.sectionsComplete[order[idx-1]] && CS.section!==s);
+    if(locked)cls+=' locked';
+    html+='<button class="'+cls+'" '+(locked?'disabled':'onclick="goSection(\''+s+'\')"')+'>'+(CS.sectionsComplete[s]?'&#10003; ':'')+SECTION_LABELS[s]+'</button>';
+  });
+  return html+'</div>';
+}
+function goSection(s){CS.section=s;saveState();render();}
+function completeSection(cur,next){CS.sectionsComplete[cur]=true;CS.section=next;saveState();render();}
+function render(){
+  var m=document.getElementById('main-content');
+  document.getElementById('progress-bar-wrap').style.display=(CS.section==='welcome')?'none':'block';
+  if(CS.section==='welcome')m.innerHTML=renderWelcome();
+  else if(CS.section==='training')m.innerHTML=renderTraining();
+  else if(CS.section==='discussion')m.innerHTML=renderDiscussion();
+  else if(CS.section==='casestudy')m.innerHTML=renderCaseStudy();
+  else if(CS.section==='kc')m.innerHTML=renderKC();
+  else if(CS.section==='complete')m.innerHTML=renderComplete();
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showMsg(t){var el=document.getElementById('form-msg');if(el){el.textContent=t;el.className='form-msg show';}}
+
+/* ===== LEARNER PROFILE (shared across the course series) ===== */
+var THEME_DOMAIN={'Analytical':'Strategic Thinking','Context':'Strategic Thinking','Futuristic':'Strategic Thinking','Ideation':'Strategic Thinking','Input':'Strategic Thinking','Intellection':'Strategic Thinking','Learner':'Strategic Thinking','Strategic':'Strategic Thinking','Adaptability':'Relationship Building','Connectedness':'Relationship Building','Developer':'Relationship Building','Empathy':'Relationship Building','Harmony':'Relationship Building','Includer':'Relationship Building','Individualization':'Relationship Building','Positivity':'Relationship Building','Relator':'Relationship Building','Activator':'Influencing','Command':'Influencing','Communication':'Influencing','Competition':'Influencing','Maximizer':'Influencing','Self-Assurance':'Influencing','Significance':'Influencing','Woo':'Influencing','Achiever':'Executing','Arranger':'Executing','Belief':'Executing','Consistency':'Executing','Deliberative':'Executing','Discipline':'Executing','Focus':'Executing','Responsibility':'Executing','Restorative':'Executing'};
+var THEME_OPTIONS='<option value="">Select</option><optgroup label="Strategic Thinking"><option>Analytical</option><option>Context</option><option>Futuristic</option><option>Ideation</option><option>Input</option><option>Intellection</option><option>Learner</option><option>Strategic</option></optgroup><optgroup label="Relationship Building"><option>Adaptability</option><option>Connectedness</option><option>Developer</option><option>Empathy</option><option>Harmony</option><option>Includer</option><option>Individualization</option><option>Positivity</option><option>Relator</option></optgroup><optgroup label="Influencing"><option>Activator</option><option>Command</option><option>Communication</option><option>Competition</option><option>Maximizer</option><option>Self-Assurance</option><option>Significance</option><option>Woo</option></optgroup><optgroup label="Executing"><option>Achiever</option><option>Arranger</option><option>Belief</option><option>Consistency</option><option>Deliberative</option><option>Discipline</option><option>Focus</option><option>Responsibility</option><option>Restorative</option></optgroup>';
+function getProfile(){try{var r=localStorage.getItem('pm-learner-profile');return r?JSON.parse(r):null;}catch(e){return null;}}
+function saveProfile(name,themes){try{localStorage.setItem('pm-learner-profile',JSON.stringify({name:name,themes:themes,savedAt:new Date().toISOString()}));}catch(e){}}
+function clearProfileAndReload(){try{localStorage.removeItem('pm-learner-profile');}catch(e){}render();}
+function toggleNAThemes(){document.getElementById('theme-grid').style.display=document.getElementById('na-checkbox').checked?'none':'grid';}
+function renderProfileFields(){
+  var p=getProfile();
+  if(p&&p.name){
+    var th=(p.themes&&p.themes[0]!=='N/A')?p.themes.join(', '):'Not provided';
+    return '<div class="profile-display"><div class="field-label">Learner</div><div class="profile-value">'+p.name+'</div>'
+      +'<div class="field-label" style="margin-top:10px;">Top Five Strengths (optional)</div><div class="profile-value">'+th+'</div>'
+      +'<button class="link-btn" onclick="clearProfileAndReload()">Not you, or need to change this? Clear and re-enter</button></div>';
+  }
+  var sels='';
+  for(var i=1;i<=5;i++){sels+='<div class="theme-select-item"><label for="theme-select-'+i+'">Theme '+i+'</label><select class="theme-select" id="theme-select-'+i+'">'+THEME_OPTIONS+'</select></div>';}
+  return '<div style="margin-bottom:18px;"><label class="field-label" for="name-input">Your name</label>'
+    +'<input class="name-input" id="name-input" type="text" placeholder="First and last name"></div>'
+    +'<div class="field-label">Your top five CliftonStrengths themes (optional)</div>'
+    +'<label class="na-row"><input type="checkbox" id="na-checkbox" onchange="toggleNAThemes()"> I do not know my themes, or prefer to skip</label>'
+    +'<div class="theme-select-grid" id="theme-grid">'+sels+'</div>';
+}
+
+/* ===== SEEDED SHUFFLE (option order is fixed per case file, so saved answers stay valid) ===== */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+var LETTERS=['A','B','C','D'];
+(function prepare(){
+  var seed=parseInt(CASE.n,10)*1000+7;
+  CASE.decisions.forEach(function(d,di){
+    var rnd=mulberry(seed+di*31);
+    var a=d.options.slice();
+    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    a.forEach(function(o,k){o.letter=LETTERS[k];});
+    d.options=a;
+  });
+})();
+
+/* ===== WELCOME ===== */
+function renderWelcome(){
+  var saved=loadState();
+  var resume=(saved&&CS.name)?'<button class="btn-secondary" onclick="render()" style="margin-left:10px;">Resume as '+CS.name+' &rarr;</button>':'';
+  var cast='';
+  if(CASE.cast&&CASE.cast.length){cast='<div class="card"><div class="card-label">Who You Will Meet</div><ul>'+CASE.cast.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';}
+  return '<div class="screen">'
+  +'<p class="eyebrow">Interactive 088 &middot; Case File '+CASE.n+'</p>'
+  +'<h1 class="title-main">'+CASE.titleHtml+'</h1>'
+  +'<p class="lede">'+CASE.lede+'</p>'
+  +'<div class="card"><div class="card-label">What This Case File Covers</div>'
+  +'<p><strong>Military Programs Doctrine:</strong> '+CASE.doctrine+'</p>'
+  +'<p><strong>People Skill:</strong> '+CASE.skill+'</p></div>'
+  +cast
+  +'<div class="card"><div class="card-label">How This Works</div>'
+  +'<p>Training (5 min) &rarr; Reflection &rarr; Case Study ('+CASE.decisions.length+' branching decisions on Project Ridgeway) &rarr; Knowledge Check (6 questions, formative, 4 of 6 to move on). About '+CASE.minutes+' minutes in total. Your answers stay on this device.</p></div>'
+  +renderProfileFields()
+  +'<div class="form-msg" id="form-msg"></div>'
+  +'<div class="btn-row"><button class="btn-primary" onclick="startCase()">Begin Case File &rarr;</button>'+resume+'</div>'
+  +'<p class="fine">Project Ridgeway and every person in it are fictional. '+(CASE.figures||'The scenario adds no funding amounts, dates or approvals.')+' Governing regulations, delegations and authoritative records control actual projects.</p>'
+  +'</div>';
+}
+function startCase(){
+  var p=getProfile(),name,themes;
+  if(p&&p.name){name=p.name;themes=p.themes;}
+  else{
+    name=document.getElementById('name-input').value.replace(/^\s+|\s+$/g,'');
+    if(!name){showMsg('Please enter your name to continue.');return;}
+    if(document.getElementById('na-checkbox').checked){themes=['N/A'];}
+    else{
+      themes=[];
+      for(var i=1;i<=5;i++){
+        var v=document.getElementById('theme-select-'+i).value;
+        if(!v){showMsg('Please select all five themes, or check the box to skip this step.');return;}
+        themes.push(v);
+      }
+    }
+    saveProfile(name,themes);
+  }
+  CS.name=name;CS.themes=themes;CS.section='training';saveState();render();
+}
+
+/* ===== TRAINING ===== */
+function renderTraining(){
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Training &middot; 5 Minutes</p>'
+  +'<h2 class="title-main title-sub">'+CASE.trainingTitle+'</h2>'
+  +CASE.training
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'training\',\'discussion\')">Continue to Discussion &rarr;</button></div>'
+  +'</div>';
+}
+
+/* ===== DISCUSSION ===== */
+function strengthNote(){
+  var themes=(CS.themes||[]).filter(function(t){return t&&t!=='N/A';});
+  if(!themes.length)return 'Reflect on how your natural strengths shaped your approach to this scenario. Which choices came naturally, and which took deliberate effort?';
+  var t=themes[0],i;
+  for(i=0;i<themes.length;i++){if(THEME_DOMAIN[themes[i]]===CASE.domain){t=themes[i];break;}}
+  var d=THEME_DOMAIN[t];
+  var stem={
+   'Strategic Thinking':'Your <strong>'+t+'</strong> likely helps you see how the pieces connect. ',
+   'Relationship Building':'Your <strong>'+t+'</strong> likely helps you read the people involved. ',
+   'Influencing':'Your <strong>'+t+'</strong> likely helps you move others toward a decision. ',
+   'Executing':'Your <strong>'+t+'</strong> likely pushes you to get things done. '
+  }[d];
+  return stem+CASE.hook;
+}
+function renderDiscussion(){
+  var rq='';
+  CASE.reflections.forEach(function(q,i){rq+='<div class="reflect-block"><div class="reflect-q">'+(i+1)+'. '+q+'</div><textarea class="reflect-input" id="r'+(i+1)+'" placeholder="Type your thoughts..."></textarea></div>';});
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Discussion and Reflection</p>'
+  +'<h2 class="title-main title-sub">Before You See the Scenario</h2>'
+  +'<p class="lede">These reflections are not graded. Answer honestly. Your responses are saved only on this device.</p>'
+  +'<div class="card"><div class="card-label">Your Strengths Lens</div><p>'+strengthNote()+'</p></div>'
+  +rq
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="saveReflectionsAndContinue()">Continue to Case Study &rarr;</button></div>'
+  +'</div>';
+}
+function saveReflectionsAndContinue(){
+  var r={};
+  for(var i=1;i<=CASE.reflections.length;i++){var el=document.getElementById('r'+i);r['r'+i]=el?el.value:'';}
+  CS.reflections=r;
+  completeSection('discussion','casestudy');
+}
+
+/* ===== CASE STUDY ===== */
+var NDEC=CASE.decisions.length;
+function stepAt(i){
+  if(i===0)return {type:'scenario'};
+  if(i<=NDEC)return {type:'decision',d:CASE.decisions[i-1],label:'Decision '+i+' of '+NDEC};
+  return {type:'debrief'};
+}
+function bestCount(){var n=0;for(var i=1;i<=NDEC;i++){if(CS.decisions[i]==='a')n++;}return n;}
+function renderCaseStudy(){
+  var idx=CS.caseStep||0,step=stepAt(idx);
+  var html='<div class="screen">'+renderNav()+'<p class="eyebrow">Case Study &middot; Project Ridgeway</p>';
+  if(step.type==='scenario'){
+    html+='<h2 class="title-main title-sub">'+CASE.scenario.label+'</h2><div class="scenario-box"><div class="scenario-label">Scenario Setup</div><div class="scenario-text">'+CASE.scenario.text+'</div></div>'
+    +'<div class="nav-row"><span></span><button class="btn-primary" onclick="caseNext()">Begin Decision 1 &rarr;</button></div>';
+  }else if(step.type==='decision'){
+    var d=step.d;
+    html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
+    +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+  }else{
+    html+=renderDebrief();
+  }
+  return html+'</div>';
+}
+function caseNext(){
+  CS.caseStep=(CS.caseStep||0)+1;saveState();
+  document.getElementById('main-content').innerHTML=renderCaseStudy();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function chooseOption(id){
+  var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
+  if(document.getElementById('case-nav').style.display==='flex')return;
+  CS.decisions[idx]=id;saveState();
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  var c=d.cons[id];
+  var extra=c.th?c.th(CS.decisions):'';
+  document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
+    +'<div class="insight-box"><div class="insight-label">Insight</div><div class="insight-text">'+c.i+'</div></div></div>';
+  document.getElementById('case-nav').style.display='flex';
+  if(idx===NDEC)document.getElementById('case-next-btn').innerHTML='Continue to Debrief &rarr;';
+}
+function renderDebrief(){
+  var items='';
+  for(var i=1;i<=NDEC;i++){
+    var d=CASE.decisions[i-1],id=CS.decisions[i];
+    if(!id)continue;
+    var o=d.options.filter(function(x){return x.id===id;})[0];
+    items+='<li><span class="pl-k">Decision '+i+' &middot; you chose '+o.letter+'</span>'+d.cons[id].s+'</li>';
+  }
+  var n=bestCount();
+  var lead=(n===NDEC)?'You took the best-supported route on every decision. The harder skill is holding it when someone is standing in front of you asking for something else.':(n*2>=NDEC?'You took the best-supported route on '+n+' of '+NDEC+' decisions. Look at the others and ask what pressure pulled you off it.':'Several of your choices moved quickly toward what someone was asking for. That is a natural instinct. This case is about staying responsive without getting ahead of the evidence or the authority.');
+  var B=CASE.debrief;
+  var ledger='';
+  if(B.ledger){ledger='<div class="card"><div class="card-label">Ridgeway at the End of Case File '+CASE.n+'</div><div class="table-wrap"><table class="ref"><thead><tr><th>Item</th><th>Status in this case</th></tr></thead><tbody>'+B.ledger.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('')+'</tbody></table></div></div>';}
+  return '<h2 class="title-main title-sub">Case Debrief</h2>'
+  +'<div class="card people-card"><div class="card-label">Your Path Through Ridgeway</div><p>'+lead+'</p><ul class="path-list">'+items+'</ul></div>'
+  +'<div class="card"><div class="card-label">'+B.title+'</div>'+B.html+'</div>'
+  +ledger
+  +'<div class="card"><div class="card-label">'+B.handoffTitle+'</div>'+B.handoff+'</div>'
+  +'<div class="nav-row"><span></span><button class="btn-primary" onclick="completeSection(\'casestudy\',\'kc\')">Continue to Knowledge Check &rarr;</button></div>';
+}
+
+/* ===== KNOWLEDGE CHECK ===== */
+var KC_QUESTIONS=CASE.kc;
+var kcAnswers={},kcOrder={};
+function shuffleArray(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function buildKCOrder(){kcOrder={};KC_QUESTIONS.forEach(function(q,qi){var ix=[];for(var i=0;i<q.options.length;i++)ix.push(i);kcOrder[qi]=shuffleArray(ix);});}
+function renderKC(){
+  kcAnswers={};buildKCOrder();
+  var q='';
+  KC_QUESTIONS.forEach(function(Q,qi){
+    q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
+  });
+  return '<div class="screen">'+renderNav()
+  +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
+  +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
+  +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
+  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
+}
+function selectKCAnswer(qi,pos){
+  var n=KC_QUESTIONS[qi].options.length;
+  for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
+}
+function submitKC(){
+  var correct=0;
+  KC_QUESTIONS.forEach(function(q,qi){
+    var ord=kcOrder[qi],sel=kcAnswers[qi],ok=(ord[sel]===q.correct),cp=ord.indexOf(q.correct);
+    if(ok)correct++;
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.remove('selected');
+    document.getElementById('kc-opt-'+qi+'-'+sel).classList.add(ok?'correct':'incorrect');
+    if(!ok)document.getElementById('kc-opt-'+qi+'-'+cp).classList.add('correct');
+    document.getElementById('kc-explain-'+qi).classList.add('show');
+  });
+  CS.kcScore=correct;
+  var passed=(correct/KC_QUESTIONS.length)>=0.6;
+  var fb=document.getElementById('kc-feedback');
+  fb.className='kc-feedback show '+(passed?'pass':'fail');
+  fb.innerHTML='<div class="kc-score">'+correct+'/'+KC_QUESTIONS.length+'</div>'+(passed?'<strong>Well done.</strong> You have completed Case File '+CASE.n+'.':'<strong>Review the explanations above.</strong> This is a formative check, not a grade. The explanations are the learning.');
+  var row=document.getElementById('kc-btn-row');
+  if(passed){CS.sectionsComplete.kc=true;saveState();row.innerHTML='<button class="btn-primary" onclick="goSection(\'complete\')">Finish Case File &rarr;</button>';}
+  else{row.innerHTML='<button class="btn-primary" onclick="goSection(\'kc\')">Retake Knowledge Check</button>';}
+  fb.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ===== COMPLETE ===== */
+function renderComplete(){
+  CS.section='complete';saveState();
+  var next=CASE.nextFile?'<a href="'+CASE.nextFile+'" style="color:var(--gold);font-weight:700;">Continue to Case File '+CASE.nextN+' &rarr;</a> &middot; ':'This is the final case file. ';
+  return '<div class="screen"><div class="complete-wrap"><div class="complete-seal">&#10003;</div>'
+  +'<div class="complete-title">Case File '+CASE.n+' Complete</div>'
+  +'<div class="complete-sub">'+CS.name+' &middot; '+CASE.title+' &middot; Score: '+CS.kcScore+'/'+KC_QUESTIONS.length+'</div>'
+  +'<div style="text-align:left;max-width:480px;margin:0 auto 20px;"><label class="field-label" for="commitment">'+CASE.commit+'</label>'
+  +'<textarea class="reflect-input" id="commitment" placeholder="Type your commitment...">'+(CS.commitment||'')+'</textarea></div>'
+  +'<div class="form-msg" id="form-msg" style="text-align:left;"></div>'
+  +'<div class="btn-row" style="justify-content:center;"><button class="btn-primary" onclick="saveCommitment()">Save and Finish</button><button class="btn-secondary" onclick="askRestart()">Restart Case File</button></div>'
+  +'<div id="restart-confirm" style="display:none;margin-top:14px;" class="form-msg">This clears your progress for this case file. <button class="link-btn" onclick="restartCase()">Yes, restart</button> &middot; <button class="link-btn" onclick="cancelRestart()">Cancel</button></div>'
+  +'<p class="fine">'+next+'<a href="index.html" style="color:var(--gold);font-weight:700;">Course Home</a></p></div></div>';
+}
+function saveCommitment(){
+  CS.commitment=document.getElementById('commitment').value;saveState();
+  var el=document.getElementById('form-msg');el.style.borderColor='var(--accent)';el.style.background='var(--accent-bg)';el.textContent='Saved on this device. Thank you for completing Case File '+CASE.n+'.';el.className='form-msg show';
+}
+function askRestart(){var e=document.getElementById('restart-confirm');e.className='form-msg show';e.style.display='block';}
+function cancelRestart(){document.getElementById('restart-confirm').style.display='none';}
+function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
+
+(function init(){render();})();
+
+</script>
+</body>
+</html>
