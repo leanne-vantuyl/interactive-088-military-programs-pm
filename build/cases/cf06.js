@@ -37,8 +37,8 @@ decisions:[
 {context:`<p>You open Priya's schedule. Activities are green, generic review durations look short, and acquisition starts at once. You know the project also needs a security-related review and an installation operations decision that the template does not include.</p>`,
 prompt:`What do you do with the schedule?`,
 options:[
-{id:'a',text:`Have Priya and the disciplines validate the template, remove stale assumptions, add the security review and installation decision, and rebuild before committing a date.`},
-{id:'b',text:`Share the schedule with the sponsor as a first look. It is only a draft, and early visibility will help build trust with the customer, and it invites useful early feedback.`},
+{id:'a',text:`Have Priya and the disciplines validate the template and add the security review and installation decision, so the date rests on real work.`},
+{id:'b',text:`Share the schedule with the sponsor as a first look. It is only a draft, and early visibility will build trust and invite useful feedback.`},
 {id:'c',text:`Keep the template as is. It is the approved standard, and adding items now would look like deviating from the process the team agreed to.`},
 {id:'d',text:`Add a generic 'other reviews' bar to cover whatever the team might discover, so the schedule has room for surprises without new detail.`}],
 cons:{
@@ -49,7 +49,7 @@ d:{s:`Added a catch-all that hides the work.`,t:`<p>A vague bar with no owner or
 {context:`<p>With the real work in place, the logic predicts a completion date later than the sponsor's. Mr. Voss says, "The command needs it by our date. Just make the schedule show it."</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Show the gap between desired and predicted dates, the levers to close it, the cost and risk of each, and who decides. Keep the date visible.`},
+{id:'a',text:`Show the gap between desired and predicted dates and the levers to close it, so the sponsor can decide. Keep his date visible as the target.`},
 {id:'b',text:`Compress activity durations until the schedule hits the date, so the sponsor sees a plan that meets the request and the team can adjust later.`},
 {id:'c',text:`Tell him the date is impossible, because a plain answer now is kinder than letting expectations build around a date that cannot be met.`},
 {id:'d',text:`Agree to the date and tell the team to find the time, since the sponsor has made his priority clear and the team has met hard dates before.`}],
@@ -61,7 +61,7 @@ d:{s:`Committed to a date the evidence does not support.`,t:`<p>The team is told
 {context:`<p>Weeks later, the sponsor-furnished item that feeds acquisition has not arrived by its forecast date. The schedule shows it as a dated milestone with the sponsor as owner. Separately, the dashboard shows Contract Award as past due with no actual date, and Mr. Voss asks why the project looks late.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Check the dashboard defect and correct the record. Warn the sponsor, update the schedule, preserve the baseline, and assert no entitlement.`},
+{id:'a',text:`Check the dashboard defect and correct the record, then warn the sponsor and preserve the baseline, so impacts show without asserting entitlement.`},
 {id:'b',text:`Tell Mr. Voss the delay is his fault, since the item is his, and ask him to commit to a new date so the schedule can recover.`},
 {id:'c',text:`Quietly move the baseline date so the dashboard goes green, because the underlying delay is small and the red flag would distract leadership.`},
 {id:'d',text:`Ignore the dashboard. Dashboards are noisy, and the team has the real schedule in its own files, which is what actually matters.`}],

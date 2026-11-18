@@ -47,8 +47,8 @@ decisions:[
 {context:`<p>Dana asks you to draft the feasibility paragraph for Mr. Osei. A colleague suggests, "Two engineers are listed, so capacity is fine. Just say we can support it."</p>`,
 prompt:`What do you write?`,
 options:[
-{id:'a',text:`State that evidence supports beginning authorized planning, not the requested date and price. Give low confidence and name what would raise it.`},
-{id:'b',text:`State that capacity exists and USACE can support the request, since two engineers are listed and the team would otherwise look unresponsive.`},
+{id:'a',text:`State that evidence supports beginning authorized planning, not the date and price, because confidence is low. Name what would raise it.`},
+{id:'b',text:`State that capacity exists and USACE can support the request, since two engineers are listed and the team would otherwise look unresponsive to the sponsor.`},
 {id:'c',text:`Say nothing about feasibility until the scope is fully defined, because any statement now could be treated later as a commitment.`},
 {id:'d',text:`Recommend non-acceptance because so many items are unresolved, since a clear no is safer than a conditional yes that might be misread.`}],
 cons:{
@@ -59,8 +59,8 @@ d:{s:`Recommended non-acceptance without an evidence-based case.`,t:`<p>A non-ac
 {context:`<p>Mr. Voss calls you directly. He says, "The command's number is $24 million. Can you confirm that works?" You know the analogous range is higher, and you have no cost estimate.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Explain that USACE cannot yet substantiate the target, share that comparable work suggests a higher range, and ask that his acknowledgment be recorded.`},
-{id:'b',text:`Confirm that it works, and plan to adjust the scope later, so the customer leaves the meeting confident and the relationship stays positive, which keeps the conversation constructive.`},
+{id:'a',text:`Explain that USACE cannot yet substantiate the target and comparable work runs higher, so ask that his acknowledgment be recorded.`},
+{id:'b',text:`Confirm that it works, and plan to adjust the scope later, so the customer leaves the meeting confident and the relationship stays positive.`},
 {id:'c',text:`Say you cannot discuss cost with him, because only the program level may speak to numbers, and offer to pass his request upward.`},
 {id:'d',text:`Offer a revised number of your own, midway in the range, so he has something realistic to carry back to his leadership.`}],
 cons:{
@@ -71,7 +71,7 @@ d:{s:`Invented a middle number with no estimate behind it.`,t:`<p>Your midpoint 
 {context:`<p>Mr. Osei accepts the work with conditions and assigns you as PM. You receive the package. It lists four open conditions: scope development by the end user, site access by the sponsor, a funding gap to be resolved by the sponsor and resource management, and specialty design support from the USACE PgM. A project number has been created in the system.</p>`,
 prompt:`What is your first move as the newly assigned PM?`,
 options:[
-{id:'a',text:`Verify authority, owner, scope and next permitted action. For each condition, set a custodian, evidence standard and due event.`},
+{id:'a',text:`Verify authority, owner, scope and next permitted action, so each condition gets a custodian, evidence standard and due event.`},
 {id:'b',text:`Treat the conditions as closed now that a project number exists, and begin full planning so the team does not lose time.`},
 {id:'c',text:`Take on all four conditions yourself so nothing is missed, and report to the sponsor once each one is complete.`},
 {id:'d',text:`Wait for the sponsor to tell you when the conditions are met, since they set the conditions and are best placed to confirm closure.`}],

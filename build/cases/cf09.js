@@ -35,9 +35,9 @@ decisions:[
 {context:`<p>The weekly report shows the pre-final milestone achieved, "95 percent complete." Rafael reads the package for constructability and finds an unresolved utility relocation and a conflict between the plans and the specifications.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Ask the Technical Lead to document the defects and a closure plan, quantify exposure, and decide with her whether the milestone is truly complete.`},
+{id:'a',text:`Ask the Technical Lead to document the defects and a closure plan, so exposure is quantified and completeness is decided against the milestone criteria.`},
 {id:'b',text:`Accept the report. The milestone date was met, and Construction can raise concerns later if the defects turn out to matter in the field.`},
-{id:'c',text:`Tell Rafael to fix the plans and specifications himself, since he knows the design best and a quick correction keeps the milestone date intact, which is quicker than a formal rework request.`},
+{id:'c',text:`Tell Rafael to fix the plans and specifications himself, since he knows the design best and a quick correction keeps the milestone date intact for the sponsor.`},
 {id:'d',text:`Tell the sponsor the milestone was missed right away, so the customer hears the bad news early and no one can say it was hidden.`}],
 cons:{
 a:{s:`Tested the milestone against its criteria and made the defects owned and sized.`,t:`<p>Ingrid logs both defects, with owners and a closure plan. The utility relocation has a schedule and cost exposure that you quantify with Elena. The pre-final milestone is shown as achieved with open items under conditions, not as complete, and RTA is not promised on the favorable percentage.</p>`,i:`<strong>What this reveals:</strong> The PM does not authorize RTA solely because the calendar date or the percent-complete field is favorable. Ask for a documented defect and closure plan and quantify the exposure.`},
@@ -47,7 +47,7 @@ d:{s:`Reported a miss before establishing the facts.`,t:`<p>Mr. Voss tells the c
 {context:`<p>The comment log shows most comments closed. A backcheck of a few consequential ones finds that the revised drawings do not reflect the agreed corrections. Separately, Maj. Hollis has a comment asking for an additional work bay, and a reviewer has noted a preference for a different cladding material.</p>`,
 prompt:`How do you handle the comments?`,
 options:[
-{id:'a',text:`Sort comments by type and reopen those with no visible correction. Treat the extra bay as a possible contract change. Record the cladding as advisory.`},
+{id:'a',text:`Sort comments by type and reopen those with no visible correction, because closed is not proven. Treat the extra bay as a possible contract change.`},
 {id:'b',text:`Trust the log. Closed means closed, and rechecking every comment would waste the reviewers' time and slow the package down.`},
 {id:'c',text:`Have Engineering add the bay, since the end user asked and the team should show it can respond to the customer's actual needs.`},
 {id:'d',text:`Treat every comment as mandatory and require all to be adopted, so no reviewer can later say their input was ignored or overruled.`}],
@@ -59,10 +59,10 @@ d:{s:`Treated every comment as mandatory.`,t:`<p>The team drowns in preferences 
 {context:`<p>The RTA date is next week. The RFP draft is complete. Environmental documentation is pending and one site datum in the technical package conflicts with the survey. A colleague suggests, "Mark the environmental item as optional for now and delete the BCOES milestone. We can get to RTA on the date."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Run the RTA readiness check with the TL, KO, Counsel and RM. For each open item, document consequence, owner and authority. Do not relabel or delete.`},
+{id:'a',text:`Run the RTA readiness check with the TL, KO, Counsel and RM, so each open item gets a consequence, owner and authority. Do not relabel or delete.`},
 {id:'b',text:`Follow the colleague's suggestion to reach the date, since it is common practice and the open items can be cleaned up after the RTA.`},
 {id:'c',text:`Declare RTA ready since the RFP is drafted, because the remaining items are small and the team has already put in months of work.`},
-{id:'d',text:`Cancel the RTA date and wait for everything to be perfect, so the package that goes forward has no open questions or hidden risks, and nobody can say the team rushed.`}],
+{id:'d',text:`Cancel the RTA date and wait for everything to be perfect, so the package that goes forward has no open questions and nobody can say the team rushed a flawed product.`}],
 cons:{
 a:{s:`Ran the readiness check and routed each open item to its decision authority.`,t:`<p>The check shows technical sufficiency nearly there, acquisition ready, environmental documentation pending and a datum conflict to resolve. Wen and you agree on what is mandatory before RTA under the selected route. You give Dana the evidence and the decision options, and RTA is re-forecast with the consequence documented rather than forced.</p>`,
 th:function(d){return d[0]==='a'?'<p>Because the earlier defects were logged and owned, the open-items list is short and credible.</p>':'';},

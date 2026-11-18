@@ -51,8 +51,8 @@ decisions:[
 {context:`<p>A manager looks at the sheet and says, "Total estimate is $31 million against a $24 million program. That is a $7 million overrun."</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Explain that the $31 million adds the funded $2 million to one side only. Like for like it is $29 million against $24 million, about $5 million of pressure.`},
-{id:'b',text:`Agree. A bigger number is a more conservative warning to give leadership, and it is better to overstate the gap than be caught short later, which is the safer habit for a forecast.`},
+{id:'a',text:`Explain that the $31 million adds the funded $2 million to one side only, so like for like it is $29 million against $24 million, about $5 million.`},
+{id:'b',text:`Agree. A bigger number is the more conservative warning to give leadership, and overstating the gap is a safer habit than being caught short later in the year.`},
 {id:'c',text:`Say the comparison cannot be made until the estimate is final, because any figure shared now could be treated as the official cost position.`},
 {id:'d',text:`Add the $2 million to the program amount as well and report no pressure, so both sides of the comparison use the same total.`}],
 cons:{
@@ -63,10 +63,10 @@ d:{s:`Adjusted both sides until the signal vanished.`,t:`<p>The planning and des
 {context:`<p>The comparison stands at about $5 million of potential pressure. Mr. Voss asks, "So what are we going to do? I need to tell the command."</p>`,
 prompt:`What do you bring him and Dana?`,
 options:[
-{id:'a',text:`Bring the bounded signal, its maturity and the options with their tests, and seek program direction on funding. State what the forecast shows.`},
+{id:'a',text:`Bring the bounded signal and the options with their tests, so program direction on funding can be sought. State what the forecast shows.`},
 {id:'b',text:`Tell him you will cut scope to fit the program amount, so the project stays inside its funding and no one has to ask for more.`},
 {id:'c',text:`Tell him the project will be fine, since estimates usually come down as design matures, and there is no reason to alarm anyone early.`},
-{id:'d',text:`Tell him you will ask the contractor to absorb the difference, since the contractor has room to find savings and the customer cannot pay more, which also gives him a clear action.`}],
+{id:'d',text:`Tell him you will ask the contractor to absorb the difference, since the contractor has room to find savings and the customer cannot pay more than the program amount.`}],
 cons:{
 a:{s:`Brought a bounded signal, tested options and a decision owner.`,t:`<p>Dana appreciates that the options each carry a test and an owner. She asks Elena to revalidate assumptions and quantities, and schedules the program-level conversation about direction. Mr. Voss has a measured message for the command.</p>`,i:`<strong>What this reveals:</strong> Present the options, the management test for each, who can decide, and the credible forecast pending a decision.`},
 b:{s:`Decided to cut scope on your own authority.`,t:`<p>Scope is set by the controlling instrument and the requirement owner. Cutting it to fit a number changes what the end user receives, and the user finds out second-hand.</p>`,i:`<strong>What this reveals:</strong> Scope changes must still satisfy the approved requirement and scope authority. Cost pressure alone does not authorize them.`},
@@ -75,9 +75,9 @@ d:{s:`Promised an outcome that depends on a process you do not control.`,t:`<p>T
 {context:`<p>The end-of-month report: planned engineering expenditures are $650,000 and actual are $790,000, while the design-validation milestone remains open. All engineering hours are loaded on a single summary activity. Dana asks, "Are we overrunning design?"</p>`,
 prompt:`What do you tell her?`,
 options:[
-{id:'a',text:`Say it is a leading indicator, not a verdict. Ask Ingrid what drives it, verify milestone status, and request the forecast for remaining work.`},
+{id:'a',text:`Say it is a leading indicator, not a verdict, so ask Ingrid what drives it, verify milestone status, and request the forecast for remaining work.`},
 {id:'b',text:`Say yes, we are overrunning, and ask for more money now, so funds are in place before the shortfall shows up in the monthly report.`},
-{id:'c',text:`Say no. Spending ahead of plan means work is ahead of schedule, which is a good sign, and the dashboard figure is simply showing progress.`},
+{id:'c',text:`Say it is probably just accounting timing, so nothing needs to be done now, and the numbers will settle by themselves once next period's charges post.`},
 {id:'d',text:`Say it is probably just accounting timing, so nothing needs to be done now, and the numbers will settle by themselves next period.`}],
 cons:{
 a:{s:`Treated the trend as an investigation and fixed the data that hid the cause.`,t:`<p>Ingrid explains that two extra review cycles were added by a late customer comment. That is changed scope, not inefficiency, and it needs to go through change control. Priya splits the loading into design, technical review and RFP preparation so next month shows where the money goes.</p>`,i:`<strong>What this reveals:</strong> Expenditures rising while progress stalls is a leading indicator requiring investigation. Resource loading on several meaningful activities lets the PM tie spending to completed work.`},

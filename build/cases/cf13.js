@@ -37,7 +37,7 @@ decisions:[
 {context:`<p>The dashboard shows Ridgeway's construction award milestone with a different completion value than Construction's own report, and a count of activities appears to include a duplicate. The dashboard refreshed this morning, but the schedule update behind it is older than the field progress report.</p>`,
 prompt:`How do you build the package?`,
 options:[
-{id:'a',text:`Set a stated data cutoff, check records describe the same work, trace each discrepancy to its owner, and show unresolved competing values.`},
+{id:'a',text:`Set a stated data cutoff and trace each discrepancy to its owner, so unresolved competing values are shown rather than hidden.`},
 {id:'b',text:`Use the dashboard as is. It is the official view, and reconciling it by hand would create a second version of the truth for leaders to question.`},
 {id:'c',text:`Edit the slide to show the value you believe is right and remove the duplicate, so leadership sees one clean number and not a confusing mix of data.`},
 {id:'d',text:`Cancel the status section until the systems agree, because any number shown now might be wrong, and a missing section is better than a misleading one.`}],
@@ -49,7 +49,7 @@ d:{s:`Withheld status.`,t:`<p>The review has nothing to react to. Unsupported pr
 {context:`<p>You are drafting the decision slide. The PDT has a chronology of the utility issue, a testing window that closes on a date in the schedule analysis, and a need for a qualified regional resource. Priya says, "Let's walk through the whole timeline first so they have context."</p>`,
 prompt:`How do you open the request?`,
 options:[
-{id:'a',text:`Lead with the decision: request regional testing support before the window closes, name who can act, and show options including no action.`},
+{id:'a',text:`Lead with the decision, because leaders have little time: request regional testing support before the window closes, and show options including no action.`},
 {id:'b',text:`Walk through the timeline first and arrive at the request at the end, so leadership understands the full context before being asked to decide.`},
 {id:'c',text:`Ask leadership to approve the Ridgeway change, since a short, simple ask is easy to act on and respects their limited time in the meeting.`},
 {id:'d',text:`Tell leadership regional support will recover the full 25 days, since a clear and confident benefit makes the request easier to approve.`}],
@@ -61,7 +61,7 @@ d:{s:`Promised a recovery the team cannot show.`,t:`<p>The testing prerequisites
 {context:`<p>Leadership supports the request. Two weeks later an email arrives: "A tester has been assigned." Your action tracker has a box labeled "Obtain testing support." Engineering mentions quietly that the test equipment is booked elsewhere for the same window.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Do not close the issue. Verify qualified personnel, prerequisites and equipment, check the forecast, and keep the action open at the remaining constraint.`},
+{id:'a',text:`Do not close the issue, because the equipment is still booked elsewhere. Verify personnel, prerequisites and equipment and keep the action open.`},
 {id:'b',text:`Close the action. The tester was assigned, which was what the action asked for, and tracking it further would add paperwork without new value.`},
 {id:'c',text:`Tell the customer the delay is recovered, since the testing resource is now in place and the customer has been waiting for good news on this.`},
 {id:'d',text:`Send another reminder email and wait, since the people who must act already know what is needed and have it in writing.`}],

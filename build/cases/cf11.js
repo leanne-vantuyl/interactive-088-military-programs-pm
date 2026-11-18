@@ -36,7 +36,7 @@ decisions:[
 {context:`<p>The contractor is ready to start, but installation access to one work area is not ready. Mr. Ibarra says, "We are losing days. Can you just tell us how many days you will give us?"</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Record the Government action and date. Bring the KO, Construction, Real Estate and installation together on access, and update the forecast.`},
+{id:'a',text:`Record the Government action and date, then bring the KO, Construction, Real Estate and installation together, so access is resolved and the forecast updated.`},
 {id:'b',text:`Tell Mr. Ibarra you will give him the days he needs, so the contractor knows the Government will make the delay right.`},
 {id:'c',text:`Tell him to start in the unavailable area and sort it out later, since the work is ready and idle crews cost the project money.`},
 {id:'d',text:`Tell him to take it up with the KO and leave it there, since contract matters belong to the KO and the PM should not interfere.`}],
@@ -48,7 +48,7 @@ d:{s:`Handed off the issue without facilitating it.`,t:`<p>Wen gets the call wit
 {context:`<p>The contractor discovers an undocumented utility crossing a foundation and submits an RFI. Early field estimates suggest roughly $700,000 and 25 calendar days of possible impact (preliminary case assumptions). Maj. Hollis hears about it and says, "While you're digging there, let's add a small equipment alcove we forgot."</p>`,
 prompt:`How do you handle the RFI and the request?`,
 options:[
-{id:'a',text:`Triage the RFI: clarification or change? Involve the KO, preserve the notice record, and treat the alcove as a separate request with its own approval path.`},
+{id:'a',text:`Triage the RFI as clarification or change, so the KO is involved and the notice record preserved. Treat the alcove as a separate request.`},
 {id:'b',text:`Answer the RFI quickly so the contractor can proceed, and fold the alcove into the same change, which keeps the work moving.`},
 {id:'c',text:`Tell Mr. Ibarra to proceed, since the utility must be dealt with, and the paperwork can follow once the physical work is done.`},
 {id:'d',text:`Label it a differing site condition and tell him the Government will pay, so he can proceed without worrying about cost recovery.`}],
@@ -61,8 +61,8 @@ d:{s:`Assigned a cause and a payer before the facts.`,t:`<p>The facts may show a
 {context:`<p>After NTP, a mechanical design package keeps being returned and long-lead equipment cannot be ordered. Mr. Ibarra's monthly report still shows the original occupancy date.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Ask Engineering and Construction what decision is missing and what recovery supports the date. Trace affected work with the scheduler and brief a realistic forecast.`},
-{id:'b',text:`Accept the report. The baseline date is unchanged, and the contractor has said the schedule is still achievable with minor adjustments, which avoids reopening the plan.`},
+{id:'a',text:`Ask Engineering and Construction what decision is missing, so recovery can be tested against the date. Trace affected work and brief a realistic forecast.`},
+{id:'b',text:`Accept the report. The baseline date is unchanged, and the contractor says the schedule is still achievable with minor adjustments, so reopening the plan is unnecessary.`},
 {id:'c',text:`Tell Mr. Ibarra to compress the schedule, since the date is committed and the contractor has the means to recover lost time.`},
 {id:'d',text:`Tell the sponsor the date is lost, so they can plan for the delay now rather than be surprised later.`}],
 cons:{

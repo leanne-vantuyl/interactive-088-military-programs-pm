@@ -254,8 +254,8 @@ decisions:[
 {context:`<p>Mr. Voss calls: "I see Ridgeway has a project number now. So we're funded and we can move to award, right?"</p>`,
 prompt:`What do you say?`,
 options:[
-{id:'a',text:`Explain that a project number means the project exists, not that it is funded. Confirm with RMO what authority is registered before discussing award.`},
-{id:'b',text:`Agree. A project number means the money is in place, and checking again would only slow down a customer who is waiting for an answer, and saves a call to RMO.`},
+{id:'a',text:`Explain that a project number means the project exists, not that it is funded, so confirm with RMO what authority is registered before award.`},
+{id:'b',text:`Agree. A project number means the money is in place, and asking RMO again would only slow down a customer who is waiting for an answer.`},
 {id:'c',text:`Tell him you cannot discuss funding because that belongs to RMO, and suggest he take any funding question to them directly.`},
 {id:'d',text:`Tell him award is eight months away, so it is too early to discuss funding, and revisit the topic once procurement planning is underway.`}],
 cons:{
@@ -266,8 +266,8 @@ d:{s:`Deferred a question that already mattered for planning.`,t:`<p>Funding con
 {context:`<p>Marcus sends the details. The funding authorization is registered and loaded. It is <strong>less than the current estimated total cost</strong>, and it carries conditions on use. Tamika, building the status, asks, "Can I mark funding green? Funds are in."</p>`,
 prompt:`What do you tell Tamika?`,
 options:[
-{id:'a',text:`Report authority, registered amount and conditions as facts, show the gap to the estimate, and mark funding not fully funded. List who must act next.`},
-{id:'b',text:`Mark it green. The funds arrived and the gap can be explained verbally, so the chart should show the good news and keep leadership confident, and leaders already know the gap.`},
+{id:'a',text:`Report authority, amount and conditions as facts and mark funding not fully funded, so the gap is visible. List who must act next.`},
+{id:'b',text:`Mark it green. The funds arrived and the gap can be explained verbally, so the chart shows the good news and keeps leadership confident.`},
 {id:'c',text:`Mark it red and call the project unfunded, since the gap to the estimate is large and leadership should see the worst case right away.`},
 {id:'d',text:`Leave funding blank until the gap is resolved, so the report does not show a number that may change before it is finalized.`}],
 cons:{
@@ -280,7 +280,7 @@ d:{s:`Hid the problem in silence.`,t:`<p>A blank field invites assumptions. Lead
 {context:`<p>At the monthly review a manager says, "Funds are in, so the baseline must be approved too, and procurement can proceed." A shared spreadsheet in the room shows "Baselined and funded" for Ridgeway. Nobody can say who last edited it.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Ask which record shows baseline approval. State each gate separately, offer to confirm each from its source, and fix the spreadsheet to point at them.`},
+{id:'a',text:`Ask which record shows baseline approval and state each gate separately, so each can be confirmed from its source and the spreadsheet fixed.`},
 {id:'b',text:`Say nothing. The meeting is moving and the spreadsheet is probably close enough, so a correction now would derail the agenda.`},
 {id:'c',text:`Tell the manager flatly that they are wrong in front of the group, so the record is corrected before anyone acts on it.`},
 {id:'d',text:`Approve the baseline yourself to make the status true, since the plan is ready and waiting would only delay the procurement package.`}],
