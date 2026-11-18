@@ -40,10 +40,10 @@ decisions:[
 {context:`<p>Hal tells you he cannot do both reviews in the window. Each project has told its customer that the review will happen "in the next few weeks." Nobody has yet raised this with Dana.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Write Dana a short note: what each review requires, which are ready, how long each takes, what a delay costs each project, two alternatives and your recommendation. Tell the other PMs you are doing it.`},
-{id:'b',text:`Quietly ask Hal to give your project priority, since you asked first.`},
-{id:'c',text:`Tell each customer the review date is at risk, and let the program office catch up.`},
-{id:'d',text:`Hold the date. Hal is professional and will find a way, so raising it would only create noise.`}],
+{id:'a',text:`Write Dana a short note: what each review needs, readiness, delay cost, two alternatives and your recommendation. Tell the other PMs you are doing it.`},
+{id:'b',text:`Quietly ask Hal to give your project priority, since you asked first and your customer has already been told the review is coming soon.`},
+{id:'c',text:`Tell each customer the review date is at risk, so they hear it from you early, and let the program office catch up on its own schedule.`},
+{id:'d',text:`Hold the date. Hal is professional and will find a way, so raising it with Dana would only create noise and make a manageable problem look bigger, and avoids a fuss.`}],
 cons:{
 a:{s:`Took the conflict to the program level with evidence and a recommendation.`,t:`<p>Dana reads your note in minutes. Reviews are not equally ready: the barracks package is complete, while Ridgeway's inputs are still being gathered. She asks Mr. Osei whether a second qualified reviewer can cover part of one review, and sequences the rest.</p><p>The other PMs thank you for the heads-up. Nobody is surprised.</p>`,i:`<strong>What this reveals:</strong> The PM supplies evidence about the conflict and a recommendation. The program level weighs mission priority and alternatives, and the project plan then reflects what was authorized.`},
 b:{s:`Used a private ask to win a shared resource.`,t:`<p>Hal, uncomfortable, says yes to you. Two days later the other PM discovers the arrangement and goes to Dana. Dana now has a conflict and a trust problem, and your request looks like a side deal.</p>`,i:`<strong>What this reveals:</strong> A first-come claim on a shared resource skips the people who weigh priority across projects. Treating each project as an independent promise to the reviewer hides the constraint until one promise fails.`},
@@ -52,10 +52,10 @@ d:{s:`Held the date and hoped. The conflict surfaced as a missed commitment.`,t:
 {context:`<p>Mr. Osei stops you in the hallway. When you mention the barracks and Ridgeway review pressure, he says, "I'm inclined to support going fast on Ridgeway. Let's see what Engineering needs." Mr. Voss, who happens to be visiting, overhears and smiles.</p>`,
 prompt:`How do you treat what Mr. Osei said?`,
 options:[
-{id:'a',text:`Treat it as encouraging direction, not a decision. Write down what was said, tell Dana, and ask what decisions, funding or approvals "going fast" would still need and who owns each.`},
-{id:'b',text:`Tell Engineering that the DPM has approved accelerating Ridgeway.`},
-{id:'c',text:`Tell Mr. Voss that USACE has committed to accelerate. He heard it himself, after all.`},
-{id:'d',text:`Ignore it. Senior leaders say things like that all the time.`}],
+{id:'a',text:`Treat it as encouragement, not a decision. Write down what was said, tell Dana, and ask what approvals going fast would still need.`},
+{id:'b',text:`Tell Engineering that the DPM has approved accelerating Ridgeway, so they can begin adjusting their staffing and review plans right away.`},
+{id:'c',text:`Tell Mr. Voss that USACE has committed to accelerate. He heard it himself, after all, and a clear message now prevents confusion later.`},
+{id:'d',text:`Ignore it. Senior leaders say things like that all the time, and acting on every hallway remark would leave the team chasing noise.`}],
 cons:{
 a:{s:`Recorded the remark as encouragement and asked what it would still require.`,t:`<p>Your note to Dana says what was said, where, and that you have not acted on it. Dana asks Mr. Osei directly. He clarifies: he supports looking at acceleration options, but he has approved nothing, and any recovery option would need the usual funding and baseline decisions.</p>`,i:`<strong>What this reveals:</strong> The PM documents what was actually decided and coordinates the remaining actions. An encouraging discussion is insufficient evidence of all required approvals.`},
 b:{s:`Passed encouragement along as an approval.`,t:`<p>Engineering starts reordering work. A week later Dana confirms that no acceleration has been approved, and the reordering must be undone. Engineering is frustrated and a little wary of the next thing you say Mr. Osei supports.</p>`,i:`<strong>What this reveals:</strong> Retained authority matters. Relaying a leader's inclination as a decision spends their credibility and yours.`},
@@ -64,10 +64,10 @@ d:{s:`Ignored the remark; the sponsor did not.`,t:`<p>Mr. Voss follows up with D
 {context:`<p>Mr. Soto's chief tells you that Rafael will be reassigned to another project at the end of the month. Rafael has been the Construction voice on Ridgeway from the start. He holds several informal understandings about access and sequencing that are not written anywhere.</p>`,
 prompt:`How do you protect continuity?`,
 options:[
-{id:'a',text:`Ask Rafael and his chief for a deliberate transfer: decisions made, assumptions, open issues and stakeholder commitments, written down, with a named successor introduced to the team and the customer.`},
-{id:'b',text:`Ask Rafael to leave you a quick email summary on his last day.`},
-{id:'c',text:`Wait for the successor to ask what they need.`},
-{id:'d',text:`Object to the reassignment and ask Dana to block it.`}],
+{id:'a',text:`Ask Rafael and his chief for a written transfer of decisions, assumptions and open issues, with a named successor introduced to the team.`},
+{id:'b',text:`Ask Rafael to leave you a quick email summary on his last day, which is easy for him and gives you the essentials without a long process.`},
+{id:'c',text:`Wait for the successor to ask what they need. They will know their own gaps better than anyone, and over-briefing could slow them down.`},
+{id:'d',text:`Object to the reassignment and ask Dana to block it, since losing Rafael mid-planning puts the whole schedule and the customer's confidence at risk.`}],
 cons:{
 a:{s:`Arranged a deliberate transfer of decisions, records, assumptions and commitments.`,t:`<p>Rafael walks the successor through a one-page hand-off: access assumptions, two operating constraints he had discussed with Ms. Beck, one open question about sequencing, and who has been told what. The successor joins the next team call with Rafael present.</p><p>Rafael's chief appreciates the proportionate ask and agrees to a short overlap.</p>`,i:`<strong>What this reveals:</strong> One project, one team, one PM does not require anyone to stay forever. It requires continuity to be preserved deliberately: decisions, records, assumptions, unresolved issues and stakeholder commitments.`},
 b:{s:`Relied on a last-day email. Context was lost.`,t:`<p>The email lists documents but not the understandings behind them. A month later the successor re-opens the access question with Ms. Beck as if for the first time, and she wonders aloud whether anyone is keeping track.</p>`,i:`<strong>What this reveals:</strong> A document list is not a transfer. The informal understandings and who-was-told-what are exactly what vanishes.`},

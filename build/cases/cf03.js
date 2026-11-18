@@ -47,10 +47,10 @@ decisions:[
 {context:`<p>Dana asks you to draft the feasibility paragraph for Mr. Osei. A colleague suggests, "Two engineers are listed, so capacity is fine. Just say we can support it."</p>`,
 prompt:`What do you write?`,
 options:[
-{id:'a',text:`State that evidence supports beginning authorized planning, not the requested date and price. Give a low confidence statement, list the staffing, scope, access and funding limits, and name what would raise confidence.`},
-{id:'b',text:`State that capacity exists and USACE can support the request, since two engineers are listed.`},
-{id:'c',text:`Say nothing about feasibility until the scope is fully defined.`},
-{id:'d',text:`Recommend non-acceptance because so many items are unresolved.`}],
+{id:'a',text:`State that evidence supports beginning authorized planning, not the requested date and price. Give low confidence and name what would raise it.`},
+{id:'b',text:`State that capacity exists and USACE can support the request, since two engineers are listed and the team would otherwise look unresponsive.`},
+{id:'c',text:`Say nothing about feasibility until the scope is fully defined, because any statement now could be treated later as a commitment.`},
+{id:'d',text:`Recommend non-acceptance because so many items are unresolved, since a clear no is safer than a conditional yes that might be misread.`}],
 cons:{
 a:{s:`Wrote a screening-level assessment that said which claim the evidence supports.`,t:`<p>Your paragraph separates "we can begin authorized planning" from "we can award in eight months for $24M," marks confidence <strong>low</strong>, and names the staffing, scope, access and funding limits, each with what would improve it.</p><p>Dana adds one line on regional resource coordination and sends it up.</p>`,i:`<strong>What this reveals:</strong> The greatest hazard at this stage is turning limited evidence into a firm cost or schedule commitment. A screening-level assessment is honest about its own limits and still moves the decision forward.`},
 b:{s:`Treated names on a chart as delivery feasibility.`,t:`<p>The note says capacity exists. Two weeks later you learn one engineer is committed elsewhere and the other cannot cover the specialty. The assessment has to be walked back in front of the sponsor.</p>`,i:`<strong>What this reveals:</strong> Staffing records can be incomplete, and availability is not feasibility. Feasibility needs scope definition and a credible cost and schedule review.`},
@@ -59,10 +59,10 @@ d:{s:`Recommended non-acceptance without an evidence-based case.`,t:`<p>A non-ac
 {context:`<p>Mr. Voss calls you directly. He says, "The command's number is $24 million. Can you confirm that works?" You know the analogous range is higher, and you have no cost estimate.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Explain that USACE cannot yet substantiate the target, share that comparable work suggests a higher range as a screening observation, and propose that the assessment and his acknowledgment be recorded so the number is not treated as a baseline. Offer to walk through what would firm it up.`},
-{id:'b',text:`Confirm that it works, and plan to adjust the scope later.`},
-{id:'c',text:`Say you cannot discuss cost with him.`},
-{id:'d',text:`Offer a revised number of your own, midway in the range.`}],
+{id:'a',text:`Explain that USACE cannot yet substantiate the target, share that comparable work suggests a higher range, and ask that his acknowledgment be recorded.`},
+{id:'b',text:`Confirm that it works, and plan to adjust the scope later, so the customer leaves the meeting confident and the relationship stays positive, which keeps the conversation constructive.`},
+{id:'c',text:`Say you cannot discuss cost with him, because only the program level may speak to numbers, and offer to pass his request upward.`},
+{id:'d',text:`Offer a revised number of your own, midway in the range, so he has something realistic to carry back to his leadership.`}],
 cons:{
 a:{s:`Was candid, framed the range as a screening observation and kept it from becoming a baseline.`,t:`<p>Mr. Voss is quiet, then asks what would narrow the range. You walk through scope definition, site conditions and acquisition approach. He agrees the sponsor should acknowledge the USACE assessment in the commitment memorandum.</p><p>He is not delighted, but he now has an accurate message to take to the command.</p>`,i:`<strong>What this reveals:</strong> Customers forgive a hard assessment more readily than a soft yes that later breaks. Recording the USACE view and the sponsor's acknowledgment avoids manufacturing a baseline.`},
 b:{s:`Confirmed an unsupported figure.`,t:`<p>The $24M appears in the command's brief as "confirmed by USACE." Months later, when scope is defined, the estimate lands in the analogous range and the gap is read as a USACE failure.</p>`,i:`<strong>What this reveals:</strong> A cost commitment that the evidence cannot support will be paid for later, with interest, in credibility.`},
@@ -71,10 +71,10 @@ d:{s:`Invented a middle number with no estimate behind it.`,t:`<p>Your midpoint 
 {context:`<p>Mr. Osei accepts the work with conditions and assigns you as PM. You receive the package. It lists four open conditions: scope development by the end user, site access by the sponsor, a funding gap to be resolved by the sponsor and resource management, and specialty design support from the USACE PgM. A project number has been created in the system.</p>`,
 prompt:`What is your first move as the newly assigned PM?`,
 options:[
-{id:'a',text:`Verify the authority, program owner, stakeholder contacts, scope, agreements and next permitted action. For each condition, confirm a custodian, evidence standard, due event and escalation trigger, and note what is restricted until it closes.`},
-{id:'b',text:`Treat the conditions as closed now that a project number exists, and begin full planning.`},
-{id:'c',text:`Take on all four conditions yourself so nothing is missed.`},
-{id:'d',text:`Wait for the sponsor to tell you when the conditions are met.`}],
+{id:'a',text:`Verify authority, owner, scope and next permitted action. For each condition, set a custodian, evidence standard and due event.`},
+{id:'b',text:`Treat the conditions as closed now that a project number exists, and begin full planning so the team does not lose time.`},
+{id:'c',text:`Take on all four conditions yourself so nothing is missed, and report to the sponsor once each one is complete.`},
+{id:'d',text:`Wait for the sponsor to tell you when the conditions are met, since they set the conditions and are best placed to confirm closure.`}],
 cons:{
 a:{s:`Verified the package and turned each condition into an owned, evidence-based item.`,t:`<p>You confirm who signed for what, who owns each condition and what proof will close it. The site access dependency stays with the sponsor, with a note that surveys and site activity wait until an access instrument exists. The funding gap stays with the sponsor and resource management: nothing is obligated beyond legally available authority.</p><p>Dana appreciates that the next permitted action is stated plainly.</p>`,i:`<strong>What this reveals:</strong> A condition is not closed because a project number has been created. A new PM verifies the acceptance package and the next permitted action before acting.`},
 b:{s:`Treated record creation as condition closure.`,t:`<p>You schedule a site survey. It turns out the access instrument has not been executed, and the survey team arrives at a gate that does not open. The funding gap, meanwhile, goes unnoticed until the first obligation request.</p>`,i:`<strong>What this reveals:</strong> The project record preserves the decision. It does not satisfy the conditions. Open conditions carry restrictions on what may proceed.`},

@@ -36,10 +36,10 @@ decisions:[
 {context:`<p>Wen executes a contract modification. In the weekly meeting someone says, "The mod is signed, so the baseline is updated. We are fine." Another says, "We should hold the forecast until the numbers are final."</p>`,
 prompt:`How do you handle the modification and the forecast?`,
 options:[
-{id:'a',text:`Treat them as three decisions. The KO's modification changes the contract. Update the current forecast now with its assumptions and show the variance to the approved baseline. A baseline change is a separate decision for the designated authority.`},
-{id:'b',text:`Accept that the signed modification updates the baseline and report the new date as the commitment.`},
-{id:'c',text:`Hold the forecast until the numbers are final.`},
-{id:'d',text:`Edit the baseline dates in the schedule to match the forecast.`}],
+{id:'a',text:`Treat them as three decisions: the KO's modification changes the contract, update the forecast with variance to baseline, and a baseline change is a separate decision.`},
+{id:'b',text:`Accept that the signed modification updates the baseline and report the new date as the commitment, since the contract is the controlling document, and a second approval would only slow things.`},
+{id:'c',text:`Hold the forecast until the numbers are final, so the report does not show a date that might change before it is confirmed.`},
+{id:'d',text:`Edit the baseline dates in the schedule to match the forecast, so the report shows the plan and the current view in agreement.`}],
 cons:{
 a:{s:`Separated the contract action, the forecast and the baseline.`,t:`<p>Priya updates the forecast with the pending change and its uncertainty. The report shows the 25-day variance against the approved baseline, which has not moved. Dana notes that no decision on a baseline change has been made.</p>`,i:`<strong>What this reveals:</strong> The modification changes the contract. The forecast reflects the best supported facts as soon as they are known. A signed modification does not independently amend the approved baseline.`},
 b:{s:`Let a contract signature stand in for a baseline approval.`,t:`<p>The new date is reported as a commitment that nobody with baseline authority approved. When Mr. Osei asks which decision created it, there is none.</p>`,i:`<strong>What this reveals:</strong> Authority to change a contract is not authority to change the project baseline.`},
@@ -48,10 +48,10 @@ d:{s:`Rewrote the commitment to match the forecast.`,t:`<p>The variance disappea
 {context:`<p>While updating, Priya removes a Finish-to-Start relationship between two activities, and the occupancy forecast moves back inside the approved target. She says, "That tie was probably wrong anyway."</p>`,
 prompt:`What do you ask?`,
 options:[
-{id:'a',text:`Whether the removed relationship was actually erroneous, whether the new sequence is physically feasible with Construction, and whether a reporting improvement is being mistaken for a performance improvement. Keep the old logic until it is verified.`},
-{id:'b',text:`Accept it. The forecast is better.`},
-{id:'c',text:`Tell her to restore the tie without asking why.`},
-{id:'d',text:`Report the improved date to leadership immediately.`}],
+{id:'a',text:`Ask whether the removed relationship was really erroneous, whether the new sequence is feasible, and whether reporting is being mistaken for performance.`},
+{id:'b',text:`Accept it. The forecast is better, and the scheduler is the expert on logic and has already reviewed and approved the change.`},
+{id:'c',text:`Tell her to restore the tie without asking why, since the original logic was approved and any change should be justified first.`},
+{id:'d',text:`Report the improved date to leadership immediately, since good news should travel fast and the team deserves credit for the progress, and they can brief the new date upward.`}],
 cons:{
 a:{s:`Tested the logic edit against physical reality before accepting the improvement.`,t:`<p>Rafael explains that the two activities do share a crew and the tie reflected a real dependency. The date moves back to where it was. Priya is a little deflated and, a month later, glad the date was not reported.</p>`,i:`<strong>What this reveals:</strong> A reporting improvement is not a performance improvement. Ask whether the removed relationship was erroneous and whether the sequence is feasible.`},
 b:{s:`Accepted a better date without a reason.`,t:`<p>The better date goes into the update. It will not survive contact with the work.</p>`,i:`<strong>What this reveals:</strong> Logic edits change the model. They do not change the work.`},
@@ -60,10 +60,10 @@ d:{s:`Reported an unverified improvement upward.`,t:`<p>Leadership hears good ne
 {context:`<p>The validated forecast now shows the occupancy date 25 days beyond the approved baseline. Contingency consumed and recovery options have been tested. The Change Management Plan thresholds appear to be exceeded, and a BCR would take weeks to move through governance. Mr. Voss asks, "Do I need to tell the command?"</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Document the root cause, test whether contingency or recovery can absorb the delay, and notify command under the early-warning conditions before the BCR reaches an approval queue. Assemble the BCR for the designated authority, with the original baseline preserved as the comparison point.`},
-{id:'b',text:`Wait for the BCR to be approved, then inform the command.`},
-{id:'c',text:`Tell the command the baseline has moved.`},
-{id:'d',text:`Absorb the delay by quietly resequencing and never report it.`}],
+{id:'a',text:`Document the root cause, test whether contingency can absorb the delay, and notify command under early-warning conditions. Assemble the BCR, baseline preserved.`},
+{id:'b',text:`Wait for the BCR to be approved, then inform the command, so the message goes out with a decision rather than a pending request.`},
+{id:'c',text:`Tell the command the baseline has moved, since the delay is real and the command should plan for the new date right away.`},
+{id:'d',text:`Absorb the delay by quietly resequencing and never report it, which keeps the baseline intact and avoids needless alarm for leadership, which keeps the team focused on the work.`}],
 cons:{
 a:{s:`Warned command early and prepared the BCR with the original baseline preserved.`,t:`<p>Your notice says what you know, what you do not, what recovery you tested and what decision is coming. Mr. Osei appreciates hearing it before the BCR. The package documents root cause, thresholds, cost and scope consequences. Until a change is approved, the approved baseline remains the comparison.</p>`,
 th:function(d){return d[0]==='a'?'<p>Because you kept the contract action, forecast and baseline distinct from the first meeting, the notice and the BCR do not have to untangle them.</p>':'';},

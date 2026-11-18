@@ -41,10 +41,10 @@ decisions:[
 {context:`<p>Maj. Hollis wants to start moving equipment into a ready area while the failed system is being corrected. The sponsor suggests a ribbon-cutting next week "to keep momentum." A senior leader says, "Can we just call it conditional occupancy?"</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Get the correction and retest path and update the forecast, keeping the original commitment visible. Refer the equipment request to Construction and the KO for the possession decision, including separation from the affected system. Ask the authorized officials whether any lawful restricted or phased use exists and document the answer. Treat the ribbon-cutting as a communications event.`},
-{id:'b',text:`Agree to conditional occupancy since leadership asked.`},
-{id:'c',text:`Tell Maj. Hollis to go ahead with the equipment. It is only a ready area.`},
-{id:'d',text:`Refuse all discussion until the retest passes.`}],
+{id:'a',text:`Get the correction and retest path and update the forecast. Refer the equipment request to Construction and the KO, and treat the ribbon-cutting as communications.`},
+{id:'b',text:`Agree to conditional occupancy since leadership asked, and make clear it is temporary so the customer can begin preparing the space.`},
+{id:'c',text:`Tell Maj. Hollis to go ahead with the equipment. It is only a ready area, and early placement will save time when occupancy begins.`},
+{id:'d',text:`Refuse all discussion until the retest passes, so nobody takes a statement as a commitment before the condition is resolved.`}],
 cons:{
 a:{s:`Kept the decisions separate and referred each to its owner.`,t:`<p>Wen and Rafael evaluate the equipment request and decide the area can be used under defined arrangements, with the affected system separated. No general conditional occupancy is offered for the failed system. You brief the retest path and an updated forecast, with the commitment still shown. The ribbon-cutting is scheduled for a date tied to verified readiness.</p>`,i:`<strong>What this reveals:</strong> Do not offer a general conditional occupancy for a failed mandatory requirement. Leadership interest in opening the building does not supply a technical approval or contracting action. Possession is a KO-controlled arrangement.`},
 b:{s:`Offered a blanket status for a failed requirement.`,t:`<p>The label implies a safe use the officials have not determined. If something goes wrong, the record shows no decision behind it.</p>`,i:`<strong>What this reveals:</strong> Ask the authorized officials whether lawful restricted or phased use is available and get their documented decision.`},
@@ -53,10 +53,10 @@ d:{s:`Refused to engage with a legitimate operational need.`,t:`<p>The unit's ne
 {context:`<p>The retest succeeds. The property package, however, is still a draft: the property record identifier and the expenditure information have not been reconciled. Operator training was held, and the sign-in sheet shows full attendance, but the operators were on a shift change for part of the session.</p>`,
 prompt:`How do you handle the readiness decision?`,
 options:[
-{id:'a',text:`Bring the missing property information, its owner, signature route and a realistic completion date into the readiness decision. Check with the operators whether they can find the manual, identify equipment and obtain help, and schedule a follow-up where needed. Report BOD actual only when the responsible officials authorize it.`},
-{id:'b',text:`Record BOD because the retest passed.`},
-{id:'c',text:`Treat the sign-in sheet as proof of training and skip the follow-up.`},
-{id:'d',text:`Complete the property package yourself so the date holds.`}],
+{id:'a',text:`Bring the missing property information and signature route into the readiness decision, check operators can find the manual, and report BOD only when authorized.`},
+{id:'b',text:`Record BOD because the retest passed, since the building is functionally complete and the remaining items are administrative details.`},
+{id:'c',text:`Treat the sign-in sheet as proof of training and skip the follow-up, since the operators attended and the record shows it was delivered.`},
+{id:'d',text:`Complete the property package yourself so the date holds, since you know the facts and the paperwork should not hold the building up, and you already know the details.`}],
 cons:{
 a:{s:`Tested readiness against property documentation and actual operator capability.`,t:`<p>Anita identifies the reconciliation needed and the signature route, and gives a realistic date. A short follow-up session is held for the shift that missed part of the training, and the operators can find and use the manual. The readiness brief shows what is complete and what remains, and BOD is recorded when authorized.</p>`,i:`<strong>What this reveals:</strong> A successful retest does not establish readiness for beneficial occupancy. Make property documentation a prerequisite, and treat a sign-in sheet as weak evidence.`},
 b:{s:`Let one successful test stand for readiness.`,t:`<p>BOD is recorded and the property documentation is not ready. The record has to be corrected and the customer's expectations reset.</p>`,i:`<strong>What this reveals:</strong> Readiness is the whole set of prerequisites, not the last test.`},
@@ -65,10 +65,10 @@ d:{s:`Took on a property official's work.`,t:`<p>Property accountability is esta
 {context:`<p>The building is handed off under agreed arrangements. A single punch list of forty items arrives, mixing contract deficiencies, items the customer will do, a request for a new storage cage, and a disputed finish. A month later an operator reports a recurring system failure. Someone suggests, "Call it a new requirement so we can fund a quick fix."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Classify the list into contract deficiencies, unfinished deliverables, customer activation tasks, additional requests, disputed matters and property or administrative actions, with owners and closure evidence. For the failure, follow the defect-reporting path with evidence, let Construction and the KO determine the notice and correction, and keep the customer informed. Keep the open utility matter in the closure plan.`},
-{id:'b',text:`Leave the list as one list and work through it in order.`},
-{id:'c',text:`Describe the failure as a new requirement to get funds.`},
-{id:'d',text:`Tell the customer the building is complete and further issues are theirs.`}],
+{id:'a',text:`Classify the list by type with owners and closure evidence. For the failure, follow the defect path and let Construction and the KO determine notice.`},
+{id:'b',text:`Leave the list as one list and work through it in order, which keeps it simple and ensures every item gets attention eventually.`},
+{id:'c',text:`Describe the failure as a new requirement to get funds, since the existing money is tied up and a new line may be the only path.`},
+{id:'d',text:`Tell the customer the building is complete and further issues are theirs, since turnover happened and warranty channels exist for what remains, and it ends a long closeout.`}],
 cons:{
 a:{s:`Classified the remaining work and used the defect path, and kept closure items open.`,t:`<p>The forty items sort into six categories with owners. The storage cage is an additional request that goes to the program, and the finish dispute goes to Construction, the KO and Counsel. The operator's failure follows the agreed defect path, with evidence of symptom and date, and Wen and Rafael determine the contract action. At the monthly review you report the actual turnover condition alongside the remaining actions.</p>`,
 th:function(d){return d[1]==='a'?'<p>Because the property package and training were handled before BOD, the remaining items are about the work, not the paper.</p>':'';},

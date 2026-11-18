@@ -37,10 +37,10 @@ decisions:[
 {context:`<p>The dashboard shows Ridgeway's construction award milestone with a different completion value than Construction's own report, and a count of activities appears to include a duplicate. The dashboard refreshed this morning, but the schedule update behind it is older than the field progress report.</p>`,
 prompt:`How do you build the package?`,
 options:[
-{id:'a',text:`Set a stated data cutoff and note the dashboard refresh time separately. Check that the records describe the same work. Walk each discrepancy to its source owner for correction, ask the analyst about the duplicate, and for anything unresolved show the competing values, dates, owners and expected resolution.`},
-{id:'b',text:`Use the dashboard as is. It is the official view.`},
-{id:'c',text:`Edit the slide to show the value you believe is right and remove the duplicate.`},
-{id:'d',text:`Cancel the status section until the systems agree.`}],
+{id:'a',text:`Set a stated data cutoff, check records describe the same work, trace each discrepancy to its owner, and show unresolved competing values.`},
+{id:'b',text:`Use the dashboard as is. It is the official view, and reconciling it by hand would create a second version of the truth for leaders to question.`},
+{id:'c',text:`Edit the slide to show the value you believe is right and remove the duplicate, so leadership sees one clean number and not a confusing mix of data.`},
+{id:'d',text:`Cancel the status section until the systems agree, because any number shown now might be wrong, and a missing section is better than a misleading one.`}],
 cons:{
 a:{s:`Set a cutoff, walked discrepancies to their owners and disclosed what stayed unresolved.`,t:`<p>The analyst explains that the dashboard pulled one contract's date for the whole project and the duplicate is a transfer artifact. Construction corrects its record. One value remains unresolved, so the slide shows both values, their dates and the owner. Dana notes that she can trust what you say about confidence.</p>`,i:`<strong>What this reveals:</strong> A report refreshed today may carry an older source update. Correct the originating record through its owner, and brief a bounded uncertainty instead of unsupported precision.`},
 b:{s:`Presented a view you knew was inconsistent.`,t:`<p>The review debates which number is correct instead of the decision. Your credibility takes the hit.</p>`,i:`<strong>What this reveals:</strong> A dashboard's authority does not cure a mismatched grain or an older source.`},
@@ -49,10 +49,10 @@ d:{s:`Withheld status.`,t:`<p>The review has nothing to react to. Unsupported pr
 {context:`<p>You are drafting the decision slide. The PDT has a chronology of the utility issue, a testing window that closes on a date in the schedule analysis, and a need for a qualified regional resource. Priya says, "Let's walk through the whole timeline first so they have context."</p>`,
 prompt:`How do you open the request?`,
 options:[
-{id:'a',text:`Lead with the decision: request regional testing support before the window closes, with a qualified resource committed by the latest useful date from the schedule analysis. Name who can act and what each of Engineering, RM and Contracting must confirm. Show options including no action, the consequence, and the uncertainty.`},
-{id:'b',text:`Walk through the timeline first and arrive at the request at the end.`},
-{id:'c',text:`Ask leadership to "approve the Ridgeway change."`},
-{id:'d',text:`Tell leadership regional support will recover the full 25 days.`}],
+{id:'a',text:`Lead with the decision: request regional testing support before the window closes, name who can act, and show options including no action.`},
+{id:'b',text:`Walk through the timeline first and arrive at the request at the end, so leadership understands the full context before being asked to decide.`},
+{id:'c',text:`Ask leadership to approve the Ridgeway change, since a short, simple ask is easy to act on and respects their limited time in the meeting.`},
+{id:'d',text:`Tell leadership regional support will recover the full 25 days, since a clear and confident benefit makes the request easier to approve.`}],
 cons:{
 a:{s:`Led with a specific decision, an owner and a latest useful date.`,t:`<p>Mr. Osei can answer in a sentence. The request separates the resource commitment, the funding path and the contract determination, each with its owner. The forecast is stated as at risk until prerequisites are confirmed. You also give a CCIR #8 early warning through the prescribed route, so the command is not surprised.</p>`,i:`<strong>What this reveals:</strong> Lead with the decision, the recommended action and the latest useful decision date. Do not compress several authorities into one request. The briefing date is administrative. The decision date is a delivery constraint.`},
 b:{s:`Buried the request at the end of a chronology.`,t:`<p>The review spends its time on the story and runs out before it gets to the ask. Mr. Osei leaves unsure what you need.</p>`,i:`<strong>What this reveals:</strong> A chronology may explain cause, but it should not force the leader to discover the request at the end.`},
@@ -61,10 +61,10 @@ d:{s:`Promised a recovery the team cannot show.`,t:`<p>The testing prerequisites
 {context:`<p>Leadership supports the request. Two weeks later an email arrives: "A tester has been assigned." Your action tracker has a box labeled "Obtain testing support." Engineering mentions quietly that the test equipment is booked elsewhere for the same window.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Do not close the delivery issue. Verify that qualified personnel are committed for the needed period, prerequisites and equipment are ready, and the forecast reflects the resulting sequence. Report the remaining equipment constraint and keep the action open at that level.`},
-{id:'b',text:`Close the action. The tester was assigned.`},
-{id:'c',text:`Tell the customer the delay is recovered.`},
-{id:'d',text:`Send another reminder email and wait.`}],
+{id:'a',text:`Do not close the issue. Verify qualified personnel, prerequisites and equipment, check the forecast, and keep the action open at the remaining constraint.`},
+{id:'b',text:`Close the action. The tester was assigned, which was what the action asked for, and tracking it further would add paperwork without new value.`},
+{id:'c',text:`Tell the customer the delay is recovered, since the testing resource is now in place and the customer has been waiting for good news on this.`},
+{id:'d',text:`Send another reminder email and wait, since the people who must act already know what is needed and have it in writing.`}],
 cons:{
 a:{s:`Verified implementation and reported the remaining constraint.`,t:`<p>You record that the staffing action succeeded and the delivery risk remains. Engineering and Construction work on the equipment, and the forecast shows the real picture for the next cycle. Mr. Osei learns of the constraint from you, not from a late test.</p>`,
 th:function(d){return d[1]==='a'?'<p>Because you separated the resource, funding and contract decisions in the original request, the follow-up can name exactly which one is still incomplete.</p>':'';},

@@ -164,11 +164,15 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
 .footer-doc{font-size:.5625rem;color:var(--ink-2);}
 .fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
 @media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+.choice-option:focus-visible,.answer-option:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;}
+.skip-link:focus{left:8px;top:8px;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -185,16 +189,16 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link current" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link current" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">
@@ -255,10 +259,10 @@ decisions:[
 {context:`<p>It is the morning, two days before the meeting. You have the customer's request and a standard attendee list. That is about all you have. Dana is at her desk down the hall.</p>`,
 prompt:`What is your first move?`,
 options:[
-{id:'a',text:`Ask Dana what is known and what is not: the program owner, the assignment evidence, the intake route and who the accepting official is. Confirm that your role is to support intake.`},
-{id:'b',text:`Build a draft schedule that works backward from the customer's desired completion date, so you have something concrete to put on the table.`},
-{id:'c',text:`Call Ms. Beck at the installation, offer a site walk this week, and start collecting site information.`},
-{id:'d',text:`Tell Mr. Voss you will be the PM on Ridgeway, so the command has one point of contact.`}],
+{id:'a',text:`Ask Dana what is known and what is not: program owner, assignment evidence, intake route, accepting official. Confirm your role is to support intake.`},
+{id:'b',text:`Build a draft schedule that works backward from the customer's date, so you have something concrete to put on the table before anyone asks for one.`},
+{id:'c',text:`Call Ms. Beck at the installation, offer a site walk this week, and start collecting site information so the team has real data to work from, which builds goodwill early.`},
+{id:'d',text:`Tell Mr. Voss you will be the PM on Ridgeway, so the command has one point of contact and knows who to call from here on.`}],
 cons:{
 a:{s:`Went to the PgM first and left with a known / proposed / missing list.`,t:`<p>Dana sits you down. The request arrived through the sponsor's command staff. The program owner is still being confirmed. The assignment check, including whether geography alone settles who executes, has not been done. Mr. Osei is the designated accepting official.</p><p>You leave with a one-page list in three columns: <strong>known, proposed, missing</strong>, each with an owner. Dana asks you to take the site and operating questions into the meeting and to leave acceptance questions to her.</p>`,i:`<strong>What this reveals:</strong> The first useful question is not "when?" but "what do we actually know, and who owns each gap?" The PgM leads acceptance analysis. Your job at this stage is to support intake and keep the line between a mission need and a preferred solution visible.`},
 b:{s:`Built a schedule around an unvalidated date; it began to look like a commitment.`,t:`<p>By mid-afternoon you have a tidy schedule that finishes on the customer's date. Mr. Voss asks for a copy "for the command," and it goes out. When you mention it to Dana, she asks whether the assignment check has been done. It has not.</p><p>The schedule now sits in the sponsor's hands as the only USACE document on Ridgeway.</p>`,i:`<strong>What this reveals:</strong> A requested date is a customer need until a delivery assessment supports it. A schedule built before acceptance and planning can become a commitment by exhibit. Schedule development has its own place later in the lifecycle (Chapter 6).`},
@@ -267,10 +271,10 @@ d:{s:`Announced yourself as PM before acceptance; the DPM heard it second-hand.`
 {context:`<p>Dana has circulated the attendee list: Mr. Voss, Ms. Beck, Maj. Hollis, Ingrid Larsen from Engineering, and Dana's program staff. <strong>Rafael Soto from Construction is not on it.</strong> A colleague tells you, "Construction usually joins after award. There is nothing for them to do yet."</p>`,
 prompt:`Who should be in the room?`,
 options:[
-{id:'a',text:`Ask Dana to invite Rafael now. Explain that access, sequencing, constructability, operating constraints and turnover all bear on whether the layout and date are feasible, and agree a proportionate level of participation.`},
-{id:'b',text:`Leave the list as it is. Construction can join once there is a contract.`},
-{id:'c',text:`Invite Rafael yourself, and add three more specialists so nobody can say they were left out.`},
-{id:'d',text:`Skip the invitation. Brief Rafael informally after the meeting so he is in the loop.`}],
+{id:'a',text:`Ask Dana to invite Rafael now, because access, sequencing and turnover bear on feasibility, and agree a proportionate level of participation.`},
+{id:'b',text:`Leave the list as it is. Construction can join once there is a contract and a real site to discuss, so the early meeting stays small and focused.`},
+{id:'c',text:`Invite Rafael yourself, and add three more specialists so nobody can say they were left out of the early conversation.`},
+{id:'d',text:`Skip the invitation for now. Brief Rafael informally after the meeting so he is in the loop without adding another voice to the room.`}],
 cons:{
 a:{s:`Brought Construction in early with a proportionate ask.`,t:`<p>Dana agrees. Rafael joins and asks two plain questions: whether current maintenance operations must continue while any work is under way, and who will receive the completed facility. Neither is answered in the room, but both go onto the open list with owners.</p><p>You and Dana agree with Rafael's chief on a modest level of early participation rather than an open-ended commitment of his time.</p>`,i:`<strong>What this reveals:</strong> A meeting is useful when it resolves a requirement, names an owner, tests a dependency or produces evidence for the next action. Rafael's questions did that. Proportionate requests also respect that functional resources are shared across projects.`},
 b:{s:`Kept Construction out; practical questions went unanswered in the room.`,t:`<p>The meeting goes smoothly until Ms. Beck asks how work would be sequenced if maintenance operations have to continue. Nobody in the room can speak to it. You record it as an open question.</p><p>The answer, when it comes, may change assumptions the group has already started to treat as settled.</p>`,i:`<strong>What this reveals:</strong> Construction participates in the PDT from the outset of project delivery, not from award. Early input on access, sequencing, constructability, operating constraints, quality and turnover shapes what the team can honestly say about feasibility.`},
@@ -279,10 +283,10 @@ d:{s:`Briefed Construction afterward; their input arrived after positions had ha
 {context:`<p>In the meeting, Maj. Hollis explains that her unit needs a locally modified layout and that the facility must be ready before a unit arrives. Mr. Voss nods. Ms. Beck, who has said nothing so far, is looking at her notes. Ingrid Larsen looks at you.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Ask Maj. Hollis what happens operationally if the layout is not available and where the arrival date comes from and how firm it is. Ask Ms. Beck for the installation view. Record both items as proposed, with their sources. Ask Ingrid whether a standardization inquiry applies.`},
-{id:'b',text:`Record both the layout and the date as requirements. Maj. Hollis knows the mission, and you do not want to challenge the end user.`},
-{id:'c',text:`Tell the room that local layout changes are not permitted under Army standards.`},
-{id:'d',text:`Sketch a compromise layout on the whiteboard to keep the meeting moving.`}],
+{id:'a',text:`Ask Maj. Hollis what happens without the layout and how firm the date is. Record both as proposed, with sources, and ask Ingrid about standards.`},
+{id:'b',text:`Record both the layout and the date as requirements. Maj. Hollis knows the mission, and challenging the end user in the first meeting would cost trust.`},
+{id:'c',text:`Tell the room that local layout changes are not permitted under Army standards, so the team can stop debating alternatives and move on to the date.`},
+{id:'d',text:`Sketch a compromise layout on the whiteboard to keep the meeting moving, and note the date as the target everyone is working toward.`}],
 cons:{
 a:{s:`Separated need from preference and surfaced a quiet voice.`,t:`<p>Maj. Hollis explains that the layout supports a maintenance workflow tied to her equipment. The arrival date, she says, comes from a unit planning timeline she believes is firm but has not seen in writing. Asked gently, Ms. Beck says the installation would need to gather its site and utility information before anyone could speak to it with confidence.</p><p>Ingrid agrees to take the standardization question through the PgM. You record the layout and the date as <strong>proposed</strong>, each with its source and the evidence still needed.</p>`,i:`<strong>What this reveals:</strong> Asking for the consequence and the source separated the operational need from the preferred solution, and an invitation to the quiet person surfaced a real dependency. Ask the program representative which decisions can be made in the room and which need further approval.`},
 b:{s:`Recorded a preference and an unverified date as requirements.`,t:`<p>The minutes list the layout and the date under "Requirements." Two weeks later Ingrid's standardization inquiry shows that the layout departs from a standard design feature. A different design basis would need a waiver route that nobody has started.</p><p>Maj. Hollis points to the minutes: "We agreed to this."</p>`,i:`<strong>What this reveals:</strong> Do not record unresolved preferences as approved requirements to complete the minutes. A customer's agreement in a meeting is not a substitute for a required waiver, and an informal request does not become authorized scope by repetition.`},
@@ -291,10 +295,10 @@ d:{s:`Proposed a solution before the requirement was defined.`,t:`<p>Your sketch
 {context:`<p>The meeting is over. In the hallway, Mr. Voss says the command wants it in writing today: <em>USACE will deliver by the requested date.</em> He is not being unreasonable. He has to report upward, and he needs something to report.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Send a concise decision record: agreed facts, open questions, responsible officials, evidence needed and the next authorized action. State the date as a customer need pending a supported delivery assessment. Copy Dana.`},
-{id:'b',text:`Send a short email confirming that USACE will "do everything possible" to meet the date.`},
-{id:'c',text:`Tell Mr. Voss you cannot send anything until you are assigned as PM.`},
-{id:'d',text:`Ask Mr. Osei to approve the date now so you can give Mr. Voss a commitment.`}],
+{id:'a',text:`Send a concise decision record: facts, open questions, owners, next authorized action. Call the date a customer need pending assessment. Copy Dana.`},
+{id:'b',text:`Send a short email confirming that USACE will do everything possible to meet the date, so the command knows the team is fully committed and engaged.`},
+{id:'c',text:`Tell Mr. Voss you cannot send anything until you are formally assigned as PM, since the record should come from someone with authority to issue it.`},
+{id:'d',text:`Ask Mr. Osei to approve the date now so you can give Mr. Voss a firm commitment and avoid a second round of follow-up on this.`}],
 cons:{
 a:{s:`Sent a decision record that gave the sponsor something real to report.`,t:`<p>Your note says, in plain terms: Ridgeway supports an Army maintenance capability requirement; USACE has identified the request and the customer's desired timing; the responsible program office is confirming the requirement, assignment and applicable direction; site and standardization questions remain open; and a delivery commitment will require the acceptance and planning decisions that follow. Each open item has an owner.</p><p>Mr. Voss is a little disappointed not to have a date. He forwards your note anyway, because it tells the command what happens next and who is doing it. Dana adds the acceptance timeline.</p>`,
 th:function(d){
@@ -429,8 +433,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -540,9 +547,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -557,7 +564,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -596,20 +603,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -656,6 +663,17 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});
 
 </script>
 </body>

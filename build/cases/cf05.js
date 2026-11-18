@@ -47,10 +47,10 @@ decisions:[
 {context:`<p>Ingrid and Wen walk through the scope development timeline and the acquisition steps. Together they believe the sponsor's requested award timing cannot be supported unless scope is defined much earlier than currently expected.</p>`,
 prompt:`How does the PMP handle the sponsor's date?`,
 options:[
-{id:'a',text:`Record the requested date as a customer need, show the conflict with scope development and acquisition steps, assign an owner to resolve it, and request an informed decision from the people who can make it.`},
-{id:'b',text:`Enter the sponsor's date in the schedule so the plan matches the request, and note risks in the risk register.`},
-{id:'c',text:`Write a plan date that you think is realistic and tell no one it differs from the request.`},
-{id:'d',text:`Leave the date out of the plan until the conflict resolves itself.`}],
+{id:'a',text:`Record the requested date as a customer need, show its conflict with scope and acquisition steps, assign an owner, and request an informed decision.`},
+{id:'b',text:`Enter the sponsor's date in the schedule so the plan matches the request, and note the risks in the risk register for the team to watch.`},
+{id:'c',text:`Write a plan date that you think is realistic and keep working to it, rather than reopen a conversation the sponsor already considers settled.`},
+{id:'d',text:`Leave the date out of the plan for now, since the conflict is likely to resolve itself as scope and acquisition steps become clearer.`}],
 cons:{
 a:{s:`Exposed the date conflict in the plan, with an owner and a decision request.`,t:`<p>The PMP's assumptions section records the requested timing as a need and shows exactly where it collides with scope development and acquisition. Dana is named as the owner for the decision request, and Mr. Voss sees the conflict on paper with the options to resolve it.</p><p>He does not like it, but he understands the path.</p>`,i:`<strong>What this reveals:</strong> The PMP must expose the conflict, assign a resolution owner and obtain an informed decision. Entering a requested date does not make it achievable.`},
 b:{s:`Let the plan show a date the team does not believe.`,t:`<p>The schedule matches the request and nobody on the team trusts it. Months later it slips, the risk register is read as proof the PM knew, and the plan is dismissed as paperwork.</p>`,i:`<strong>What this reveals:</strong> A plan that compiles incompatible commitments has little operational value. Putting a risk beside an unsupportable date does not resolve it.`},
@@ -59,10 +59,10 @@ d:{s:`Omitted the hardest fact from the plan.`,t:`<p>The plan has a gap where th
 {context:`<p>The roster arrives. It lists names across all disciplines. One specialty design reviewer is shown as "50 percent" but you know from earlier work that the same person is committed to another large project during your design window. The Resource Provider says, "We've assigned someone."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Test competency, capacity and coordination for the roster. Log the specialty gap with a recommended remedy, such as regional or Center support, and escalate through the authorized staffing channel. Record what is confirmed and what is not.`},
-{id:'b',text:`Accept the roster. The Resource Provider has said it is assigned.`},
-{id:'c',text:`Remove the person from the roster and substitute someone you prefer.`},
-{id:'d',text:`Hold the issue until the monthly review.`}],
+{id:'a',text:`Test competency, capacity and coordination. Log the specialty gap with a recommended remedy and escalate through the staffing channel.`},
+{id:'b',text:`Accept the roster. The Resource Provider has said it is assigned, and second-guessing their assignments would strain the working relationship.`},
+{id:'c',text:`Remove the person from the roster and substitute someone you prefer, since you know the work and can judge who is a better fit.`},
+{id:'d',text:`Hold the issue until the monthly review, where it can be raised with the other items and the right people will be in the room.`}],
 cons:{
 a:{s:`Tested the roster against competency, capacity and coordination and escalated a documented gap.`,t:`<p>You ask the Resource Provider for confirmed time and timing, and you share the conflict you know about. A gap log records the shortfall, a recommended remedy, and the consequence for schedule and cost if it is not closed. The Resource Provider agrees to look at regional support, and Dana helps with the escalation.</p>`,i:`<strong>What this reveals:</strong> An organization chart is not proof of executable commitments. The PM documents the gap with a remedy and escalates, and does not unilaterally replace Resource Provider personnel.`},
 b:{s:`Accepted an unconfirmed assignment as a commitment.`,t:`<p>Design begins, and the specialty review is late because the person is elsewhere. The root cause is a roster that said "assigned" about a resource who was not available.</p>`,i:`<strong>What this reveals:</strong> Nominal labor availability is not proof of technical proficiency or available time. Confirm skills, capacity and timing of availability.`},
@@ -71,10 +71,10 @@ d:{s:`Waited for the next review while the design window approached.`,t:`<p>By t
 {context:`<p>The draft PMP is nearly done and the endorsements are scheduled. Reading it end to end, you notice that the schedule assumes a Design-Build award sequence that the acquisition strategy section does not describe, and the risk-based contingency is not reflected in the cost section. The program analyst says, "Everyone's reviewed their own section. Let's just get the signatures."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Hold the endorsements. Return the affected sections to the PDT to reconcile schedule, acquisition strategy, risk and cost, then seek endorsements on a plan that describes one delivery strategy.`},
-{id:'b',text:`Collect the signatures now and fix the inconsistencies in the next update.`},
-{id:'c',text:`Quietly fix the inconsistencies yourself and send out the revised sections without telling the owners.`},
-{id:'d',text:`Skip the issue. Approval will release the funds and the contract anyway.`}],
+{id:'a',text:`Hold the endorsements. Return the sections to the PDT to reconcile schedule, strategy, risk and cost, then seek endorsements on one plan.`},
+{id:'b',text:`Collect the signatures now and fix the inconsistencies in the next update, so the plan is not held up while the team debates wording.`},
+{id:'c',text:`Quietly fix the inconsistencies yourself and send out the revised sections, which saves the owners time and avoids a lengthy meeting.`},
+{id:'d',text:`Skip the issue. Approval will release the funds and the contract anyway, and the details can be sorted out once work is underway.`}],
 cons:{
 a:{s:`Held the plan until its sections described one strategy.`,t:`<p>The PDT meets for an hour. Wen aligns the acquisition section with the schedule, Ingrid and you reflect the contingency in cost, and Rafael adds the access dependency to the schedule logic. The analyst is mildly annoyed about the date and relieved by the result.</p>`,
 th:function(d){return d[1]==='a'?'<p>The staffing gap log from earlier now appears in the plan as an owned risk with a schedule consequence, so every section tells the same story.</p>':'';},

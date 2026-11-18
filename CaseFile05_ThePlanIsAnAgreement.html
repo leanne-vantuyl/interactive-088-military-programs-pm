@@ -164,11 +164,15 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
 .footer-doc{font-size:.5625rem;color:var(--ink-2);}
 .fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
 @media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+.choice-option:focus-visible,.answer-option:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;}
+.skip-link:focus{left:8px;top:8px;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -185,16 +189,16 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link current" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link current" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">
@@ -253,10 +257,10 @@ decisions:[
 {context:`<p>Ingrid and Wen walk through the scope development timeline and the acquisition steps. Together they believe the sponsor's requested award timing cannot be supported unless scope is defined much earlier than currently expected.</p>`,
 prompt:`How does the PMP handle the sponsor's date?`,
 options:[
-{id:'a',text:`Record the requested date as a customer need, show the conflict with scope development and acquisition steps, assign an owner to resolve it, and request an informed decision from the people who can make it.`},
-{id:'b',text:`Enter the sponsor's date in the schedule so the plan matches the request, and note risks in the risk register.`},
-{id:'c',text:`Write a plan date that you think is realistic and tell no one it differs from the request.`},
-{id:'d',text:`Leave the date out of the plan until the conflict resolves itself.`}],
+{id:'a',text:`Record the requested date as a customer need, show its conflict with scope and acquisition steps, assign an owner, and request an informed decision.`},
+{id:'b',text:`Enter the sponsor's date in the schedule so the plan matches the request, and note the risks in the risk register for the team to watch.`},
+{id:'c',text:`Write a plan date that you think is realistic and keep working to it, rather than reopen a conversation the sponsor already considers settled.`},
+{id:'d',text:`Leave the date out of the plan for now, since the conflict is likely to resolve itself as scope and acquisition steps become clearer.`}],
 cons:{
 a:{s:`Exposed the date conflict in the plan, with an owner and a decision request.`,t:`<p>The PMP's assumptions section records the requested timing as a need and shows exactly where it collides with scope development and acquisition. Dana is named as the owner for the decision request, and Mr. Voss sees the conflict on paper with the options to resolve it.</p><p>He does not like it, but he understands the path.</p>`,i:`<strong>What this reveals:</strong> The PMP must expose the conflict, assign a resolution owner and obtain an informed decision. Entering a requested date does not make it achievable.`},
 b:{s:`Let the plan show a date the team does not believe.`,t:`<p>The schedule matches the request and nobody on the team trusts it. Months later it slips, the risk register is read as proof the PM knew, and the plan is dismissed as paperwork.</p>`,i:`<strong>What this reveals:</strong> A plan that compiles incompatible commitments has little operational value. Putting a risk beside an unsupportable date does not resolve it.`},
@@ -265,10 +269,10 @@ d:{s:`Omitted the hardest fact from the plan.`,t:`<p>The plan has a gap where th
 {context:`<p>The roster arrives. It lists names across all disciplines. One specialty design reviewer is shown as "50 percent" but you know from earlier work that the same person is committed to another large project during your design window. The Resource Provider says, "We've assigned someone."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Test competency, capacity and coordination for the roster. Log the specialty gap with a recommended remedy, such as regional or Center support, and escalate through the authorized staffing channel. Record what is confirmed and what is not.`},
-{id:'b',text:`Accept the roster. The Resource Provider has said it is assigned.`},
-{id:'c',text:`Remove the person from the roster and substitute someone you prefer.`},
-{id:'d',text:`Hold the issue until the monthly review.`}],
+{id:'a',text:`Test competency, capacity and coordination. Log the specialty gap with a recommended remedy and escalate through the staffing channel.`},
+{id:'b',text:`Accept the roster. The Resource Provider has said it is assigned, and second-guessing their assignments would strain the working relationship.`},
+{id:'c',text:`Remove the person from the roster and substitute someone you prefer, since you know the work and can judge who is a better fit.`},
+{id:'d',text:`Hold the issue until the monthly review, where it can be raised with the other items and the right people will be in the room.`}],
 cons:{
 a:{s:`Tested the roster against competency, capacity and coordination and escalated a documented gap.`,t:`<p>You ask the Resource Provider for confirmed time and timing, and you share the conflict you know about. A gap log records the shortfall, a recommended remedy, and the consequence for schedule and cost if it is not closed. The Resource Provider agrees to look at regional support, and Dana helps with the escalation.</p>`,i:`<strong>What this reveals:</strong> An organization chart is not proof of executable commitments. The PM documents the gap with a remedy and escalates, and does not unilaterally replace Resource Provider personnel.`},
 b:{s:`Accepted an unconfirmed assignment as a commitment.`,t:`<p>Design begins, and the specialty review is late because the person is elsewhere. The root cause is a roster that said "assigned" about a resource who was not available.</p>`,i:`<strong>What this reveals:</strong> Nominal labor availability is not proof of technical proficiency or available time. Confirm skills, capacity and timing of availability.`},
@@ -277,10 +281,10 @@ d:{s:`Waited for the next review while the design window approached.`,t:`<p>By t
 {context:`<p>The draft PMP is nearly done and the endorsements are scheduled. Reading it end to end, you notice that the schedule assumes a Design-Build award sequence that the acquisition strategy section does not describe, and the risk-based contingency is not reflected in the cost section. The program analyst says, "Everyone's reviewed their own section. Let's just get the signatures."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Hold the endorsements. Return the affected sections to the PDT to reconcile schedule, acquisition strategy, risk and cost, then seek endorsements on a plan that describes one delivery strategy.`},
-{id:'b',text:`Collect the signatures now and fix the inconsistencies in the next update.`},
-{id:'c',text:`Quietly fix the inconsistencies yourself and send out the revised sections without telling the owners.`},
-{id:'d',text:`Skip the issue. Approval will release the funds and the contract anyway.`}],
+{id:'a',text:`Hold the endorsements. Return the sections to the PDT to reconcile schedule, strategy, risk and cost, then seek endorsements on one plan.`},
+{id:'b',text:`Collect the signatures now and fix the inconsistencies in the next update, so the plan is not held up while the team debates wording.`},
+{id:'c',text:`Quietly fix the inconsistencies yourself and send out the revised sections, which saves the owners time and avoids a lengthy meeting.`},
+{id:'d',text:`Skip the issue. Approval will release the funds and the contract anyway, and the details can be sorted out once work is underway.`}],
 cons:{
 a:{s:`Held the plan until its sections described one strategy.`,t:`<p>The PDT meets for an hour. Wen aligns the acquisition section with the schedule, Ingrid and you reflect the contingency in cost, and Rafael adds the access dependency to the schedule logic. The analyst is mildly annoyed about the date and relieved by the result.</p>`,
 th:function(d){return d[1]==='a'?'<p>The staffing gap log from earlier now appears in the plan as an owned risk with a schedule consequence, so every section tells the same story.</p>':'';},
@@ -408,8 +412,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -519,9 +526,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -536,7 +543,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -575,20 +582,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -635,6 +642,17 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});
 
 </script>
 </body>

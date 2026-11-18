@@ -99,8 +99,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -210,9 +213,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -227,7 +230,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -266,20 +269,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -326,3 +329,14 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});

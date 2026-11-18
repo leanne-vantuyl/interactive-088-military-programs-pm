@@ -39,10 +39,10 @@ decisions:[
 {context:`<p>Maj. Hollis tells you, "We've approved the added communications equipment room. Ms. Beck said fine, too." You have no document, and Mr. Voss has not mentioned it.</p>`,
 prompt:`How do you handle "we approved it"?`,
 options:[
-{id:'a',text:`Thank her and ask what each person approved and in what capacity. Record the workflow validation and the installation's concurrence as such, identify who approves scope, funding and contract action, and route it as a request to evaluate. Make no promise it will be included.`},
-{id:'b',text:`Take it as approved and tell Engineering to design the room.`},
-{id:'c',text:`Tell her she has no authority to approve anything.`},
-{id:'d',text:`Say nothing and wait to see whether it comes up again.`}],
+{id:'a',text:`Thank her and ask what each person approved and in what capacity. Record validation as such, identify who approves scope and funding, and route it as a request.`},
+{id:'b',text:`Take it as approved and tell Engineering to design the room, since the customer and installation have both signaled agreement and time is short.`},
+{id:'c',text:`Tell her she has no authority to approve anything, so it is clear from the start that the project will not move on informal approvals.`},
+{id:'d',text:`Say nothing and wait to see whether it comes up again, since a stray remark in a meeting may not need any formal response.`}],
 cons:{
 a:{s:`Pinned down who approved what and routed the request correctly.`,t:`<p>Maj. Hollis confirms she validated the workflow need. Ms. Beck says she agreed the room is operationally reasonable but did not approve funding. You record each and send the request to Dana and the program officials, with Wen and Ingrid evaluating contract and technical effects. Maj. Hollis understands where the request stands.</p>`,i:`<strong>What this reveals:</strong> Record the difference between technical concurrence and an authorized commitment. Reopening a requirement is a change request to evaluate, not an instruction to start more design.`},
 b:{s:`Treated user and installation concurrence as authority.`,t:`<p>Engineering starts design on a scope nobody authorized or funded. Weeks later the request is rejected and the design is wasted.</p>`,i:`<strong>What this reveals:</strong> A facility user may validate a workflow. No single customer role authorizes a contract change.`},
@@ -51,10 +51,10 @@ d:{s:`Waited and left an unresolved handoff.`,t:`<p>The request returns later as
 {context:`<p>Near the end of design review, the question of beneficial occupancy comes up. The approved scope includes certain building systems. A colleague suggests, "Let's call the controls and network cabling 'customer IT,' move them outside BOD, and our date holds."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Use the approved scope and the PMP definition of BOD. Required building systems stay inside the definition. Assign each true customer-provided item an owner, required date and interface, and track mission readiness separately after BOD.`},
-{id:'b',text:`Move the items out of BOD to protect the date.`},
-{id:'c',text:`Redefine BOD to whatever the customer prefers.`},
-{id:'d',text:`Avoid the topic until the end of construction.`}],
+{id:'a',text:`Use the approved scope and the PMP definition of BOD. Required building systems stay in. Give true customer-provided items an owner, date and interface.`},
+{id:'b',text:`Move the items out of BOD to protect the date, since they are customer-related and the building itself would still be complete on time.`},
+{id:'c',text:`Redefine BOD to whatever the customer prefers, since they are the ones who will use the building and know when it is ready for them.`},
+{id:'d',text:`Avoid the topic until the end of construction, when the actual condition of the building will make the discussion simpler and more concrete, and it avoids a premature argument.`}],
 cons:{
 a:{s:`Held BOD to the approved scope and tracked customer work separately.`,t:`<p>Ingrid confirms which systems are part of the authorized scope. A short list of true customer dependencies (furniture, operations staffing, designated equipment) gets owners and dates. The PDT, customer and reporting organizations all use the same BOD definition.</p>`,i:`<strong>What this reveals:</strong> Use the actual approved scope and PMP definition. Safety or required building systems cannot simply be excluded by calling them customer IT. Do not move required project work outside BOD merely to preserve a favorable date.`},
 b:{s:`Re-labeled required work to hold a date.`,t:`<p>The date holds on paper, the facility cannot be used, and the mission effect arrives at occupancy.</p>`,i:`<strong>What this reveals:</strong> The milestone label does not establish readiness for the agreed handoff.`},
@@ -63,10 +63,10 @@ d:{s:`Deferred the definition and its dependencies.`,t:`<p>Customer-provided ite
 {context:`<p>One technically feasible alignment for the utility remedy would cross an area where property access has not been verified (an illustrative comparison assumption). It is also the fastest on paper. Separately, the customer wants to install an additional operational feature while the area is open.</p>`,
 prompt:`How do you proceed?`,
 options:[
-{id:'a',text:`Ask Real Estate for the right needed, its status and the alternatives. Show on the schedule that the property condition precedes the affected work, and ask the Environmental lead about dependencies. Record the customer's feature separately and evaluate it for scope, funding, acquisition and baseline effects. Keep agreement, contract and baseline actions distinct.`},
-{id:'b',text:`Select the fastest alignment and sort out access later.`},
-{id:'c',text:`Bundle the customer feature into the utility remedy to save mobilization.`},
-{id:'d',text:`Treat the whole thing as a different business line so it fits an easier process.`}],
+{id:'a',text:`Ask Real Estate for the right needed, status and alternatives. Record the customer feature separately and keep agreement, contract and baseline actions distinct.`},
+{id:'b',text:`Select the fastest alignment and sort out access later, since the utility route is the schedule driver and access work can run in parallel.`},
+{id:'c',text:`Bundle the customer feature into the utility remedy to save mobilization, since one combined action is simpler and cheaper to manage than two, which avoids a second round of delays.`},
+{id:'d',text:`Treat the whole thing as a different business line so it fits an easier process, since the standard path was not built for this kind of case.`}],
 cons:{
 a:{s:`Put property and environmental conditions ahead of the work and kept the customer feature separate.`,t:`<p>Ms. Kapoor explains the right needed and how long it typically takes to establish, which makes a second alignment the faster delivery option. The environmental lead notes no further evaluation is needed for either alignment but will be alert to suspect conditions. The customer feature goes through its own evaluation. You explain the decision path to Maj. Hollis without promising inclusion.</p>`,
 th:function(d){return d[0]==='a'?'<p>Because the customer\'s authority had already been clarified, Maj. Hollis understands that the feature request is a separate path and does not read it as a refusal.</p>':'';},

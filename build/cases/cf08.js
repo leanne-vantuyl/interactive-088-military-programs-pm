@@ -37,10 +37,10 @@ decisions:[
 {context:`<p>Reading the draft requirements, Ingrid notes that responsibility for utility connections to the installation systems is not stated. Wen asks whether the team is ready to compare delivery methods. A colleague says, "Let's pick Design-Build now and clarify the utilities during the proposal period."</p>`,
 prompt:`What do you recommend?`,
 options:[
-{id:'a',text:`Close the utility interface responsibility and other ambiguities with Engineering, Construction and the installation first. Define measurable acceptance conditions, then compare methods against that requirement.`},
-{id:'b',text:`Select Design-Build now and let offerors state their assumptions on utilities.`},
-{id:'c',text:`Remove the utility connections from the estimate so it matches the program amount.`},
-{id:'d',text:`Delay all acquisition planning until the requirement is perfect.`}],
+{id:'a',text:`Close the utility interface and other ambiguities with Engineering, Construction and the installation first, then compare methods against acceptance conditions.`},
+{id:'b',text:`Select Design-Build now and let offerors state their assumptions on utilities, which moves the schedule forward and shifts detail to the proposals, and the market can price the risk.`},
+{id:'c',text:`Remove the utility connections from the estimate so it matches the program amount, and handle the connections as a separate action later.`},
+{id:'d',text:`Delay all acquisition planning until the requirement is perfect, since any method chosen now might need to change when details are finalized.`}],
 cons:{
 a:{s:`Closed the requirement gap before choosing a vehicle.`,t:`<p>Rafael and Ingrid draft the utility interface responsibilities with the installation. Wen agrees the comparison is now meaningful. The team defines acceptance conditions without over-prescribing the solution.</p>`,i:`<strong>What this reveals:</strong> A delivery method cannot cure an ambiguous requirement. Establish requirements before choosing the vehicle.`},
 b:{s:`Let the offerors fill the gap with their own assumptions.`,t:`<p>Proposals arrive pricing different utility assumptions, and the comparison is not apples to apples. The PM has to coordinate clarifications and the cost and schedule consequences before the prices can be relied on.</p>`,i:`<strong>What this reveals:</strong> When a solicitation omits a critical interface, proposals price different assumptions and the price comparison fails.`},
@@ -49,10 +49,10 @@ d:{s:`Waited for perfection and lost the schedule.`,t:`<p>Requirements will alwa
 {context:`<p>Mr. Voss tells you privately that someone told him "an Other Transaction can get you to award in half the time." He asks you to put it on the options list and tell the command it is being considered.</p>`,
 prompt:`How do you handle it?`,
 options:[
-{id:'a',text:`Ask for the actual statute, eligibility fact pattern and approval pathway, and take it to Wen. If they are absent, evaluate legally authorized alternatives. Tell Mr. Voss only that the idea is being tested and that nothing is decided.`},
-{id:'b',text:`Add it to the options list and tell the command it is under consideration.`},
-{id:'c',text:`Tell Mr. Voss that Other Transactions are not allowed.`},
-{id:'d',text:`Ask Wen to label the Ridgeway contract an OT so it moves faster.`}],
+{id:'a',text:`Ask for the actual statute, facts and approval pathway, and take it to Wen. Tell Mr. Voss it is being tested and nothing is decided.`},
+{id:'b',text:`Add it to the options list and tell the command it is under consideration, which shows responsiveness without committing to anything.`},
+{id:'c',text:`Tell Mr. Voss that Other Transactions are not allowed, because a firm answer now saves everyone time and ends a distracting idea.`},
+{id:'d',text:`Ask Wen to label the Ridgeway contract an OT so it moves faster, since the label affects speed and the work would remain the same.`}],
 cons:{
 a:{s:`Asked for the authority first and kept the customer informed without raising expectations.`,t:`<p>Wen explains that eligibility for the method turns on facts the Ridgeway project does not present, and no approval pathway exists for this fact pattern. The team documents why and proceeds with the authorized options. Mr. Voss appreciates being told the reasons.</p>`,i:`<strong>What this reveals:</strong> Ask for the actual statute, eligibility and approval pathway. If they are absent, evaluate legally authorized alternatives, and do not label a desired contract with a novel name.`},
 b:{s:`Offered a method before its authority was tested.`,t:`<p>The command now expects an OT. When it cannot be used, the retraction costs more than the original question would have.</p>`,i:`<strong>What this reveals:</strong> Specific legal authority and approval boundaries must be established before a method is offered as a choice.`},
@@ -61,10 +61,10 @@ d:{s:`Asked the KO to attach a label that does not fit the facts.`,t:`<p>Wen dec
 {context:`<p>The team settles on conventional FAR Design-Build. The acquisition schedule forecasts award 45 days after proposals are received. Rafael checks with the Resource Provider and learns that technical evaluators will not be available for three weeks after proposal receipt.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Take it to Wen. Revisit the evaluation period with realistic staffing, examine alternatives (regional support, sequencing), and record the consequences for the award and occupancy forecasts.`},
-{id:'b',text:`Keep the 45 days. The evaluators will find a way.`},
-{id:'c',text:`Shorten the evaluation period to fit the date.`},
-{id:'d',text:`Tell Mr. Voss award will be three weeks late and leave it there.`}],
+{id:'a',text:`Take it to Wen. Revisit the evaluation period with realistic staffing, examine alternatives, and record the effect on award and occupancy forecasts.`},
+{id:'b',text:`Keep the 45 days. The evaluators will find a way, and changing the period now would signal doubt about the team's ability to deliver.`},
+{id:'c',text:`Shorten the evaluation period to fit the date, since a tighter timeline keeps the schedule intact and evaluators can focus on key factors, which also protects the planned award date.`},
+{id:'d',text:`Tell Mr. Voss award will be three weeks late and leave it there, so he has the facts and can decide how his command wants to respond.`}],
 cons:{
 a:{s:`Revised the schedule with the KO around real evaluation capacity and recorded the consequences.`,t:`<p>Wen and you agree on a feasible evaluation period, ask the Resource Provider about regional support for two evaluators, and update the forecast. The baseline is preserved and the change in forecast is documented.</p>`,
 th:function(d){return d[2]==='a'?'<p>Because you closed the utility interface early, the evaluation criteria are clear, which helps the evaluators work faster once they are available.</p>':'';},

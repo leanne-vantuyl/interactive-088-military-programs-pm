@@ -65,8 +65,8 @@ TEMPLATE = '''<!DOCTYPE html>
 {{STYLE}}
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -83,16 +83,16 @@ TEMPLATE = '''<!DOCTYPE html>
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner">{{QUICKNAV}}</div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner">{{QUICKNAV}}</div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">

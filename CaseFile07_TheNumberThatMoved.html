@@ -164,11 +164,15 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
 .footer-doc{font-size:.5625rem;color:var(--ink-2);}
 .fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
 @media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+.choice-option:focus-visible,.answer-option:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;}
+.skip-link:focus{left:8px;top:8px;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -185,16 +189,16 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link current" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link current" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">
@@ -257,10 +261,10 @@ decisions:[
 {context:`<p>A manager looks at the sheet and says, "Total estimate is $31 million against a $24 million program. That is a $7 million overrun."</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Explain that the $31 million adds the separately funded $2 million to only one side. On the same construction basis the estimate is $29 million against $24 million, about $5 million of potential cost pressure to investigate with the permitted options.`},
-{id:'b',text:`Agree. A bigger number is a more conservative warning to give leadership.`},
-{id:'c',text:`Say the comparison cannot be made until the estimate is final.`},
-{id:'d',text:`Add the $2 million to the program amount as well and report no pressure.`}],
+{id:'a',text:`Explain that the $31 million adds the funded $2 million to one side only. Like for like it is $29 million against $24 million, about $5 million of pressure.`},
+{id:'b',text:`Agree. A bigger number is a more conservative warning to give leadership, and it is better to overstate the gap than be caught short later, which is the safer habit for a forecast.`},
+{id:'c',text:`Say the comparison cannot be made until the estimate is final, because any figure shared now could be treated as the official cost position.`},
+{id:'d',text:`Add the $2 million to the program amount as well and report no pressure, so both sides of the comparison use the same total.`}],
 cons:{
 a:{s:`Re-based the comparison so both sides contained the same components.`,t:`<p>The manager pauses, then asks you to put the like-for-like comparison on one page. The pressure is smaller than first stated and still real, and it now has a defined size and a list of options to analyze.</p>`,i:`<strong>What this reveals:</strong> Cost pressure is useful only when both values contain equivalent authorized components. For MILCON, keep construction and separately funded planning and design out of each other's comparison.`},
 b:{s:`Used a mismatched, inflated metric.`,t:`<p>The $7 million figure appears in a brief. When corrected, leadership asks which of your numbers to believe, including the genuine $5 million.</p>`,i:`<strong>What this reveals:</strong> A mismatched metric creates a false signal and costs credibility when it is corrected. Conservative does not mean wrong.`},
@@ -269,10 +273,10 @@ d:{s:`Adjusted both sides until the signal vanished.`,t:`<p>The planning and des
 {context:`<p>The comparison stands at about $5 million of potential pressure. Mr. Voss asks, "So what are we going to do? I need to tell the command."</p>`,
 prompt:`What do you bring him and Dana?`,
 options:[
-{id:'a',text:`The bounded signal, its maturity, and the options with their tests: revalidate the estimate, reassess scope, consider acquisition or phasing, and seek program direction on who can adjust funding or authorization. Say what the forecast shows until a decision.`},
-{id:'b',text:`Tell him you will cut scope to fit the program amount.`},
-{id:'c',text:`Tell him the project will be fine, since estimates always come down.`},
-{id:'d',text:`Tell him you will ask the contractor to absorb the difference.`}],
+{id:'a',text:`Bring the bounded signal, its maturity and the options with their tests, and seek program direction on funding. State what the forecast shows.`},
+{id:'b',text:`Tell him you will cut scope to fit the program amount, so the project stays inside its funding and no one has to ask for more.`},
+{id:'c',text:`Tell him the project will be fine, since estimates usually come down as design matures, and there is no reason to alarm anyone early.`},
+{id:'d',text:`Tell him you will ask the contractor to absorb the difference, since the contractor has room to find savings and the customer cannot pay more, which also gives him a clear action.`}],
 cons:{
 a:{s:`Brought a bounded signal, tested options and a decision owner.`,t:`<p>Dana appreciates that the options each carry a test and an owner. She asks Elena to revalidate assumptions and quantities, and schedules the program-level conversation about direction. Mr. Voss has a measured message for the command.</p>`,i:`<strong>What this reveals:</strong> Present the options, the management test for each, who can decide, and the credible forecast pending a decision.`},
 b:{s:`Decided to cut scope on your own authority.`,t:`<p>Scope is set by the controlling instrument and the requirement owner. Cutting it to fit a number changes what the end user receives, and the user finds out second-hand.</p>`,i:`<strong>What this reveals:</strong> Scope changes must still satisfy the approved requirement and scope authority. Cost pressure alone does not authorize them.`},
@@ -281,10 +285,10 @@ d:{s:`Promised an outcome that depends on a process you do not control.`,t:`<p>T
 {context:`<p>The end-of-month report: planned engineering expenditures are $650,000 and actual are $790,000, while the design-validation milestone remains open. All engineering hours are loaded on a single summary activity. Dana asks, "Are we overrunning design?"</p>`,
 prompt:`What do you tell her?`,
 options:[
-{id:'a',text:`That it is a leading indicator and not yet a verdict. Ask Ingrid whether the extra spending is productive effort, rework, added reviews, changed scope or timing. Verify actual milestone status, request the forecast for remaining work, and spread loading over meaningful activities so the cause can be seen.`},
-{id:'b',text:`Yes, we are overrunning. Ask for more money now.`},
-{id:'c',text:`No. Spending ahead of plan means work is ahead of schedule.`},
-{id:'d',text:`It is probably just accounting timing, so nothing needs to be done.`}],
+{id:'a',text:`Say it is a leading indicator, not a verdict. Ask Ingrid what drives it, verify milestone status, and request the forecast for remaining work.`},
+{id:'b',text:`Say yes, we are overrunning, and ask for more money now, so funds are in place before the shortfall shows up in the monthly report.`},
+{id:'c',text:`Say no. Spending ahead of plan means work is ahead of schedule, which is a good sign, and the dashboard figure is simply showing progress.`},
+{id:'d',text:`Say it is probably just accounting timing, so nothing needs to be done now, and the numbers will settle by themselves next period.`}],
 cons:{
 a:{s:`Treated the trend as an investigation and fixed the data that hid the cause.`,t:`<p>Ingrid explains that two extra review cycles were added by a late customer comment. That is changed scope, not inefficiency, and it needs to go through change control. Priya splits the loading into design, technical review and RFP preparation so next month shows where the money goes.</p>`,i:`<strong>What this reveals:</strong> Expenditures rising while progress stalls is a leading indicator requiring investigation. Resource loading on several meaningful activities lets the PM tie spending to completed work.`},
 b:{s:`Declared a variance and requested funds on an unverified signal.`,t:`<p>You ask for money before knowing whether it is productive, rework or a scope change. Dana sends you back to find out first.</p>`,i:`<strong>What this reveals:</strong> A leading indicator is not proof of a variance. Establish cause before requesting resources.`},
@@ -409,8 +413,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -520,9 +527,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -537,7 +544,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -576,20 +583,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -636,6 +643,17 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});
 
 </script>
 </body>

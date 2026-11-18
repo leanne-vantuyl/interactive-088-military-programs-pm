@@ -164,11 +164,15 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
 .footer-doc{font-size:.5625rem;color:var(--ink-2);}
 .fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
 @media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+.choice-option:focus-visible,.answer-option:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;}
+.skip-link:focus{left:8px;top:8px;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -185,16 +189,16 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link current" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link current" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">
@@ -243,10 +247,10 @@ decisions:[
 {context:`<p>You open Priya's schedule. Activities are green, generic review durations look short, and acquisition starts at once. You know the project also needs a security-related review and an installation operations decision that the template does not include.</p>`,
 prompt:`What do you do with the schedule?`,
 options:[
-{id:'a',text:`Ask Priya and the disciplines to validate the template's applicability, remove stale inherited assumptions, add the security review and installation decision as real work with owners, and rebuild a credible sequence before showing any commitment date.`},
-{id:'b',text:`Share the schedule with the sponsor as a first look. It is only a draft.`},
-{id:'c',text:`Keep the template as is. It is the approved standard, so adding items would be deviating.`},
-{id:'d',text:`Add a generic 'other reviews' bar to cover whatever the team might discover.`}],
+{id:'a',text:`Have Priya and the disciplines validate the template, remove stale assumptions, add the security review and installation decision, and rebuild before committing a date.`},
+{id:'b',text:`Share the schedule with the sponsor as a first look. It is only a draft, and early visibility will help build trust with the customer, and it invites useful early feedback.`},
+{id:'c',text:`Keep the template as is. It is the approved standard, and adding items now would look like deviating from the process the team agreed to.`},
+{id:'d',text:`Add a generic 'other reviews' bar to cover whatever the team might discover, so the schedule has room for surprises without new detail.`}],
 cons:{
 a:{s:`Validated the template and added the real work and its owners.`,t:`<p>Priya adds the two items with their owners and logic. The sequence lengthens, and the schedule now shows what has to happen. The tailoring is documented as a management decision, not a shortcut.</p>`,i:`<strong>What this reveals:</strong> A template is a starting point. Inspect it, validate applicability, remove stale assumptions and add required work. A template can suggest false readiness.`},
 b:{s:`Shared a template-based draft that became an expectation.`,t:`<p>Mr. Voss sees early dates and green. "It's only a draft" does not travel with the file. The dates appear in the command's planning notes.</p>`,i:`<strong>What this reveals:</strong> A schedule shown to a sponsor is read as a commitment, whatever the label. Establish a credible sequence before presenting a milestone.`},
@@ -255,10 +259,10 @@ d:{s:`Added a catch-all that hides the work.`,t:`<p>A vague bar with no owner or
 {context:`<p>With the real work in place, the logic predicts a completion date later than the sponsor's. Mr. Voss says, "The command needs it by our date. Just make the schedule show it."</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Show the gap between desired and predicted dates, the levers that could close it (scope, sequence, resources, acquisition approach), the cost and risk of each, and who must decide. Keep the sponsor's date visible as the target.`},
-{id:'b',text:`Compress activity durations until the schedule hits the date.`},
-{id:'c',text:`Tell him the date is impossible.`},
-{id:'d',text:`Agree to the date and tell the team to find the time.`}],
+{id:'a',text:`Show the gap between desired and predicted dates, the levers to close it, the cost and risk of each, and who decides. Keep the date visible.`},
+{id:'b',text:`Compress activity durations until the schedule hits the date, so the sponsor sees a plan that meets the request and the team can adjust later.`},
+{id:'c',text:`Tell him the date is impossible, because a plain answer now is kinder than letting expectations build around a date that cannot be met.`},
+{id:'d',text:`Agree to the date and tell the team to find the time, since the sponsor has made his priority clear and the team has met hard dates before.`}],
 cons:{
 a:{s:`Presented the gap, the levers, the tradeoffs and the decision owner.`,t:`<p>You bring a one-page view: the target, the predicted date, the driving path and three levers. Each lever has a cost or risk, and the decision belongs to Dana and the leaders who can fund or reprioritize. Mr. Voss picks two options to explore.</p>`,i:`<strong>What this reveals:</strong> A service-directed or operational target is a major input but not a substitute for valid logic. Identify the gap, the levers, the tradeoffs and which authority decides.`},
 b:{s:`Compressed durations on paper.`,t:`<p>The schedule now shows the date and the team does not believe it. Priya leaves the durations in the file but stops defending them in reviews.</p>`,i:`<strong>What this reveals:</strong> Shortening durations without a change in scope, resources or logic is optimism, and optimism is a repeated forecast failure.`},
@@ -267,10 +271,10 @@ d:{s:`Committed to a date the evidence does not support.`,t:`<p>The team is told
 {context:`<p>Weeks later, the sponsor-furnished item that feeds acquisition has not arrived by its forecast date. The schedule shows it as a dated milestone with the sponsor as owner. Separately, the dashboard shows Contract Award as past due with no actual date, and Mr. Voss asks why the project looks late.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Check the dashboard defect (is the milestone aggregate, stale or unrecorded?) and correct the record. Warn the sponsor about the dependency date, update the current schedule, analyze the driving impacts, preserve the approved baseline and correspondence, and do not assert entitlement.`},
-{id:'b',text:`Tell Mr. Voss the delay is his fault, since the item is his.`},
-{id:'c',text:`Quietly move the baseline date so the dashboard goes green.`},
-{id:'d',text:`Ignore the dashboard. Dashboards are noisy.`}],
+{id:'a',text:`Check the dashboard defect and correct the record. Warn the sponsor, update the schedule, preserve the baseline, and assert no entitlement.`},
+{id:'b',text:`Tell Mr. Voss the delay is his fault, since the item is his, and ask him to commit to a new date so the schedule can recover.`},
+{id:'c',text:`Quietly move the baseline date so the dashboard goes green, because the underlying delay is small and the red flag would distract leadership.`},
+{id:'d',text:`Ignore the dashboard. Dashboards are noisy, and the team has the real schedule in its own files, which is what actually matters.`}],
 cons:{
 a:{s:`Diagnosed the dashboard, warned the sponsor and preserved the baseline.`,t:`<p>The "past due" flag turns out to be an aggregate milestone with no forecast update, which Priya fixes. The sponsor dependency is real. You share the schedule view, the downstream effect and the date when it begins to bite, and Mr. Voss goes to find the item.</p>`,i:`<strong>What this reveals:</strong> Indicators prompt diagnosis. Separate data defects from genuine delivery problems. A logically represented dependency supports explanation and does not alone establish fault or entitlement.`},
 b:{s:`Assigned blame from a schedule report.`,t:`<p>Mr. Voss becomes defensive and stops sharing early information. The item arrives later than it would have.</p>`,i:`<strong>What this reveals:</strong> A dependency on the schedule is an early-warning device, not an accusation.`},
@@ -395,8 +399,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -506,9 +513,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -523,7 +530,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -562,20 +569,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -622,6 +629,17 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});
 
 </script>
 </body>

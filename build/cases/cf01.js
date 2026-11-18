@@ -49,10 +49,10 @@ decisions:[
 {context:`<p>It is the morning, two days before the meeting. You have the customer's request and a standard attendee list. That is about all you have. Dana is at her desk down the hall.</p>`,
 prompt:`What is your first move?`,
 options:[
-{id:'a',text:`Ask Dana what is known and what is not: the program owner, the assignment evidence, the intake route and who the accepting official is. Confirm that your role is to support intake.`},
-{id:'b',text:`Build a draft schedule that works backward from the customer's desired completion date, so you have something concrete to put on the table.`},
-{id:'c',text:`Call Ms. Beck at the installation, offer a site walk this week, and start collecting site information.`},
-{id:'d',text:`Tell Mr. Voss you will be the PM on Ridgeway, so the command has one point of contact.`}],
+{id:'a',text:`Ask Dana what is known and what is not: program owner, assignment evidence, intake route, accepting official. Confirm your role is to support intake.`},
+{id:'b',text:`Build a draft schedule that works backward from the customer's date, so you have something concrete to put on the table before anyone asks for one.`},
+{id:'c',text:`Call Ms. Beck at the installation, offer a site walk this week, and start collecting site information so the team has real data to work from, which builds goodwill early.`},
+{id:'d',text:`Tell Mr. Voss you will be the PM on Ridgeway, so the command has one point of contact and knows who to call from here on.`}],
 cons:{
 a:{s:`Went to the PgM first and left with a known / proposed / missing list.`,t:`<p>Dana sits you down. The request arrived through the sponsor's command staff. The program owner is still being confirmed. The assignment check, including whether geography alone settles who executes, has not been done. Mr. Osei is the designated accepting official.</p><p>You leave with a one-page list in three columns: <strong>known, proposed, missing</strong>, each with an owner. Dana asks you to take the site and operating questions into the meeting and to leave acceptance questions to her.</p>`,i:`<strong>What this reveals:</strong> The first useful question is not "when?" but "what do we actually know, and who owns each gap?" The PgM leads acceptance analysis. Your job at this stage is to support intake and keep the line between a mission need and a preferred solution visible.`},
 b:{s:`Built a schedule around an unvalidated date; it began to look like a commitment.`,t:`<p>By mid-afternoon you have a tidy schedule that finishes on the customer's date. Mr. Voss asks for a copy "for the command," and it goes out. When you mention it to Dana, she asks whether the assignment check has been done. It has not.</p><p>The schedule now sits in the sponsor's hands as the only USACE document on Ridgeway.</p>`,i:`<strong>What this reveals:</strong> A requested date is a customer need until a delivery assessment supports it. A schedule built before acceptance and planning can become a commitment by exhibit. Schedule development has its own place later in the lifecycle (Chapter 6).`},
@@ -61,10 +61,10 @@ d:{s:`Announced yourself as PM before acceptance; the DPM heard it second-hand.`
 {context:`<p>Dana has circulated the attendee list: Mr. Voss, Ms. Beck, Maj. Hollis, Ingrid Larsen from Engineering, and Dana's program staff. <strong>Rafael Soto from Construction is not on it.</strong> A colleague tells you, "Construction usually joins after award. There is nothing for them to do yet."</p>`,
 prompt:`Who should be in the room?`,
 options:[
-{id:'a',text:`Ask Dana to invite Rafael now. Explain that access, sequencing, constructability, operating constraints and turnover all bear on whether the layout and date are feasible, and agree a proportionate level of participation.`},
-{id:'b',text:`Leave the list as it is. Construction can join once there is a contract.`},
-{id:'c',text:`Invite Rafael yourself, and add three more specialists so nobody can say they were left out.`},
-{id:'d',text:`Skip the invitation. Brief Rafael informally after the meeting so he is in the loop.`}],
+{id:'a',text:`Ask Dana to invite Rafael now, because access, sequencing and turnover bear on feasibility, and agree a proportionate level of participation.`},
+{id:'b',text:`Leave the list as it is. Construction can join once there is a contract and a real site to discuss, so the early meeting stays small and focused.`},
+{id:'c',text:`Invite Rafael yourself, and add three more specialists so nobody can say they were left out of the early conversation.`},
+{id:'d',text:`Skip the invitation for now. Brief Rafael informally after the meeting so he is in the loop without adding another voice to the room.`}],
 cons:{
 a:{s:`Brought Construction in early with a proportionate ask.`,t:`<p>Dana agrees. Rafael joins and asks two plain questions: whether current maintenance operations must continue while any work is under way, and who will receive the completed facility. Neither is answered in the room, but both go onto the open list with owners.</p><p>You and Dana agree with Rafael's chief on a modest level of early participation rather than an open-ended commitment of his time.</p>`,i:`<strong>What this reveals:</strong> A meeting is useful when it resolves a requirement, names an owner, tests a dependency or produces evidence for the next action. Rafael's questions did that. Proportionate requests also respect that functional resources are shared across projects.`},
 b:{s:`Kept Construction out; practical questions went unanswered in the room.`,t:`<p>The meeting goes smoothly until Ms. Beck asks how work would be sequenced if maintenance operations have to continue. Nobody in the room can speak to it. You record it as an open question.</p><p>The answer, when it comes, may change assumptions the group has already started to treat as settled.</p>`,i:`<strong>What this reveals:</strong> Construction participates in the PDT from the outset of project delivery, not from award. Early input on access, sequencing, constructability, operating constraints, quality and turnover shapes what the team can honestly say about feasibility.`},
@@ -73,10 +73,10 @@ d:{s:`Briefed Construction afterward; their input arrived after positions had ha
 {context:`<p>In the meeting, Maj. Hollis explains that her unit needs a locally modified layout and that the facility must be ready before a unit arrives. Mr. Voss nods. Ms. Beck, who has said nothing so far, is looking at her notes. Ingrid Larsen looks at you.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Ask Maj. Hollis what happens operationally if the layout is not available and where the arrival date comes from and how firm it is. Ask Ms. Beck for the installation view. Record both items as proposed, with their sources. Ask Ingrid whether a standardization inquiry applies.`},
-{id:'b',text:`Record both the layout and the date as requirements. Maj. Hollis knows the mission, and you do not want to challenge the end user.`},
-{id:'c',text:`Tell the room that local layout changes are not permitted under Army standards.`},
-{id:'d',text:`Sketch a compromise layout on the whiteboard to keep the meeting moving.`}],
+{id:'a',text:`Ask Maj. Hollis what happens without the layout and how firm the date is. Record both as proposed, with sources, and ask Ingrid about standards.`},
+{id:'b',text:`Record both the layout and the date as requirements. Maj. Hollis knows the mission, and challenging the end user in the first meeting would cost trust.`},
+{id:'c',text:`Tell the room that local layout changes are not permitted under Army standards, so the team can stop debating alternatives and move on to the date.`},
+{id:'d',text:`Sketch a compromise layout on the whiteboard to keep the meeting moving, and note the date as the target everyone is working toward.`}],
 cons:{
 a:{s:`Separated need from preference and surfaced a quiet voice.`,t:`<p>Maj. Hollis explains that the layout supports a maintenance workflow tied to her equipment. The arrival date, she says, comes from a unit planning timeline she believes is firm but has not seen in writing. Asked gently, Ms. Beck says the installation would need to gather its site and utility information before anyone could speak to it with confidence.</p><p>Ingrid agrees to take the standardization question through the PgM. You record the layout and the date as <strong>proposed</strong>, each with its source and the evidence still needed.</p>`,i:`<strong>What this reveals:</strong> Asking for the consequence and the source separated the operational need from the preferred solution, and an invitation to the quiet person surfaced a real dependency. Ask the program representative which decisions can be made in the room and which need further approval.`},
 b:{s:`Recorded a preference and an unverified date as requirements.`,t:`<p>The minutes list the layout and the date under "Requirements." Two weeks later Ingrid's standardization inquiry shows that the layout departs from a standard design feature. A different design basis would need a waiver route that nobody has started.</p><p>Maj. Hollis points to the minutes: "We agreed to this."</p>`,i:`<strong>What this reveals:</strong> Do not record unresolved preferences as approved requirements to complete the minutes. A customer's agreement in a meeting is not a substitute for a required waiver, and an informal request does not become authorized scope by repetition.`},
@@ -85,10 +85,10 @@ d:{s:`Proposed a solution before the requirement was defined.`,t:`<p>Your sketch
 {context:`<p>The meeting is over. In the hallway, Mr. Voss says the command wants it in writing today: <em>USACE will deliver by the requested date.</em> He is not being unreasonable. He has to report upward, and he needs something to report.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Send a concise decision record: agreed facts, open questions, responsible officials, evidence needed and the next authorized action. State the date as a customer need pending a supported delivery assessment. Copy Dana.`},
-{id:'b',text:`Send a short email confirming that USACE will "do everything possible" to meet the date.`},
-{id:'c',text:`Tell Mr. Voss you cannot send anything until you are assigned as PM.`},
-{id:'d',text:`Ask Mr. Osei to approve the date now so you can give Mr. Voss a commitment.`}],
+{id:'a',text:`Send a concise decision record: facts, open questions, owners, next authorized action. Call the date a customer need pending assessment. Copy Dana.`},
+{id:'b',text:`Send a short email confirming that USACE will do everything possible to meet the date, so the command knows the team is fully committed and engaged.`},
+{id:'c',text:`Tell Mr. Voss you cannot send anything until you are formally assigned as PM, since the record should come from someone with authority to issue it.`},
+{id:'d',text:`Ask Mr. Osei to approve the date now so you can give Mr. Voss a firm commitment and avoid a second round of follow-up on this.`}],
 cons:{
 a:{s:`Sent a decision record that gave the sponsor something real to report.`,t:`<p>Your note says, in plain terms: Ridgeway supports an Army maintenance capability requirement; USACE has identified the request and the customer's desired timing; the responsible program office is confirming the requirement, assignment and applicable direction; site and standardization questions remain open; and a delivery commitment will require the acceptance and planning decisions that follow. Each open item has an owner.</p><p>Mr. Voss is a little disappointed not to have a date. He forwards your note anyway, because it tells the command what happens next and who is doing it. Dana adds the acceptance timeline.</p>`,
 th:function(d){

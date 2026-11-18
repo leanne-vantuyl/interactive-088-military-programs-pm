@@ -44,10 +44,10 @@ decisions:[
 {context:`<p>Mr. Voss calls: "I see Ridgeway has a project number now. So we're funded and we can move to award, right?"</p>`,
 prompt:`What do you say?`,
 options:[
-{id:'a',text:`Explain that the project number shows the project exists in the record. Funding is a separate record, so you will confirm with RMO what authority has been registered, for what amount and purpose, and what it allows before anyone talks about award.`},
-{id:'b',text:`Agree. A project number means the money is in place.`},
-{id:'c',text:`Tell him you cannot discuss funding because that belongs to RMO.`},
-{id:'d',text:`Tell him award is eight months away, so it is too early to discuss funding.`}],
+{id:'a',text:`Explain that a project number means the project exists, not that it is funded. Confirm with RMO what authority is registered before discussing award.`},
+{id:'b',text:`Agree. A project number means the money is in place, and checking again would only slow down a customer who is waiting for an answer, and saves a call to RMO.`},
+{id:'c',text:`Tell him you cannot discuss funding because that belongs to RMO, and suggest he take any funding question to them directly.`},
+{id:'d',text:`Tell him award is eight months away, so it is too early to discuss funding, and revisit the topic once procurement planning is underway.`}],
 cons:{
 a:{s:`Separated the project record from the funding record and committed to confirm the facts.`,t:`<p>Mr. Voss says he assumed the two were the same. You ask Marcus for the registered authority, amount, purpose and conditions, and share a plain summary with Mr. Voss the next day.</p>`,i:`<strong>What this reveals:</strong> The financial record does not substitute for program authority, and the project record does not substitute for RMO's recording of funds. A traceable chain connects requirement, accepted work, project identifier, appropriation or agreement and the financial work item.`},
 b:{s:`Let a project number stand in for funding.`,t:`<p>Mr. Voss tells the command that Ridgeway is funded and moving to award. When Marcus confirms the authority is less than the estimated cost, the briefing has to be corrected upward, in front of the same audience.</p>`,i:`<strong>What this reveals:</strong> Creating a project does not create funds. Report funding status from the funding record.`},
@@ -56,10 +56,10 @@ d:{s:`Deferred a question that already mattered for planning.`,t:`<p>Funding con
 {context:`<p>Marcus sends the details. The funding authorization is registered and loaded. It is <strong>less than the current estimated total cost</strong>, and it carries conditions on use. Tamika, building the status, asks, "Can I mark funding green? Funds are in."</p>`,
 prompt:`What do you tell Tamika?`,
 options:[
-{id:'a',text:`Report authority, registered amount and conditions as facts, show the gap to the current estimate, and mark funding not fully funded. List who must act next and what procurement it affects. Distribute to the work item only as the instruction directs.`},
-{id:'b',text:`Mark it green. The funds arrived and the gap can be explained verbally.`},
-{id:'c',text:`Mark it red and call the project unfunded.`},
-{id:'d',text:`Leave funding blank until the gap is resolved.`}],
+{id:'a',text:`Report authority, registered amount and conditions as facts, show the gap to the estimate, and mark funding not fully funded. List who must act next.`},
+{id:'b',text:`Mark it green. The funds arrived and the gap can be explained verbally, so the chart should show the good news and keep leadership confident, and leaders already know the gap.`},
+{id:'c',text:`Mark it red and call the project unfunded, since the gap to the estimate is large and leadership should see the worst case right away.`},
+{id:'d',text:`Leave funding blank until the gap is resolved, so the report does not show a number that may change before it is finalized.`}],
 cons:{
 a:{s:`Reported funding as it is: registered, conditional and short of the estimate.`,t:`<p>Tamika's status shows the authority received, its conditions, the gap and the owners of the next actions. Dana appreciates that nobody can read "funded" into it.</p>`,
 th:function(d){return d[1]==='b'?'<p>It also corrects the earlier impression you left with Mr. Voss, a little awkwardly, but cleanly.</p>':'';},
@@ -70,10 +70,10 @@ d:{s:`Hid the problem in silence.`,t:`<p>A blank field invites assumptions. Lead
 {context:`<p>At the monthly review a manager says, "Funds are in, so the baseline must be approved too, and procurement can proceed." A shared spreadsheet in the room shows "Baselined and funded" for Ridgeway. Nobody can say who last edited it.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Ask which record shows baseline approval. State the gates separately: accepted work, project created, funds registered, plan status, baseline status, procurement package. Offer to confirm each from its source and fix the spreadsheet to point at them.`},
-{id:'b',text:`Say nothing. The meeting is moving and the spreadsheet is probably close enough.`},
-{id:'c',text:`Tell the manager flatly that they are wrong in front of the group.`},
-{id:'d',text:`Approve the baseline yourself to make the status true.`}],
+{id:'a',text:`Ask which record shows baseline approval. State each gate separately, offer to confirm each from its source, and fix the spreadsheet to point at them.`},
+{id:'b',text:`Say nothing. The meeting is moving and the spreadsheet is probably close enough, so a correction now would derail the agenda.`},
+{id:'c',text:`Tell the manager flatly that they are wrong in front of the group, so the record is corrected before anyone acts on it.`},
+{id:'d',text:`Approve the baseline yourself to make the status true, since the plan is ready and waiting would only delay the procurement package.`}],
 cons:{
 a:{s:`Asked for the record and separated the gates without embarrassing anyone.`,t:`<p>You ask, "Which record shows the baseline approval?" Nobody can name it. You lay out the gates and say you will confirm each from its source. The manager agrees and Tamika offers to change the spreadsheet to link to the source records instead of holding its own status.</p>`,i:`<strong>What this reveals:</strong> Funding arrival does not validate logic ties, resource loading, contingency or risk, and does not approve a baseline. A reporting edit cannot replace the required funding or contract action.`},
 b:{s:`Let a competing record stand.`,t:`<p>The spreadsheet's "Baselined and funded" is copied into an upward brief. Weeks later the real status surfaces and the discrepancy is blamed on the PM's silence.</p>`,i:`<strong>What this reveals:</strong> Competing "official" records in spreadsheets or decks erode the traceable chain. Silence is a choice.`},

@@ -32,10 +32,10 @@ decisions:[
 {context:`<p>During the Phase Two question period, an offeror calls you directly. They suggest precast panels would avoid the outage-window constraint on the utility tie-in, and ask, "Would the Government be open to that? Can you give us a quick yes?"</p>`,
 prompt:`What do you say?`,
 options:[
-{id:'a',text:`Do not signal approval or discuss it. Route the inquiry to the KO in writing, ask Engineering to evaluate equivalence to the performance criteria, update the acquisition schedule for a possible amendment, and share only KO-cleared information.`},
-{id:'b',text:`Say it sounds reasonable and you will check with Engineering informally.`},
-{id:'c',text:`Tell the offeror you will check with the sponsor first.`},
-{id:'d',text:`Tell the other offerors about it so it is fair.`}],
+{id:'a',text:`Do not signal approval. Route the inquiry to the KO in writing, ask Engineering to evaluate equivalence, and share only KO-cleared information.`},
+{id:'b',text:`Say it sounds reasonable and you will check with Engineering informally, so the offeror gets a quick, helpful answer without formal delay, and it keeps the relationship cooperative.`},
+{id:'c',text:`Tell the offeror you will check with the sponsor first, since the customer's needs drive the requirement and should shape the answer.`},
+{id:'d',text:`Tell the other offerors about it so it is fair, and let everyone respond to the same new information at the same time.`}],
 cons:{
 a:{s:`Routed the inquiry to the KO and kept the competition clean.`,t:`<p>You tell the caller that all questions go through Ms. Zhao and that you cannot discuss it. Ingrid evaluates equivalence, finding the idea would materially affect site work. Wen decides it requires an amendment and considers the proposal due date. You update the subnet and forecast for the revised time.</p>`,i:`<strong>What this reveals:</strong> The PM does not respond directly or signal approval. The KO controls the official response and determines whether an amendment is needed.`},
 b:{s:`Hinted at approval to one offeror.`,t:`<p>The offeror reads "sounds reasonable" as a green light and builds a proposal on it. The Government now has an uneven playing field and a possible protest.</p>`,i:`<strong>What this reveals:</strong> A casual signal in a competition can undermine it. Failure to convey consistent terms puts the award at risk.`},
@@ -44,10 +44,10 @@ d:{s:`Released information on your own authority.`,t:`<p>Sharing before the KO d
 {context:`<p>The evaluation concludes and the KO identifies an awardable configuration at $41.2 million (base plus Additive A). Mr. Voss, delighted, says, "So the project costs $41.2 million. We came in under the $48 million program amount." Elena has built a whole-project view.</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Explain that $41.2 million is the contract price. The award estimate adds risk-based change exposure and Government-managed costs (about $48.6 million in this illustration), which is about $0.6 million over the program amount. Review the excess, check that nothing indispensable was deferred, and work with RM and program officials.`},
-{id:'b',text:`Agree and report that the project costs $41.2 million.`},
-{id:'c',text:`Report that the $48.6 million estimate is automatically allowable.`},
-{id:'d',text:`Drop the change-exposure line so the total matches the program amount.`}],
+{id:'a',text:`Explain that $41.2 million is the contract price. The award estimate adds change exposure and Government costs, about $48.6 million, roughly $0.6 million over.`},
+{id:'b',text:`Agree and report that the project costs $41.2 million, since that is the number in the contract and the figure the customer will recognize.`},
+{id:'c',text:`Report that the $48.6 million estimate is automatically allowable, since the added lines are standard and the total reflects the real cost, and there is no need to reopen the estimate.`},
+{id:'d',text:`Drop the change-exposure line so the total matches the program amount, which keeps the award on schedule and the report clean.`}],
 cons:{
 a:{s:`Reconciled the whole project and treated the excess as something to review.`,t:`<p>Elena shows the build-up: contract, change exposure, support, engineering and remaining Government costs. You explain both differences, to the program amount and to the prior estimate, and note that rates and methods still need verification. Mr. Voss is quieter, and better informed.</p>`,i:`<strong>What this reveals:</strong> Do not report the winning price as the project cost. Explain the variance rather than mask it, and do not assert that an estimate above the program amount is automatically allowable.`},
 b:{s:`Reported the contract price as the project cost.`,t:`<p>The command hears "under budget." Months later, support and change exposure surface and the apparent saving is reversed in public.</p>`,i:`<strong>What this reveals:</strong> The contract price is one component. A project-wide award estimate includes the Government-managed costs and risk allowance.`},
@@ -56,10 +56,10 @@ d:{s:`Dropped a cost to make the totals match.`,t:`<p>The exposure still exists 
 {context:`<p>Marcus tells you that only $39.0 million is presently available to obligate for the $41.2 million initial contract, a gap of $2.2 million. Mr. Voss says, "The program amount is $48 million. There is plenty. Just have Wen sign it today."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Recommend a hold pending the lawful funding action. Present the exact deficiency, the cure options (funding and approvals, a permitted change to the award configuration under the RFP, or a documented delay), owners, decision dates, and the effect on CC800 and occupancy. Do not direct the KO to sign.`},
-{id:'b',text:`Ask Wen to sign today and sort out the funds afterward.`},
-{id:'c',text:`Tell Mr. Voss the program amount means the money is available.`},
-{id:'d',text:`Cancel the award.`}],
+{id:'a',text:`Recommend a hold pending the lawful funding action. Present the deficiency, cure options, owners and dates. Do not direct the KO to sign.`},
+{id:'b',text:`Ask Wen to sign today and sort out the funds afterward, because the offer is about to expire and the funding action is expected soon.`},
+{id:'c',text:`Tell Mr. Voss the program amount means the money is available, so the award can proceed and the funding paperwork can catch up.`},
+{id:'d',text:`Cancel the award, since proceeding without full funding creates risk, and a clean restart is better than a fragile award.`}],
 cons:{
 a:{s:`Recommended a hold with the deficiency, the cures and the consequences.`,t:`<p>Your readiness brief shows award price, total estimate, variance to the program amount, authorization analysis, the funds shortfall, and the owner and timing of each pending approval. Dana takes the funding action to the program level. Wen waits for adequate fiscal assurance before she signs.</p>`,
 th:function(d){return d[1]==='a'?'<p>Because you reconciled the whole project earlier, the brief can speak to the full cost picture without another round of corrections.</p>':'';},

@@ -33,10 +33,10 @@ decisions:[
 {context:`<p>A required system test has failed again. You do not yet have the correction and retest sequence confirmed. Maj. Hollis calls and asks, "Is my unit still moving in on the date we agreed?"</p>`,
 prompt:`What do you say?`,
 options:[
-{id:'a',text:`State the condition and its effect, what is confirmed and not, what the team is doing, and what you will provide next and when. For example: the required test failed, the correction and retest sequence is being confirmed, the current analysis threatens the delivery commitment, and you will provide an updated forecast and alternatives at the agreed checkpoint.`},
-{id:'b',text:`Say it is probably fine and you will let her know if it changes.`},
-{id:'c',text:`Give her a new date to reassure her.`},
-{id:'d',text:`Say it is out of your hands and she should talk to the contractor.`}],
+{id:'a',text:`State the condition and its effect, what is confirmed and not, what the team is doing, and when you will update her, including the forecast.`},
+{id:'b',text:`Say it is probably fine and you will let her know if it changes, so she is not worried by details that may turn out not to matter.`},
+{id:'c',text:`Give her a new date to reassure her, since a concrete date lets her plan and shows the team is in control of the situation.`},
+{id:'d',text:`Say it is out of your hands and she should talk to the contractor, since the contractor controls the work and can explain the cause.`}],
 cons:{
 a:{s:`Told the truth plainly, without inventing a date or promising recovery.`,t:`<p>Maj. Hollis is disappointed and says so. She also says that she can plan around "I will confirm at the checkpoint" better than around a date that moves. She asks what she can do in the meantime, and you suggest she identify the minimum area her unit needs first.</p>`,i:`<strong>What this reveals:</strong> This language identifies the issue without inventing a new date or promising recovery. The customer should leave knowing what will happen next and when another supported update will be available.`},
 b:{s:`Reassured without evidence.`,t:`<p>She relies on you. When the date does not hold, she learns of it too late to adjust, and your credibility is the price.</p>`,i:`<strong>What this reveals:</strong> Do not suppress a known threat until it becomes a confirmed delay.`},
@@ -45,10 +45,10 @@ d:{s:`Deflected a question you were responsible for answering.`,t:`<p>She goes t
 {context:`<p>Mr. Voss, with money tight, suggests an added storage capability. "Can you tell Maj. Hollis we can do it? We'll find the funds." Maj. Hollis is listening.</p>`,
 prompt:`How do you frame it?`,
 options:[
-{id:'a',text:`Say you can evaluate the added capability and give its delivery consequences, but it is not authorized for performance through this discussion. Name that the responsible program, financial and contracting officials must determine the permissible path, and that continuing the current authorized scope remains an option. Document the request and the agreed analysis.`},
-{id:'b',text:`Tell Maj. Hollis it is as good as approved.`},
-{id:'c',text:`Tell Mr. Voss no, because there is no money.`},
-{id:'d',text:`Ask Mr. Soto to have the contractor start quietly.`}],
+{id:'a',text:`Say you can evaluate the capability and its delivery effects, but it is not authorized through this discussion. Name who decides the path and document the request.`},
+{id:'b',text:`Tell Maj. Hollis it is as good as approved, since the need is clear, the sponsor supports it, and the formal steps are likely to follow.`},
+{id:'c',text:`Tell Mr. Voss no, because there is no money, which gives a plain answer and prevents the customer from building hopes around the idea.`},
+{id:'d',text:`Ask Mr. Soto to have the contractor start quietly, since the work is small and the paperwork can be completed as the job proceeds.`}],
 cons:{
 a:{s:`Framed evaluation as evaluation and named who decides.`,t:`<p>Mr. Voss is a little impatient with "evaluate," but Maj. Hollis appreciates knowing it is a real path with real owners. You document the request and the agreed analysis, and coordinate with Wen and Rafael so nothing you said is heard as direction to the contractor.</p>`,i:`<strong>What this reveals:</strong> Evaluation of a requested feature is not approval to perform it. Confirm important conversations in the project record and coordinate with Contracting when a message could be understood as a change.`},
 b:{s:`Implied approval.`,t:`<p>"As good as approved" is a promise. Funds are not available and the authority is elsewhere. The correction comes later and costs more.</p>`,i:`<strong>What this reveals:</strong> Do not make the customer's preference look like an approved direction.`},
@@ -57,10 +57,10 @@ d:{s:`Directed unfunded, unauthorized work through a back channel.`,t:`<p>This i
 {context:`<p>Jordan Pike, a friend and former colleague now at a design-build firm, calls. "I hear the district may solicit a similar facility next year. Any chance you can tell me how the Government is thinking about the evaluation approach? Just between us."</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Decline to share anything nonpublic. Tell Jordan that questions go through Contracting's authorized communications. Because the relationship could affect your participation in a future procurement, describe the circumstances to the agency ethics official and Contracting and follow their determination, including any recusal.`},
-{id:'b',text:`Share the general approach. It is not secret and Jordan is a friend.`},
-{id:'c',text:`Say nothing to anyone and keep the call to yourself.`},
-{id:'d',text:`Decide that because your intentions are good there is no conflict and carry on.`}],
+{id:'a',text:`Decline to share anything nonpublic and direct Jordan to Contracting. Describe the circumstances to the ethics official and follow their determination, including recusal.`},
+{id:'b',text:`Share the general approach. It is not secret and Jordan is a friend, so a brief, informal conversation should not cause harm to anyone.`},
+{id:'c',text:`Say nothing to anyone and keep the call to yourself, since nothing was disclosed and reporting it could create a problem where none exists, and it avoids drawing attention to the call.`},
+{id:'d',text:`Decide that because your intentions are good there is no conflict and carry on, since the relationship has never affected your work.`}],
 cons:{
 a:{s:`Declined, pointed to the authorized channel and sought ethics advice.`,t:`<p>Jordan understands and is not offended. The ethics official thanks you for raising it early and advises on your participation, and Wen notes the contact in the file. Nothing in your conduct is open to question.</p>`,i:`<strong>What this reveals:</strong> Questions about relationships or protected information go promptly to the ethics official. Do not decide personally that good intentions eliminate a potential conflict. Use Contracting's authorized communication arrangements.`},
 b:{s:`Shared a nonpublic view with a friend at a firm that may compete.`,t:`<p>Even a casual remark can give one firm an advantage. The Government's integrity in the competition is at stake, and so is your career.</p>`,i:`<strong>What this reveals:</strong> Do not share the Government's thinking privately with a favored firm. Protect the procurement and the record.`},
@@ -69,10 +69,10 @@ d:{s:`Self-certified your own conflict away.`,t:`<p>Your intentions are not the 
 {context:`<p>At the close of the project the team gathers for lessons learned. Someone proposes, "Our lesson: coordinate utilities earlier." Engineering and Construction are quiet.</p>`,
 prompt:`How do you shape the lesson?`,
 options:[
-{id:'a',text:`Ask which utility assumption escaped confirmation, which technical or field input was needed before relying on the procurement schedule, and which planning product should expose that dependency. Distinguish a missed control from an unavoidable unknown. Record condition, evidence, consequence, improvement, owner and where it will be used.`},
-{id:'b',text:`Accept the lesson as written. It is short and everyone agrees.`},
-{id:'c',text:`Assign blame to the team that missed the utility.`},
-{id:'d',text:`File the lessons and move on to the next project.`}],
+{id:'a',text:`Ask which utility assumption escaped confirmation, which input was needed before relying on the schedule, and which product should expose it. Record owner and use.`},
+{id:'b',text:`Accept the lesson as written. It is short and everyone agrees, and reopening it would take time the team could use on current work, and it keeps the lessons log concise.`},
+{id:'c',text:`Assign blame to the team that missed the utility, so accountability is clear and the same mistake is less likely to happen again.`},
+{id:'d',text:`File the lessons and move on to the next project, since the work is complete and the record is available if anyone needs it later.`}],
 cons:{
 a:{s:`Turned a slogan into a specific, owned improvement.`,t:`<p>The team finds that one utility assumption was never confirmed with the field before the schedule relied on it, and that the planning product had no place to show it. They propose a specific addition to the planning checklist, with an owner and the place it will be used. They also acknowledge that some conditions could not have been known.</p>`,
 th:function(d){return d[2]==='a'?'<p>Your own ethics habit shows here too: you are as open about what you did not confirm as about what others missed.</p>':'';},

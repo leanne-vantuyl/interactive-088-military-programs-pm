@@ -164,11 +164,15 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
 .footer-doc{font-size:.5625rem;color:var(--ink-2);}
 .fine{font-size:.6875rem;color:var(--ink-2);line-height:1.6;margin-top:14px;}
 @media print{header,.case-quicknav,.progress-bar-wrap,.section-nav,.btn-row,footer,.choice-option{display:none!important;}}
+.choice-option:focus-visible,.answer-option:focus-visible,button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:#000;padding:8px 14px;z-index:999;}
+.skip-link:focus{left:8px;top:8px;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 </style>
 </head>
 <body>
-
-<header>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header role="banner">
   <div class="header-inner">
     <div class="logo-block">
       <div class="logo-seal">088</div>
@@ -185,16 +189,16 @@ footer{border-top:2px solid var(--gold);padding:14px 0;margin-top:20px;}
   </div>
 </header>
 
-<nav class="case-quicknav"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link current" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
+<nav class="case-quicknav" aria-label="Case files"><div class="cqn-inner"><a href="index.html" class="cqn-link">Home</a><span class="cqn-sep">&middot;</span><a href="CaseFile01_ARequestNotAProject.html" class="cqn-link" title="A Request, Not a Project">CF01</a><a href="CaseFile02_WhoseCallIsIt.html" class="cqn-link" title="Whose Call Is It?">CF02</a><a href="CaseFile03_BeforeYouSayYes.html" class="cqn-link" title="Before You Say Yes">CF03</a><a href="CaseFile04_TwoRecordsOneProject.html" class="cqn-link" title="Two Records, One Project">CF04</a><a href="CaseFile05_ThePlanIsAnAgreement.html" class="cqn-link" title="The Plan Is an Agreement">CF05</a><a href="CaseFile06_TheDateEveryoneBelieves.html" class="cqn-link" title="The Date Everyone Believes">CF06</a><a href="CaseFile07_TheNumberThatMoved.html" class="cqn-link" title="The Number That Moved">CF07</a><a href="CaseFile08_ChoosingThePathToAward.html" class="cqn-link" title="Choosing the Path to Award">CF08</a><a href="CaseFile09_CommentsNobodyResolved.html" class="cqn-link" title="Comments Nobody Resolved">CF09</a><a href="CaseFile10_AwardDay.html" class="cqn-link" title="Award Day">CF10</a><a href="CaseFile11_WhatTheFieldFound.html" class="cqn-link" title="What the Field Found">CF11</a><a href="CaseFile12_ChangeHasAGate.html" class="cqn-link" title="Change Has a Gate">CF12</a><a href="CaseFile13_WhatTheMonthlyReviewDoesNotShow.html" class="cqn-link current" title="What the Monthly Review Does Not Show">CF13</a><a href="CaseFile14_OneCustomerManyRequirements.html" class="cqn-link" title="One Customer, Many Requirements">CF14</a><a href="CaseFile15_TurnoverIsNotTheEnd.html" class="cqn-link" title="Turnover Is Not the End">CF15</a><a href="CaseFile16_PuttingItTogether.html" class="cqn-link" title="Putting It Together">CF16</a></div></nav>
 
 <div class="progress-bar-wrap" id="progress-bar-wrap" style="display:none;">
   <div class="progress-inner">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-track" role="progressbar" aria-label="Case file progress" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     <div class="progress-labels"><span class="progress-text" id="progress-label">Training</span><span class="progress-pct" id="progress-pct">0%</span></div>
   </div>
 </div>
 
-<div class="main" id="main-content"></div>
+<main class="main" id="main-content" tabindex="-1"></main>
 
 <footer>
   <div class="footer-inner">
@@ -243,10 +247,10 @@ decisions:[
 {context:`<p>The dashboard shows Ridgeway's construction award milestone with a different completion value than Construction's own report, and a count of activities appears to include a duplicate. The dashboard refreshed this morning, but the schedule update behind it is older than the field progress report.</p>`,
 prompt:`How do you build the package?`,
 options:[
-{id:'a',text:`Set a stated data cutoff and note the dashboard refresh time separately. Check that the records describe the same work. Walk each discrepancy to its source owner for correction, ask the analyst about the duplicate, and for anything unresolved show the competing values, dates, owners and expected resolution.`},
-{id:'b',text:`Use the dashboard as is. It is the official view.`},
-{id:'c',text:`Edit the slide to show the value you believe is right and remove the duplicate.`},
-{id:'d',text:`Cancel the status section until the systems agree.`}],
+{id:'a',text:`Set a stated data cutoff, check records describe the same work, trace each discrepancy to its owner, and show unresolved competing values.`},
+{id:'b',text:`Use the dashboard as is. It is the official view, and reconciling it by hand would create a second version of the truth for leaders to question.`},
+{id:'c',text:`Edit the slide to show the value you believe is right and remove the duplicate, so leadership sees one clean number and not a confusing mix of data.`},
+{id:'d',text:`Cancel the status section until the systems agree, because any number shown now might be wrong, and a missing section is better than a misleading one.`}],
 cons:{
 a:{s:`Set a cutoff, walked discrepancies to their owners and disclosed what stayed unresolved.`,t:`<p>The analyst explains that the dashboard pulled one contract's date for the whole project and the duplicate is a transfer artifact. Construction corrects its record. One value remains unresolved, so the slide shows both values, their dates and the owner. Dana notes that she can trust what you say about confidence.</p>`,i:`<strong>What this reveals:</strong> A report refreshed today may carry an older source update. Correct the originating record through its owner, and brief a bounded uncertainty instead of unsupported precision.`},
 b:{s:`Presented a view you knew was inconsistent.`,t:`<p>The review debates which number is correct instead of the decision. Your credibility takes the hit.</p>`,i:`<strong>What this reveals:</strong> A dashboard's authority does not cure a mismatched grain or an older source.`},
@@ -255,10 +259,10 @@ d:{s:`Withheld status.`,t:`<p>The review has nothing to react to. Unsupported pr
 {context:`<p>You are drafting the decision slide. The PDT has a chronology of the utility issue, a testing window that closes on a date in the schedule analysis, and a need for a qualified regional resource. Priya says, "Let's walk through the whole timeline first so they have context."</p>`,
 prompt:`How do you open the request?`,
 options:[
-{id:'a',text:`Lead with the decision: request regional testing support before the window closes, with a qualified resource committed by the latest useful date from the schedule analysis. Name who can act and what each of Engineering, RM and Contracting must confirm. Show options including no action, the consequence, and the uncertainty.`},
-{id:'b',text:`Walk through the timeline first and arrive at the request at the end.`},
-{id:'c',text:`Ask leadership to "approve the Ridgeway change."`},
-{id:'d',text:`Tell leadership regional support will recover the full 25 days.`}],
+{id:'a',text:`Lead with the decision: request regional testing support before the window closes, name who can act, and show options including no action.`},
+{id:'b',text:`Walk through the timeline first and arrive at the request at the end, so leadership understands the full context before being asked to decide.`},
+{id:'c',text:`Ask leadership to approve the Ridgeway change, since a short, simple ask is easy to act on and respects their limited time in the meeting.`},
+{id:'d',text:`Tell leadership regional support will recover the full 25 days, since a clear and confident benefit makes the request easier to approve.`}],
 cons:{
 a:{s:`Led with a specific decision, an owner and a latest useful date.`,t:`<p>Mr. Osei can answer in a sentence. The request separates the resource commitment, the funding path and the contract determination, each with its owner. The forecast is stated as at risk until prerequisites are confirmed. You also give a CCIR #8 early warning through the prescribed route, so the command is not surprised.</p>`,i:`<strong>What this reveals:</strong> Lead with the decision, the recommended action and the latest useful decision date. Do not compress several authorities into one request. The briefing date is administrative. The decision date is a delivery constraint.`},
 b:{s:`Buried the request at the end of a chronology.`,t:`<p>The review spends its time on the story and runs out before it gets to the ask. Mr. Osei leaves unsure what you need.</p>`,i:`<strong>What this reveals:</strong> A chronology may explain cause, but it should not force the leader to discover the request at the end.`},
@@ -267,10 +271,10 @@ d:{s:`Promised a recovery the team cannot show.`,t:`<p>The testing prerequisites
 {context:`<p>Leadership supports the request. Two weeks later an email arrives: "A tester has been assigned." Your action tracker has a box labeled "Obtain testing support." Engineering mentions quietly that the test equipment is booked elsewhere for the same window.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Do not close the delivery issue. Verify that qualified personnel are committed for the needed period, prerequisites and equipment are ready, and the forecast reflects the resulting sequence. Report the remaining equipment constraint and keep the action open at that level.`},
-{id:'b',text:`Close the action. The tester was assigned.`},
-{id:'c',text:`Tell the customer the delay is recovered.`},
-{id:'d',text:`Send another reminder email and wait.`}],
+{id:'a',text:`Do not close the issue. Verify qualified personnel, prerequisites and equipment, check the forecast, and keep the action open at the remaining constraint.`},
+{id:'b',text:`Close the action. The tester was assigned, which was what the action asked for, and tracking it further would add paperwork without new value.`},
+{id:'c',text:`Tell the customer the delay is recovered, since the testing resource is now in place and the customer has been waiting for good news on this.`},
+{id:'d',text:`Send another reminder email and wait, since the people who must act already know what is needed and have it in writing.`}],
 cons:{
 a:{s:`Verified implementation and reported the remaining constraint.`,t:`<p>You record that the staffing action succeeded and the delivery risk remains. Engineering and Construction work on the equipment, and the forecast shows the real picture for the next cycle. Mr. Osei learns of the constraint from you, not from a late test.</p>`,
 th:function(d){return d[1]==='a'?'<p>Because you separated the resource, funding and contract decisions in the original request, the follow-up can name exactly which one is still incomplete.</p>':'';},
@@ -397,8 +401,11 @@ var LETTERS=['A','B','C','D'];
   var seed=parseInt(CASE.n,10)*1000+7;
   CASE.decisions.forEach(function(d,di){
     var rnd=mulberry(seed+di*31);
-    var a=d.options.slice();
-    for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+    var rest=d.options.filter(function(o){return o.id!=='a';});
+    for(var i=rest.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=rest[i];rest[i]=rest[j];rest[j]=t;}
+    var best=d.options.filter(function(o){return o.id==='a';})[0];
+    var g=(parseInt(CASE.n,10)-1)*3+di;var pos=(g*3+(g>>2))%d.options.length;
+    var a=rest.slice();a.splice(pos,0,best);
     a.forEach(function(o,k){o.letter=LETTERS[k];});
     d.options=a;
   });
@@ -508,9 +515,9 @@ function renderCaseStudy(){
     var d=step.d;
     html+='<div class="scenario-label" style="margin-bottom:6px;">'+step.label+'</div>'
     +'<div class="scenario-box"><div class="scenario-text">'+d.context+'</div></div>'
-    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options">';
-    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
-    html+='</div><div id="case-consequence"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
+    +'<div class="decision-prompt">'+d.prompt+'</div><div id="case-options" role="radiogroup" aria-label="Decision options">';
+    d.options.forEach(function(o){html+='<div class="choice-option" id="opt-'+o.id+'" role="radio" aria-checked="false" tabindex="0" onclick="chooseOption(\''+o.id+'\')"><span class="choice-letter">'+o.letter+'.</span>'+o.text+'</div>';});
+    html+='</div><div id="case-consequence" aria-live="polite"></div><div id="case-nav" class="nav-row" style="display:none;"><span></span><button class="btn-primary" onclick="caseNext()" id="case-next-btn">Continue &rarr;</button></div>';
   }else{
     html+=renderDebrief();
   }
@@ -525,7 +532,7 @@ function chooseOption(id){
   var idx=CS.caseStep||0,step=stepAt(idx),d=step.d;
   if(document.getElementById('case-nav').style.display==='flex')return;
   CS.decisions[idx]=id;saveState();
-  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';if(o.id===id){el.classList.add('chosen');}});
+  d.options.forEach(function(o){var el=document.getElementById('opt-'+o.id);el.style.pointerEvents='none';el.style.opacity='.55';el.setAttribute('aria-disabled','true');if(o.id===id){el.classList.add('chosen');el.setAttribute('aria-checked','true');}});
   var c=d.cons[id];
   var extra=c.th?c.th(CS.decisions):'';
   document.getElementById('case-consequence').innerHTML='<div class="consequence-box"><div class="consequence-label">What Happens</div><div class="consequence-text">'+c.t+extra+'</div>'
@@ -564,20 +571,20 @@ function renderKC(){
   var q='';
   KC_QUESTIONS.forEach(function(Q,qi){
     q+='<div class="question-block" id="kc-q-'+qi+'"><div class="question-num" style="display:inline-block;">QUESTION '+(qi+1)+' OF '+KC_QUESTIONS.length+'</div><span class="question-tag">'+Q.tag+'</span><div class="question-text" style="margin-top:8px;">'+Q.text+'</div>';
-    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
+    kcOrder[qi].forEach(function(orig,pos){q+='<div class="answer-option" id="kc-opt-'+qi+'-'+pos+'" role="radio" aria-checked="false" tabindex="0" onclick="selectKCAnswer('+qi+','+pos+')"><div class="answer-radio"></div><div>'+Q.options[orig]+'</div></div>';});
     q+='<div class="kc-explain" id="kc-explain-'+qi+'"><strong>Why:</strong> '+Q.explain+'</div></div>';
   });
   return '<div class="screen">'+renderNav()
   +'<p class="eyebrow">Knowledge Check &middot; 6 Questions &middot; Formative</p>'
   +'<h2 class="title-main title-sub">Doctrine and Judgment</h2>'
   +'<p class="lede">Some questions have a single correct doctrinal answer. Others ask what the PM should do. Read the explanation after answering either way. Four of six moves you on.</p>'
-  +q+'<div class="kc-feedback" id="kc-feedback"></div>'
+  +q+'<div class="kc-feedback" id="kc-feedback" role="status" aria-live="polite"></div>'
   +'<div class="btn-row" id="kc-btn-row"><button class="btn-primary" id="kc-submit-btn" onclick="submitKC()" disabled>Submit Answers</button></div></div>';
 }
 function selectKCAnswer(qi,pos){
   var n=KC_QUESTIONS[qi].options.length;
   for(var i=0;i<n;i++){document.getElementById('kc-opt-'+qi+'-'+i).classList.remove('selected');}
-  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');
+  kcAnswers[qi]=pos;document.getElementById('kc-opt-'+qi+'-'+pos).classList.add('selected');for(var z=0;z<n;z++){document.getElementById('kc-opt-'+qi+'-'+z).setAttribute('aria-checked',z===pos?'true':'false');}
   if(Object.keys(kcAnswers).length===KC_QUESTIONS.length)document.getElementById('kc-submit-btn').disabled=false;
 }
 function submitKC(){
@@ -624,6 +631,17 @@ function cancelRestart(){document.getElementById('restart-confirm').style.displa
 function restartCase(){try{localStorage.removeItem(STORAGE_KEY);}catch(e){}CS={name:'',themes:[],section:'welcome',sectionsComplete:{training:false,discussion:false,casestudy:false,kc:false},kcScore:0,decisions:{},caseStep:0};render();}
 
 (function init(){render();})();
+
+document.addEventListener('keydown',function(e){
+  var t=e.target;
+  if(!t||!t.getAttribute||t.getAttribute('role')!=='radio')return;
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();t.click();return;}
+  if(e.key==='ArrowDown'||e.key==='ArrowRight'||e.key==='ArrowUp'||e.key==='ArrowLeft'){
+    e.preventDefault();var grp=[].slice.call(t.parentNode.querySelectorAll('[role=radio]'));
+    var i=grp.indexOf(t),step=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:-1;
+    var nx=grp[(i+step+grp.length)%grp.length];if(nx)nx.focus();
+  }
+});
 
 </script>
 </body>

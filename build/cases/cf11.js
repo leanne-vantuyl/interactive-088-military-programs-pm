@@ -36,10 +36,10 @@ decisions:[
 {context:`<p>The contractor is ready to start, but installation access to one work area is not ready. Mr. Ibarra says, "We are losing days. Can you just tell us how many days you will give us?"</p>`,
 prompt:`How do you respond?`,
 options:[
-{id:'a',text:`Record the Government action and its resolution date. Bring the KO, Construction, Real Estate and the installation together to resolve access and identify work that can proceed. Let the KO decide the authorized start arrangements. Update the forecast and tell the customer the mission effect.`},
-{id:'b',text:`Tell Mr. Ibarra you will give him the days he needs.`},
-{id:'c',text:`Tell him to start in the unavailable area and sort it out later.`},
-{id:'d',text:`Tell him to take it up with the KO and leave it there.`}],
+{id:'a',text:`Record the Government action and date. Bring the KO, Construction, Real Estate and installation together on access, and update the forecast.`},
+{id:'b',text:`Tell Mr. Ibarra you will give him the days he needs, so the contractor knows the Government will make the delay right.`},
+{id:'c',text:`Tell him to start in the unavailable area and sort it out later, since the work is ready and idle crews cost the project money.`},
+{id:'d',text:`Tell him to take it up with the KO and leave it there, since contract matters belong to the KO and the PM should not interfere.`}],
 cons:{
 a:{s:`Convened the right people on access and left the contract decision to the KO.`,t:`<p>Ms. Beck commits to a resolution date for the work area. Wen decides that other work can start and addresses the remaining effect. You update the forecast and tell Maj. Hollis what it means for the mission.</p>`,i:`<strong>What this reveals:</strong> The PM cannot privately promise extra time or direct compensable work. Bring the KO, Real Estate and customer together, identify what may proceed, and update the forecast.`},
 b:{s:`Promised time you have no authority to grant.`,t:`<p>Mr. Ibarra records your words as a commitment. Wen has to address a claim of entitlement you may have created.</p>`,i:`<strong>What this reveals:</strong> Only the KO acts for the Government on contract time and compensation. The PM supports with facts.`},
@@ -48,10 +48,10 @@ d:{s:`Handed off the issue without facilitating it.`,t:`<p>Wen gets the call wit
 {context:`<p>The contractor discovers an undocumented utility crossing a foundation and submits an RFI. Early field estimates suggest roughly $700,000 and 25 calendar days of possible impact (preliminary case assumptions). Maj. Hollis hears about it and says, "While you're digging there, let's add a small equipment alcove we forgot."</p>`,
 prompt:`How do you handle the RFI and the request?`,
 options:[
-{id:'a',text:`Triage the RFI. Does it clarify or change the work? Involve the KO, have Construction preserve the condition and notice record, and Engineering evaluate remedies. Treat the alcove as a separate discretionary request with its own cost, time and approval path. Report the estimate as a possible impact.`},
-{id:'b',text:`Answer the RFI quickly so the contractor can proceed, and fold the alcove into the same change.`},
-{id:'c',text:`Tell Mr. Ibarra to proceed, since the utility must be dealt with.`},
-{id:'d',text:`Label it a differing site condition and tell him the Government will pay.`}],
+{id:'a',text:`Triage the RFI: clarification or change? Involve the KO, preserve the notice record, and treat the alcove as a separate request with its own approval path.`},
+{id:'b',text:`Answer the RFI quickly so the contractor can proceed, and fold the alcove into the same change, which keeps the work moving.`},
+{id:'c',text:`Tell Mr. Ibarra to proceed, since the utility must be dealt with, and the paperwork can follow once the physical work is done.`},
+{id:'d',text:`Label it a differing site condition and tell him the Government will pay, so he can proceed without worrying about cost recovery.`}],
 cons:{
 a:{s:`Triaged the RFI with the KO and kept the remedy and the enhancement separate.`,t:`<p>Rafael preserves the field record and Ingrid examines drawings, surveys and site information. Wen determines the contract path. The alcove is documented separately as discretionary, with cost, time and ripple effects, and goes to the program and the customer for a decision. The $700,000 and 25 days stay in the forecast as possible impacts.</p>`,
 i:`<strong>What this reveals:</strong> Ask whether an answer clarifies or changes. Keep the required remedy and the desired feature separate so combined paperwork does not hide scope or funding differences.`},
@@ -61,10 +61,10 @@ d:{s:`Assigned a cause and a payer before the facts.`,t:`<p>The facts may show a
 {context:`<p>After NTP, a mechanical design package keeps being returned and long-lead equipment cannot be ordered. Mr. Ibarra's monthly report still shows the original occupancy date.</p>`,
 prompt:`What do you do?`,
 options:[
-{id:'a',text:`Ask Engineering and Construction what decision is missing, when procurement must start, and what recovery plan supports the date. Trace the affected work with the scheduler and get an owner and decision date. Brief a realistic forecast.`},
-{id:'b',text:`Accept the report. The baseline date is unchanged.`},
-{id:'c',text:`Tell Mr. Ibarra to compress the schedule.`},
-{id:'d',text:`Tell the sponsor the date is lost.`}],
+{id:'a',text:`Ask Engineering and Construction what decision is missing and what recovery supports the date. Trace affected work with the scheduler and brief a realistic forecast.`},
+{id:'b',text:`Accept the report. The baseline date is unchanged, and the contractor has said the schedule is still achievable with minor adjustments, which avoids reopening the plan.`},
+{id:'c',text:`Tell Mr. Ibarra to compress the schedule, since the date is committed and the contractor has the means to recover lost time.`},
+{id:'d',text:`Tell the sponsor the date is lost, so they can plan for the delay now rather than be surprised later.`}],
 cons:{
 a:{s:`Tested the reported date against the missing decision and built a realistic forecast.`,t:`<p>Ingrid identifies a technical decision needed from the contractor's designer. Rafael confirms the equipment's lead time. Priya traces the affected activities, and Mr. Ibarra agrees to a recovery plan with dates. You brief Maj. Hollis on a forecast that carries risk.</p>`,
 th:function(d){return d[1]==='a'?'<p>The utility remedy and the enhancement request are tracked separately, so the mechanical issue does not get blamed on the field surprise.</p>':'';},
